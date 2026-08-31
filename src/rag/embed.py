@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 from collections.abc import Sequence
 from typing import Protocol
 
@@ -21,6 +23,9 @@ class SentenceTransformerEmbedder:
         if not texts:
             return []
         if self._model is None:
+            os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
+            os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
+            os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
             from sentence_transformers import SentenceTransformer
 
             self._model = SentenceTransformer(self.model_name)

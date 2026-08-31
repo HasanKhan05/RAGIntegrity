@@ -2,44 +2,71 @@
 
 **Muhammad Hasan Dad Khan**
 
-A small portfolio project for demonstrating how retrieval-augmented generation can be influenced by synthetic documents added to a car-brochure knowledge base, and how simple defenses can reduce the effect.
-
-## Final demo concept
+A local portfolio/research demo showing how retrieval-augmented generation can be influenced by synthetic documents and how simple defenses can reduce that effect.
 
 ```text
 Clean RAG → Poisoned RAG → Defended RAG
 ```
 
-The clean knowledge base uses readable official car brochure PDFs. The live demo accepts free-form questions.
+Phase 1 provides the clean baseline only: official Toyota brochure ingestion, fixed-size page-aware chunking, local `all-MiniLM-L6-v2` embeddings, persistent ChromaDB retrieval, grounded Gemini answers, and a minimal FastAPI API. Poisoning and defenses are intentionally not implemented yet.
 
-The project keeps retrieval compromise separate from generation compromise and reports real experiment metrics rather than hardcoded percentages.
+## Phase 1 quick start
 
-## Final Figma
+From the repository root in PowerShell:
 
-https://www.figma.com/design/m8D51hB7Q9KA8llSRHRBhb/RAG-Poisoning-Testbed-%E2%80%94-Muhammad-Hasan-Dad-Khan?node-id=1-169
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+```
 
-## Core rule
+Place readable official brochure PDFs in `data/clean/`. Copy `.env.example` to `.env` and configure the local secret:
 
-> **DO NOT USE TOKENS HEAVILY.**
+```dotenv
+LLM_PROVIDER=gemini
+LLM_API_KEY=your_key_here
+LLM_MODEL=gemini-3.5-flash-lite
+LLM_BASE_URL=
+MAX_OUTPUT_TOKENS=300
+LLM_TEMPERATURE=0
+TOP_K=3
+CHUNK_SIZE=1200
+CHUNK_OVERLAP=200
+CHROMA_PERSIST_DIR=data/vector_store
+EMBEDDING_MODEL=all-MiniLM-L6-v2
+```
 
-This is a local portfolio/research demo, not production software. Keep the implementation simple, fast, understandable, and inexpensive to run.
+Never commit `.env`. Build or reuse the clean index, then start the API:
 
-## Development phases
+```powershell
+python -m src.rag.index
+uvicorn src.api.main:app --reload
+```
 
-1. Setup, Clean Data, and Baseline RAG
-2. Poisoning Attacks
-3. Defenses
-4. Evaluation and Error Analysis
-5. Frontend, Demo, and Documentation
+Open `http://localhost:8000/docs`, or ask from PowerShell:
 
-See `PROJECT_PLAN.md` for details.
+```powershell
+Invoke-RestMethod -Method Post `
+  -Uri http://localhost:8000/ask `
+  -ContentType 'application/json' `
+  -Body '{"question":"What is the RAV4 fuel tank capacity?"}'
+```
 
-## Start
+The response includes the concise answer, retrieved source chunks and ranks, latency, and provider token usage when available. Run the tests with:
 
-Codex should begin with:
+```powershell
+python -m pytest -q
+```
 
-`00_START_HERE.md`
+The vector store is local and ignored by Git. Re-running the index command reuses it when the PDFs and index settings have not changed.
 
-and execute only:
+## Project references
 
-`PHASE_1_PROMPT.md`
+- `00_START_HERE.md` — execution entry point
+- `PROJECT_PLAN.md` — phased plan
+- `ARCHITECTURE_AND_THREAT_MODEL.md` — scope and trust boundaries
+- `DATA_AND_EVALUATION.md` — corpus and evaluation rules
+- `PHASE_STATUS.md` — completion tracker
+- [Final Figma](https://www.figma.com/design/m8D51hB7Q9KA8llSRHRBhb/RAG-Poisoning-Testbed-%E2%80%94-Muhammad-Hasan-Dad-Khan?node-id=1-169)
+
+> **DO NOT USE TOKENS HEAVILY.** Keep this project small, understandable, and inexpensive to run.

@@ -57,7 +57,7 @@ def build_corpus_fingerprint(
         for path in sorted(pdf_paths, key=lambda item: item.name.lower())
     ]
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "embedding_model": settings.embedding_model,
         "chunk_size": settings.chunk_size,
         "chunk_overlap": settings.chunk_overlap,
@@ -162,7 +162,9 @@ def index_clean_corpus(
         raise EmptyCleanCorpusError("Official brochure PDFs produced no text chunks")
 
     active_embedder = embedder or SentenceTransformerEmbedder(settings.embedding_model)
-    embeddings = active_embedder.encode([chunk.text for chunk in chunks])
+    embeddings = active_embedder.encode(
+        [f"{chunk.filename}\n{chunk.text}" for chunk in chunks]
+    )
 
     if existing_collection is not None:
         client.delete_collection(COLLECTION_NAME)
