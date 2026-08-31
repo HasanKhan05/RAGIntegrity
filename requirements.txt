@@ -11,3 +11,4 @@ google-genai
 httpx
 httpx2
 pytest
+reportlab
