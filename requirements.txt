@@ -9,4 +9,5 @@ numpy
 pandas
 google-genai
 httpx
+httpx2
 pytest
