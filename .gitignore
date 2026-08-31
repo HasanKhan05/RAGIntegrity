@@ -1,0 +1,25 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local vector store / generated data
+data/vector_store/
+
+# Experiment/runtime artifacts
+*.log
+
+# Frontend
+node_modules/
+dist/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
