@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -59,6 +60,23 @@ def test_build_prompt_grounds_answer_and_labels_sources() -> None:
     assert "The luggage capacity is 580 litres." in prompt
     assert "[rav4.pdf, p. 3]" in prompt
     assert "insufficient" in prompt.lower()
+
+def test_build_prompt_excludes_evaluation_only_attack_fields() -> None:
+    attack_case = {
+        "attack_type": "false_specification",
+        "false_claim": "The capacity is 72 litres.",
+        "is_synthetic_attack": True,
+    }
+    serialized_attack_case = json.dumps(attack_case)
+
+    prompt = build_prompt("What is the luggage capacity?", _chunks())
+
+    assert "attack_type" in serialized_attack_case
+    assert "false_claim" in serialized_attack_case
+    assert "is_synthetic_attack" in serialized_attack_case
+    assert "attack_type" not in prompt
+    assert "false_claim" not in prompt
+    assert "is_synthetic_attack" not in prompt
 
 
 def test_generate_maps_answer_usage_and_low_token_configuration(tmp_path: Path) -> None:
