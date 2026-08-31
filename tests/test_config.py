@@ -5,6 +5,27 @@ import pytest
 from src.rag.config import ConfigurationError, Settings
 
 
+def _write_env(project_root: Path) -> Path:
+    env_file = project_root / ".env"
+    env_file.write_text(
+        "LLM_PROVIDER=gemini\nLLM_MODEL=gemini-3.5-flash-lite\n",
+        encoding="utf-8",
+    )
+    return env_file
+
+
+def test_phase2_paths_are_rooted_beside_clean_data(tmp_path: Path) -> None:
+    settings = Settings.from_env(_write_env(tmp_path))
+
+    assert settings.poisoned_data_dir == (tmp_path / "data" / "poisoned").resolve()
+    assert settings.attacked_manifest_path == (
+        tmp_path / "data" / "manifests" / "attacked_index.json"
+    ).resolve()
+    assert settings.attack_manifest_path == (
+        tmp_path / "data" / "manifests" / "attack_manifest.json"
+    ).resolve()
+
+
 def test_settings_load_safe_defaults(tmp_path: Path) -> None:
     env_file = tmp_path / ".env"
     env_file.write_text(

@@ -50,6 +50,9 @@ class Settings:
     embedding_model: str
     clean_data_dir: Path
     manifest_path: Path
+    poisoned_data_dir: Path
+    attacked_manifest_path: Path
+    attack_manifest_path: Path
 
     @classmethod
     def from_env(cls, env_file: Path | None = None) -> Settings:
@@ -104,6 +107,13 @@ class Settings:
             embedding_model=read("EMBEDDING_MODEL", "all-MiniLM-L6-v2"),
             clean_data_dir=(project_root / "data" / "clean").resolve(),
             manifest_path=(project_root / "data" / "manifests" / "clean_index.json").resolve(),
+            poisoned_data_dir=(project_root / "data" / "poisoned").resolve(),
+            attacked_manifest_path=(
+                project_root / "data" / "manifests" / "attacked_index.json"
+            ).resolve(),
+            attack_manifest_path=(
+                project_root / "data" / "manifests" / "attack_manifest.json"
+            ).resolve(),
         )
 
     def require_generation(self) -> None:

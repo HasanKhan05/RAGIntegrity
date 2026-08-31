@@ -1,4 +1,4 @@
-"""Extract readable page text from the official clean brochure corpus."""
+"""Extract readable page text from local PDF corpora."""
 
 from __future__ import annotations
 
@@ -42,18 +42,24 @@ def extract_pdf(path: Path) -> list[PageText]:
     return pages
 
 
-def load_clean_pdfs(directory: Path) -> list[PageText]:
-    """Load all PDFs from a clean-corpus directory in stable filename order."""
+def load_pdfs(directory: Path) -> list[PageText]:
+    """Load all PDFs from a directory in stable filename order."""
 
-    clean_directory = Path(directory)
-    if not clean_directory.exists():
+    pdf_directory = Path(directory)
+    if not pdf_directory.exists():
         return []
-    pdf_paths = sorted(
+    paths = sorted(
         (
             path
-            for path in clean_directory.iterdir()
+            for path in pdf_directory.iterdir()
             if path.is_file() and path.suffix.lower() == ".pdf"
         ),
         key=lambda path: path.name.lower(),
     )
-    return [page for path in pdf_paths for page in extract_pdf(path)]
+    return [page for path in paths for page in extract_pdf(path)]
+
+
+def load_clean_pdfs(directory: Path) -> list[PageText]:
+    """Load clean PDFs through the generic local-corpus loader."""
+
+    return load_pdfs(directory)
