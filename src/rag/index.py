@@ -1,4 +1,4 @@
-"""Build and reuse the persistent clean-brochure Chroma index."""
+"""Build and reuse persistent local Chroma indexes for brochure corpora."""
 
 from __future__ import annotations
 
@@ -11,20 +11,25 @@ from pathlib import Path
 from typing import Any, Sequence
 
 import chromadb
-from chromadb.config import Settings as ChromaSettings
 from chromadb.errors import NotFoundError
 
 from src.rag.chunk import chunk_pages
 from src.rag.config import Settings
 from src.rag.embed import Embedder, SentenceTransformerEmbedder
-from src.rag.ingest import load_clean_pdfs
+from src.rag.ingest import load_pdfs
 
 
-COLLECTION_NAME = "clean_brochures"
+CLEAN_COLLECTION_NAME = "clean_brochures"
+ATTACKED_COLLECTION_NAME = "attacked_brochures"
+COLLECTION_NAME = CLEAN_COLLECTION_NAME
 
 
 class NoCleanPdfsError(RuntimeError):
     """Raised when the clean corpus does not contain official PDFs."""
+
+
+class NoPoisonedPdfsError(RuntimeError):
+    """Raised when the attacked corpus lacks synthetic PDFs."""
 
 
 class EmptyCleanCorpusError(RuntimeError):
@@ -106,31 +111,24 @@ def _manifest_matches(
 
 def _persistent_client(path: Path):
     path.mkdir(parents=True, exist_ok=True)
-    return chromadb.PersistentClient(
-        path=str(path),
-        settings=ChromaSettings(anonymized_telemetry=False),
-    )
+    return chromadb.PersistentClient(path=str(path))
 
 
-def index_clean_corpus(
+def _index_corpus(
     settings: Settings,
     *,
-    embedder: Embedder | None = None,
-    force: bool = False,
+    pdf_paths: Sequence[Path],
+    pages: Sequence[Any],
+    collection_name: str,
+    manifest_path: Path,
+    embedder: Embedder | None,
+    force: bool,
 ) -> IndexResult:
-    """Build the clean Chroma collection, or reuse it when inputs match."""
-
-    pdf_paths = _discover_pdfs(settings.clean_data_dir)
-    if not pdf_paths:
-        raise NoCleanPdfsError(
-            "Add official brochure PDFs to data/clean before indexing"
-        )
-
     fingerprint = build_corpus_fingerprint(pdf_paths, settings)
-    manifest = _read_manifest(settings.manifest_path)
+    manifest = _read_manifest(manifest_path)
     client = _persistent_client(settings.chroma_persist_dir)
     try:
-        existing_collection = client.get_collection(COLLECTION_NAME)
+        existing_collection = client.get_collection(collection_name)
     except NotFoundError:
         existing_collection = None
 
@@ -147,19 +145,18 @@ def index_clean_corpus(
             page_count=int(manifest.get("page_count", 0)),
             chunk_count=int(manifest.get("chunk_count", 0)),
             document_ids=tuple(item["document_id"] for item in documents),
-            manifest_path=settings.manifest_path,
+            manifest_path=manifest_path,
         )
 
-    pages = load_clean_pdfs(settings.clean_data_dir)
     if not pages:
-        raise EmptyCleanCorpusError("Official brochure PDFs contained no readable text")
+        raise EmptyCleanCorpusError("Brochure PDFs contained no readable text")
     chunks = chunk_pages(
         pages,
         chunk_size=settings.chunk_size,
         overlap=settings.chunk_overlap,
     )
     if not chunks:
-        raise EmptyCleanCorpusError("Official brochure PDFs produced no text chunks")
+        raise EmptyCleanCorpusError("Brochure PDFs produced no text chunks")
 
     active_embedder = embedder or SentenceTransformerEmbedder(settings.embedding_model)
     embeddings = active_embedder.encode(
@@ -167,9 +164,9 @@ def index_clean_corpus(
     )
 
     if existing_collection is not None:
-        client.delete_collection(COLLECTION_NAME)
+        client.delete_collection(collection_name)
     collection = client.create_collection(
-        COLLECTION_NAME,
+        collection_name,
         metadata={"hnsw:space": "cosine"},
     )
     collection.upsert(
@@ -206,7 +203,7 @@ def index_clean_corpus(
         "page_count": len(pages),
         "chunk_count": len(chunks),
     }
-    _write_manifest(settings.manifest_path, completed_manifest)
+    _write_manifest(manifest_path, completed_manifest)
 
     return IndexResult(
         reused=False,
@@ -214,21 +211,79 @@ def index_clean_corpus(
         page_count=len(pages),
         chunk_count=len(chunks),
         document_ids=tuple(item["document_id"] for item in documents),
+        manifest_path=manifest_path,
+    )
+
+
+def index_clean_corpus(
+    settings: Settings,
+    *,
+    embedder: Embedder | None = None,
+    force: bool = False,
+) -> IndexResult:
+    """Build the clean Chroma collection, or reuse it when inputs match."""
+
+    pdf_paths = _discover_pdfs(settings.clean_data_dir)
+    if not pdf_paths:
+        raise NoCleanPdfsError(
+            "Add official brochure PDFs to data/clean before indexing"
+        )
+    return _index_corpus(
+        settings,
+        pdf_paths=pdf_paths,
+        pages=load_pdfs(settings.clean_data_dir),
+        collection_name=CLEAN_COLLECTION_NAME,
         manifest_path=settings.manifest_path,
+        embedder=embedder,
+        force=force,
+    )
+
+
+def index_attacked_corpus(
+    settings: Settings,
+    *,
+    embedder: Embedder | None = None,
+    force: bool = False,
+) -> IndexResult:
+    """Build an isolated collection from clean and synthetic PDF inputs."""
+
+    clean_paths = _discover_pdfs(settings.clean_data_dir)
+    poisoned_paths = _discover_pdfs(settings.poisoned_data_dir)
+    if not poisoned_paths:
+        raise NoPoisonedPdfsError(
+            "Add synthetic PDFs to data/poisoned before indexing"
+        )
+    return _index_corpus(
+        settings,
+        pdf_paths=[*clean_paths, *poisoned_paths],
+        pages=[
+            *load_pdfs(settings.clean_data_dir),
+            *load_pdfs(settings.poisoned_data_dir),
+        ],
+        collection_name=ATTACKED_COLLECTION_NAME,
+        manifest_path=settings.attacked_manifest_path,
+        embedder=embedder,
+        force=force,
     )
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Index official clean brochure PDFs")
-    parser.add_argument("--force", action="store_true", help="Rebuild the clean index")
+    parser = argparse.ArgumentParser(description="Index local brochure PDFs")
+    parser.add_argument(
+        "--force", action="store_true", help="Rebuild the selected index"
+    )
+    parser.add_argument("--corpus", choices=("clean", "attacked"), default="clean")
     arguments = parser.parse_args()
     try:
-        result = index_clean_corpus(Settings.from_env(), force=arguments.force)
-    except (NoCleanPdfsError, EmptyCleanCorpusError) as error:
+        indexer = (
+            index_clean_corpus if arguments.corpus == "clean" else index_attacked_corpus
+        )
+        result = indexer(Settings.from_env(), force=arguments.force)
+    except (NoCleanPdfsError, NoPoisonedPdfsError, EmptyCleanCorpusError) as error:
         parser.exit(1, f"Indexing stopped: {error}\n")
     action = "Reused" if result.reused else "Built"
     print(
-        f"{action} clean index: {result.document_count} documents, "
+        f"{action} {arguments.corpus} index: {result.document_count} documents, "
         f"{result.page_count} pages, {result.chunk_count} chunks"
     )
 
