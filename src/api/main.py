@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import time
-from typing import Any
+from typing import Any, Literal
 
 import chromadb
 from chromadb.config import Settings as ChromaSettings
@@ -14,12 +14,13 @@ from pydantic import BaseModel, Field, field_validator
 
 from src.rag.config import ConfigurationError, Settings
 from src.rag.generate import GenerationError, GeminiGenerator
-from src.rag.index import COLLECTION_NAME
+from src.rag.index import ATTACKED_COLLECTION_NAME, CLEAN_COLLECTION_NAME
 from src.rag.retrieve import IndexUnavailableError, Retriever
 
 
 class AskRequest(BaseModel):
     question: str = Field(min_length=1)
+    corpus_mode: Literal["clean", "attacked"] = "clean"
 
     @field_validator("question")
     @classmethod
@@ -78,7 +79,7 @@ def _index_available(settings: Settings) -> bool:
         settings=ChromaSettings(anonymized_telemetry=False),
     )
     try:
-        return client.get_collection(COLLECTION_NAME).count() > 0
+        return client.get_collection(CLEAN_COLLECTION_NAME).count() > 0
     except NotFoundError:
         return False
 
@@ -87,10 +88,16 @@ def create_app(
     *,
     settings: Settings | None = None,
     retriever: Any | None = None,
+    attacked_retriever: Any | None = None,
     generator: Any | None = None,
 ) -> FastAPI:
     active_settings = settings or Settings.from_env()
-    active_retriever = retriever or Retriever(active_settings)
+    active_retriever = retriever or Retriever(
+        active_settings, collection_name=CLEAN_COLLECTION_NAME
+    )
+    active_attacked_retriever = attacked_retriever or Retriever(
+        active_settings, collection_name=ATTACKED_COLLECTION_NAME
+    )
     active_generator = generator or GeminiGenerator(active_settings)
     application = FastAPI(title="RAG Poisoning Testbed", version="0.1.0")
 
@@ -109,7 +116,12 @@ def create_app(
     def ask(request: AskRequest) -> AskResponse:
         started = time.perf_counter()
         try:
-            chunks = active_retriever.retrieve(request.question)
+            selected_retriever = (
+                active_retriever
+                if request.corpus_mode == "clean"
+                else active_attacked_retriever
+            )
+            chunks = selected_retriever.retrieve(request.question)
             generated = active_generator.generate(request.question, chunks)
         except IndexUnavailableError as error:
             raise HTTPException(status_code=503, detail=str(error)) from error

@@ -10,7 +10,7 @@ from chromadb.errors import NotFoundError
 
 from src.rag.config import Settings
 from src.rag.embed import Embedder, SentenceTransformerEmbedder
-from src.rag.index import COLLECTION_NAME
+from src.rag.index import CLEAN_COLLECTION_NAME
 from src.rag.models import RetrievedChunk
 
 
@@ -34,8 +34,15 @@ class IndexUnavailableError(RuntimeError):
 
 
 class Retriever:
-    def __init__(self, settings: Settings, *, embedder: Embedder | None = None) -> None:
+    def __init__(
+        self,
+        settings: Settings,
+        *,
+        collection_name: str = CLEAN_COLLECTION_NAME,
+        embedder: Embedder | None = None,
+    ) -> None:
         self.settings = settings
+        self.collection_name = collection_name
         self.embedder = embedder or SentenceTransformerEmbedder(
             settings.embedding_model
         )
@@ -55,14 +62,14 @@ class Retriever:
             settings=ChromaSettings(anonymized_telemetry=False),
         )
         try:
-            collection = client.get_collection(COLLECTION_NAME)
+            collection = client.get_collection(self.collection_name)
         except NotFoundError as error:
             raise IndexUnavailableError(
-                "Clean index is unavailable; run python -m src.rag.index first"
+                f"Index {self.collection_name!r} is unavailable; run python -m src.rag.index first"
             ) from error
         if collection.count() == 0:
             raise IndexUnavailableError(
-                "Clean index is empty; run python -m src.rag.index first"
+                f"Index {self.collection_name!r} is empty; run python -m src.rag.index first"
             )
 
         query_embedding = self.embedder.encode([normalized_question])[0]

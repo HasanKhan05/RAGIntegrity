@@ -24,11 +24,14 @@ def _settings(tmp_path: Path, api_key: str = "test-key") -> Settings:
 
 
 class FakeRetriever:
+    def __init__(self, filename: str = "rav4.pdf") -> None:
+        self.filename = filename
+
     def retrieve(self, question: str) -> list[RetrievedChunk]:
         return [
             RetrievedChunk(
                 document_id="doc-a",
-                filename="rav4.pdf",
+                filename=self.filename,
                 page_number=3,
                 chunk_id="doc-a-p3-c0",
                 text="The luggage capacity is 580 litres.",
@@ -119,3 +122,21 @@ def test_ask_maps_missing_generation_configuration_to_503(tmp_path: Path) -> Non
 
     assert response.status_code == 503
     assert response.json()["detail"] == "Gemini generation is not configured"
+
+
+def test_ask_defaults_to_clean_and_can_select_attacked(tmp_path: Path) -> None:
+    app = create_app(
+        settings=_settings(tmp_path),
+        retriever=FakeRetriever(filename="clean.pdf"),
+        attacked_retriever=FakeRetriever(filename="update.pdf"),
+        generator=FakeGenerator(),
+    )
+    client = TestClient(app)
+
+    clean_response = client.post("/ask", json={"question": "capacity"})
+    attacked_response = client.post(
+        "/ask", json={"question": "capacity", "corpus_mode": "attacked"}
+    )
+
+    assert clean_response.json()["sources"][0]["filename"] == "clean.pdf"
+    assert attacked_response.json()["sources"][0]["filename"] == "update.pdf"

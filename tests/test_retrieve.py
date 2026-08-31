@@ -5,7 +5,7 @@ import pytest
 from chromadb.config import Settings as ChromaSettings
 
 from src.rag.config import Settings
-from src.rag.index import COLLECTION_NAME
+from src.rag.index import ATTACKED_COLLECTION_NAME, CLEAN_COLLECTION_NAME
 from src.rag.retrieve import IndexUnavailableError, Retriever
 
 
@@ -30,24 +30,29 @@ class QueryEmbedder:
         return [[1.0, 0.0, 0.0] for _ in texts]
 
 
-def _create_collection(settings: Settings) -> None:
+def _create_collection(
+    settings: Settings,
+    collection_name: str = CLEAN_COLLECTION_NAME,
+    chunk_id: str = "doc-a-p1-c0",
+    embedding: list[float] | None = None,
+) -> None:
     client = chromadb.PersistentClient(
         path=str(settings.chroma_persist_dir),
         settings=ChromaSettings(anonymized_telemetry=False),
     )
     collection = client.create_collection(
-        COLLECTION_NAME, metadata={"hnsw:space": "cosine"}
+        collection_name, metadata={"hnsw:space": "cosine"}
     )
     collection.upsert(
-        ids=["doc-a-p1-c0", "doc-b-p2-c0"],
+        ids=[chunk_id, "doc-b-p2-c0"],
         documents=["RAV4 luggage capacity", "Yaris wheelbase"],
-        embeddings=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
+        embeddings=[embedding or [1.0, 0.0, 0.0], [0.0, 1.0, 0.0]],
         metadatas=[
             {
                 "document_id": "doc-a",
                 "filename": "rav4.pdf",
                 "page_number": 1,
-                "chunk_id": "doc-a-p1-c0",
+                "chunk_id": chunk_id,
             },
             {
                 "document_id": "doc-b",
@@ -88,3 +93,17 @@ def test_retrieve_reports_missing_index(tmp_path: Path) -> None:
 
     with pytest.raises(IndexUnavailableError, match="index"):
         Retriever(settings, embedder=QueryEmbedder()).retrieve("RAV4 capacity")
+
+
+def test_retriever_queries_the_selected_collection(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    _create_collection(settings, CLEAN_COLLECTION_NAME, "clean")
+    _create_collection(settings, ATTACKED_COLLECTION_NAME, "update")
+
+    results = Retriever(
+        settings,
+        collection_name=ATTACKED_COLLECTION_NAME,
+        embedder=QueryEmbedder(),
+    ).retrieve("RAV4 capacity")
+
+    assert results[0].chunk_id == "update"
