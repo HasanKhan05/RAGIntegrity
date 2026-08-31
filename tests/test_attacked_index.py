@@ -2,11 +2,13 @@ from pathlib import Path
 
 import chromadb
 import pymupdf
+import pytest
 
 from src.rag.config import Settings
 from src.rag.index import (
     ATTACKED_COLLECTION_NAME,
     CLEAN_COLLECTION_NAME,
+    NoCleanPdfsError,
     index_attacked_corpus,
     index_clean_corpus,
 )
@@ -70,3 +72,27 @@ def test_attacked_index_isolated_and_contains_clean_and_synthetic_pdfs(
         set(metadata) == {"document_id", "filename", "page_number", "chunk_id"}
         for metadata in stored["metadatas"]
     )
+
+
+def test_attacked_index_rejects_duplicate_clean_and_synthetic_filenames(
+    tmp_path: Path,
+) -> None:
+    settings = _settings(tmp_path)
+    settings.clean_data_dir.mkdir(parents=True)
+    settings.poisoned_data_dir.mkdir(parents=True)
+    _write_pdf(settings.clean_data_dir / "foo.pdf", "Clean brochure fact.")
+    _write_pdf(settings.poisoned_data_dir / "foo.pdf", "Synthetic brochure fact.")
+
+    with pytest.raises(ValueError, match="unique filenames"):
+        index_attacked_corpus(settings, embedder=DeterministicEmbedder())
+
+
+def test_attacked_index_requires_clean_pdfs_before_synthetic_pdfs(
+    tmp_path: Path,
+) -> None:
+    settings = _settings(tmp_path)
+    settings.poisoned_data_dir.mkdir(parents=True)
+    _write_pdf(settings.poisoned_data_dir / "service-update.pdf", "Synthetic fact.")
+
+    with pytest.raises(NoCleanPdfsError, match="official brochure PDFs"):
+        index_attacked_corpus(settings, embedder=DeterministicEmbedder())

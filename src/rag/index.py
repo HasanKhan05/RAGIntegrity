@@ -248,10 +248,23 @@ def index_attacked_corpus(
     """Build an isolated collection from clean and synthetic PDF inputs."""
 
     clean_paths = _discover_pdfs(settings.clean_data_dir)
+    if not clean_paths:
+        raise NoCleanPdfsError(
+            "Add official brochure PDFs to data/clean before indexing"
+        )
     poisoned_paths = _discover_pdfs(settings.poisoned_data_dir)
     if not poisoned_paths:
         raise NoPoisonedPdfsError(
             "Add synthetic PDFs to data/poisoned before indexing"
+        )
+    duplicate_filenames = sorted(
+        {path.name.casefold() for path in clean_paths}
+        & {path.name.casefold() for path in poisoned_paths}
+    )
+    if duplicate_filenames:
+        raise ValueError(
+            "Clean and synthetic PDFs must use unique filenames: "
+            + ", ".join(duplicate_filenames)
         )
     return _index_corpus(
         settings,
