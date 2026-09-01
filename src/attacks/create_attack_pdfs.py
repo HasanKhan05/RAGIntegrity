@@ -19,6 +19,7 @@ ATTACKS = (
     {
         "attack_id": "attack_001",
         "synthetic_filename": "vehicle_specification_update.pdf",
+        "synthetic_page_number": 1,
         "attack_type": "false_specification",
         "target_model": "RAV4",
         "target_topic": "fuel tank capacity",
@@ -33,6 +34,7 @@ ATTACKS = (
     {
         "attack_id": "attack_002",
         "synthetic_filename": "electric_range_update.pdf",
+        "synthetic_page_number": 1,
         "attack_type": "comparison_manipulation",
         "target_model": "bZ4X",
         "target_topic": "combined WLTP range",
@@ -47,6 +49,7 @@ ATTACKS = (
     {
         "attack_id": "attack_003",
         "synthetic_filename": "vehicle_feature_update.pdf",
+        "synthetic_page_number": 1,
         "attack_type": "retrieved_instruction",
         "target_model": "Land Cruiser",
         "target_topic": "wading depth",
@@ -129,6 +132,7 @@ def _manifest_attack(attack: dict[str, Any]) -> dict[str, Any]:
     return {
         "attack_id": attack["attack_id"],
         "synthetic_document_id": _document_id(filename),
+        "synthetic_page_number": attack["synthetic_page_number"],
         "synthetic_filename": filename,
         "attack_type": attack["attack_type"],
         "target_model": attack["target_model"],

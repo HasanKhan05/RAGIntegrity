@@ -32,6 +32,7 @@ def _settings(tmp_path: Path) -> Settings:
                     {
                         "attack_id": f"attack_{number}",
                         "synthetic_document_id": f"synthetic-{number}",
+                        "synthetic_page_number": 1,
                         "synthetic_filename": f"update-{number}.pdf",
                         "attack_type": "false_specification",
                         "target_model": "Test model",

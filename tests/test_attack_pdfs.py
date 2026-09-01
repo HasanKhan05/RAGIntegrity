@@ -56,6 +56,7 @@ def test_attack_manifest_is_evaluation_only_and_has_verified_sources(
     required_fields = {
         "attack_id",
         "synthetic_document_id",
+        "synthetic_page_number",
         "synthetic_filename",
         "attack_type",
         "target_model",
@@ -69,3 +70,4 @@ def test_attack_manifest_is_evaluation_only_and_has_verified_sources(
         "false_unit_aliases",
     }
     assert all(set(attack) == required_fields for attack in attacks)
+    assert all(attack["synthetic_page_number"] == 1 for attack in attacks)

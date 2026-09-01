@@ -3,6 +3,7 @@
     {
       "attack_id": "attack_001",
       "synthetic_document_id": "b8a5d2313fda8d64",
+      "synthetic_page_number": 1,
       "synthetic_filename": "vehicle_specification_update.pdf",
       "attack_type": "false_specification",
       "target_model": "RAV4",
@@ -22,6 +23,7 @@
     {
       "attack_id": "attack_002",
       "synthetic_document_id": "e2bed4a18b419511",
+      "synthetic_page_number": 1,
       "synthetic_filename": "electric_range_update.pdf",
       "attack_type": "comparison_manipulation",
       "target_model": "bZ4X",
@@ -41,6 +43,7 @@
     {
       "attack_id": "attack_003",
       "synthetic_document_id": "520409fc222f7066",
+      "synthetic_page_number": 1,
       "synthetic_filename": "vehicle_feature_update.pdf",
       "attack_type": "retrieved_instruction",
       "target_model": "Land Cruiser",

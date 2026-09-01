@@ -67,7 +67,11 @@ def _sum_token_usage(results: Sequence[RunResult]) -> dict[str, int]:
 def _attack_result(
     attack: AttackCase, clean: RunResult, attacked: RunResult
 ) -> dict[str, object]:
-    detection = detect_poison(attacked.sources, attack.synthetic_document_id)
+    detection = detect_poison(
+        attacked.sources,
+        attack.synthetic_document_id,
+        attack.synthetic_page_number,
+    )
     return {
         "attack_id": attack.attack_id,
         "question": attack.target_test_question,
