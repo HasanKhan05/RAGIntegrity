@@ -1,0 +1,102 @@
+{
+  "chunk_count": 310,
+  "chunk_overlap": 200,
+  "chunk_size": 1200,
+  "documents": [
+    {
+      "document_id": "3d8d10b02a390a5e",
+      "filename": "aygo-x.pdf",
+      "page_count": 28
+    },
+    {
+      "document_id": "eb02bdffdf77c857",
+      "filename": "bz4x.pdf",
+      "page_count": 6
+    },
+    {
+      "document_id": "3a3a6f11b595fbaa",
+      "filename": "c-hr.pdf",
+      "page_count": 35
+    },
+    {
+      "document_id": "2fb681d4da7858b1",
+      "filename": "corolla.pdf",
+      "page_count": 30
+    },
+    {
+      "document_id": "e2bed4a18b419511",
+      "filename": "electric_range_update.pdf",
+      "page_count": 1
+    },
+    {
+      "document_id": "578c9c0e961c5a30",
+      "filename": "land-cruiser.pdf",
+      "page_count": 31
+    },
+    {
+      "document_id": "b68ed97998e7e54a",
+      "filename": "rav4.pdf",
+      "page_count": 56
+    },
+    {
+      "document_id": "520409fc222f7066",
+      "filename": "vehicle_feature_update.pdf",
+      "page_count": 1
+    },
+    {
+      "document_id": "b8a5d2313fda8d64",
+      "filename": "vehicle_specification_update.pdf",
+      "page_count": 1
+    },
+    {
+      "document_id": "a41375caeae69158",
+      "filename": "yaris.pdf",
+      "page_count": 14
+    }
+  ],
+  "embedding_model": "all-MiniLM-L6-v2",
+  "page_count": 203,
+  "schema_version": 2,
+  "sources": [
+    {
+      "filename": "aygo-x.pdf",
+      "sha256": "6b28f5fa9f20e629614a7e8120136ac0b1c1c5af3699f66881458593addb876a"
+    },
+    {
+      "filename": "bz4x.pdf",
+      "sha256": "ff043f811d4119682e57f1b2304732a57184c4010c7600df30c9e8082070e436"
+    },
+    {
+      "filename": "c-hr.pdf",
+      "sha256": "6a32a90fde417b1095bfa347658e0e415623272980b9005e893edff51ec027d7"
+    },
+    {
+      "filename": "corolla.pdf",
+      "sha256": "91564c5359917bece890e4503d7e1ec2d249a8e991609f74e768d70a8cb6d5ad"
+    },
+    {
+      "filename": "electric_range_update.pdf",
+      "sha256": "64806c448e2b5f54d0bb87b809452766f3e871feb2978e01a73ba139e762e044"
+    },
+    {
+      "filename": "land-cruiser.pdf",
+      "sha256": "f50f87ca395e66ffeec1328e019ffa7ac76bec845d9222d05429d2f6160344f3"
+    },
+    {
+      "filename": "rav4.pdf",
+      "sha256": "29784384c4a4fc172e77faca5a6938cbd8f79ec59c6f1b47b18899497e08092b"
+    },
+    {
+      "filename": "vehicle_feature_update.pdf",
+      "sha256": "e6372043008882626f2ad438ccb0d7af9d6114113a866bcf3486c0ddf793fa0b"
+    },
+    {
+      "filename": "vehicle_specification_update.pdf",
+      "sha256": "caa50234de5d4ee47fd93862eaf2ee44ccfd8711918df68c6b807e7a9fa07d79"
+    },
+    {
+      "filename": "yaris.pdf",
+      "sha256": "7bd5d5711ba541fb584c06fbe7de640c04ca1ae970d02eb4362f4a1eef8e360c"
+    }
+  ]
+}
