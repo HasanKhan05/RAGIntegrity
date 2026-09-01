@@ -46,13 +46,18 @@ def _manifest_pairs(path: Path) -> set[tuple[str, str]]:
     documents = manifest.get("documents") if isinstance(manifest, dict) else None
     if not isinstance(documents, list):
         raise ValueError(f"index manifest is invalid: {path}")
-    return {
-        (str(document["document_id"]), str(document["filename"]))
-        for document in documents
-        if isinstance(document, dict)
-        and isinstance(document.get("document_id"), str)
-        and isinstance(document.get("filename"), str)
-    }
+    pairs: set[tuple[str, str]] = set()
+    for document in documents:
+        if (
+            not isinstance(document, dict)
+            or not isinstance(document.get("document_id"), str)
+            or not isinstance(document.get("filename"), str)
+            or not document["document_id"]
+            or not document["filename"]
+        ):
+            raise ValueError(f"index manifest contains invalid document entry: {path}")
+        pairs.add((document["document_id"], document["filename"]))
+    return pairs
 
 
 def _collection_pairs(settings: Settings, collection_name: str) -> set[tuple[str, str]]:
@@ -81,16 +86,18 @@ def _validate_collections(settings: Settings, attacks: Sequence[AttackCase]) -> 
     if poisoned_names != expected_names:
         raise ValueError("generated poisoned PDF inventory does not match attack manifest")
     clean_manifest = _manifest_pairs(settings.manifest_path)
-    attacked_manifest = _manifest_pairs(settings.attacked_manifest_path)
-    attacked_pairs = _collection_pairs(settings, ATTACKED_COLLECTION_NAME)
     clean_pairs = _collection_pairs(settings, CLEAN_COLLECTION_NAME)
-    expected_attacked = clean_manifest | expected
-    if attacked_manifest != expected_attacked:
-        raise ValueError("attacked collection inventory does not match attack manifest")
-    if attacked_pairs != expected_attacked:
-        raise ValueError("attacked collection inventory does not match attack manifest")
+    if clean_pairs != clean_manifest:
+        raise ValueError("clean collection inventory does not match clean index manifest")
     if any(
         document_id in expected_ids or filename in expected_names
         for document_id, filename in clean_pairs
     ):
         raise ValueError("clean collection contains synthetic document IDs")
+    attacked_manifest = _manifest_pairs(settings.attacked_manifest_path)
+    attacked_pairs = _collection_pairs(settings, ATTACKED_COLLECTION_NAME)
+    expected_attacked = clean_manifest | expected
+    if attacked_manifest != expected_attacked:
+        raise ValueError("attacked collection inventory does not match attack manifest")
+    if attacked_pairs != expected_attacked:
+        raise ValueError("attacked collection inventory does not match attack manifest")

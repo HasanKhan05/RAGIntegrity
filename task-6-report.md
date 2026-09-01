@@ -13,6 +13,10 @@ Completed the interrupted safety fix for the controlled six-call Phase 2 runner.
   before constructing retrievers or generating answers.
 - Validate production runs against the exact synthetic PDF filename inventory,
   clean and attacked index manifests, and persisted Chroma collection metadata.
+- Require the persisted clean collection inventory to equal clean_index.json
+  exactly before validating the attacked collection.
+- Reject malformed clean or attacked manifest document entries instead of
+  silently omitting them.
 - Reject missing or mismatched attacked collections and synthetic IDs or filenames
   in the clean collection.
 - Permit fully injected fake generator/retriever tests to bypass persisted
@@ -21,8 +25,8 @@ Completed the interrupted safety fix for the controlled six-call Phase 2 runner.
 
 ## Verification
 
-- Focused runner and safety tests: 14 passed.
-- Full test suite: 62 passed.
+- Focused runner and safety tests: 19 passed.
+- Full test suite: 67 passed.
 - git diff --check: passed.
 - No Gemini generation calls were made.
 - Existing experiment results, project documentation, and PHASE_STATUS.md

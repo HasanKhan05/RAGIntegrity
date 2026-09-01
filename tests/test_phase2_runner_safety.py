@@ -201,6 +201,8 @@ def test_production_missing_collection_stops_before_any_generation(
     ) -> set[tuple[str, str]]:
         if collection_name == "attacked_brochures":
             raise ValueError("required collection is unavailable: attacked_brochures")
+        if collection_name == "clean_brochures":
+            return {("clean", "brochure.pdf")}
         return set()
 
     monkeypatch.setattr(preflight, "_collection_pairs", missing_collection)
@@ -276,3 +278,104 @@ def test_extra_attacked_manifest_document_stops_before_any_generation(
         )
 
     assert generator.calls == []
+
+
+def test_missing_clean_collection_document_stops_before_any_generation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings = _settings(tmp_path)
+    expected_poison = _configure_production_inventory(settings)
+    clean_manifest = {
+        "documents": [
+            {"document_id": "clean", "filename": "brochure.pdf"},
+            {"document_id": "missing", "filename": "missing.pdf"},
+        ]
+    }
+    settings.manifest_path.write_text(json.dumps(clean_manifest), encoding="utf-8")
+    settings.attacked_manifest_path.write_text(
+        json.dumps(
+            {
+                "documents": [
+                    *clean_manifest["documents"],
+                    *[
+                        {"document_id": document_id, "filename": filename}
+                        for document_id, filename in sorted(expected_poison)
+                    ],
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        preflight,
+        "_collection_pairs",
+        lambda actual_settings, collection_name: (
+            {("clean", "brochure.pdf")}
+            if collection_name == "clean_brochures"
+            else {("clean", "brochure.pdf"), ("missing", "missing.pdf")} | expected_poison
+        ),
+    )
+    monkeypatch.setattr(
+        runner,
+        "Retriever",
+        lambda actual_settings, collection_name: type(
+            "FakeRetriever", (), {"retrieve": lambda self, question: []}
+        )(),
+    )
+    generator = RecordingGenerator()
+
+    with pytest.raises(ValueError, match="clean collection inventory"):
+        runner.run_phase2(
+            settings, generator=generator, output_path=tmp_path / "results.json"
+        )
+
+    assert generator.calls == []
+
+
+def test_extra_clean_collection_document_stops_before_any_generation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings = _settings(tmp_path)
+    expected_poison = _configure_production_inventory(settings)
+    clean_pairs = {("clean", "brochure.pdf"), ("extra", "extra.pdf")}
+    attacked_pairs = {("clean", "brochure.pdf")} | expected_poison
+    monkeypatch.setattr(
+        preflight,
+        "_collection_pairs",
+        lambda actual_settings, collection_name: (
+            clean_pairs if collection_name == "clean_brochures" else attacked_pairs
+        ),
+    )
+    monkeypatch.setattr(
+        runner,
+        "Retriever",
+        lambda actual_settings, collection_name: type(
+            "FakeRetriever", (), {"retrieve": lambda self, question: []}
+        )(),
+    )
+    generator = RecordingGenerator()
+
+    with pytest.raises(ValueError, match="clean collection inventory"):
+        runner.run_phase2(
+            settings, generator=generator, output_path=tmp_path / "results.json"
+        )
+
+    assert generator.calls == []
+
+
+@pytest.mark.parametrize(
+    "entry",
+    [
+        {"document_id": "missing-filename"},
+        {"filename": "missing-id"},
+        "not an object",
+    ],
+)
+def test_manifest_pairs_rejects_malformed_document_entries(
+    tmp_path: Path, entry: object
+) -> None:
+    manifest_path = tmp_path / "index.json"
+    manifest_path.write_text(json.dumps({"documents": [entry]}), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invalid document entry"):
+        preflight._manifest_pairs(manifest_path)
