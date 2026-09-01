@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 
+import experiments.run_phase2_attacks as runner
 from experiments.run_phase2_attacks import run_phase2
 from src.rag.config import Settings
 from src.rag.models import GeneratedAnswer, RetrievedChunk, TokenUsage
@@ -199,3 +200,29 @@ def test_runner_rejects_invalid_manifest_counts_before_any_generation(
         )
 
     assert generator.calls == []
+
+
+def test_main_runs_phase2_once_with_default_output(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings = _settings(tmp_path)
+    calls: list[tuple[Settings, Path | None]] = []
+
+    def fake_run_phase2(
+        actual_settings: Settings,
+        *,
+        generator: object | None = None,
+        retriever_factory: object | None = None,
+        output_path: Path | None = None,
+    ) -> dict[str, object]:
+        calls.append((actual_settings, output_path))
+        return {}
+
+    monkeypatch.setattr(
+        runner.Settings, "from_env", classmethod(lambda cls: settings)
+    )
+    monkeypatch.setattr(runner, "run_phase2", fake_run_phase2)
+
+    runner.main()
+
+    assert calls == [(settings, None)]

@@ -135,3 +135,13 @@ def run_phase2(
         json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     return result
+
+
+def main() -> None:
+    """Run the controlled Phase 2 experiment from local configuration."""
+
+    run_phase2(Settings.from_env())
+
+
+if __name__ == "__main__":
+    main()
