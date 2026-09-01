@@ -9,6 +9,7 @@ from pathlib import Path
 from time import perf_counter
 from typing import Any
 
+from experiments.phase2_preflight import prepare_run
 from src.evaluation.phase2 import (
     AttackCase,
     answer_adopts_false_claim,
@@ -104,6 +105,12 @@ def run_phase2(
     attacks = load_attack_manifest(settings.attack_manifest_path)
     if len(attacks) != 3:
         raise ValueError("Phase 2 attack manifest must contain exactly three attacks")
+    destination = prepare_run(
+        settings,
+        attacks,
+        output_path,
+        validate_collections=generator is None or retriever_factory is None,
+    )
 
     active_generator = generator or GeminiGenerator(settings)
     factory = retriever_factory or (
@@ -127,9 +134,6 @@ def run_phase2(
         "token_usage": _sum_token_usage(runs),
         "attacks": outcomes,
     }
-    destination = output_path or (
-        settings.project_root / "experiments" / "results" / "phase2_attacks.json"
-    ).with_name("phase2_attack_results.json")
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
         json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"

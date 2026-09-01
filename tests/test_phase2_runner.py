@@ -15,6 +15,7 @@ def _settings(tmp_path: Path) -> Settings:
         "\n".join(
             [
                 "LLM_PROVIDER=gemini",
+                "LLM_API_KEY=test-key",
                 "LLM_MODEL=gemini-3.5-flash-lite",
                 "CHROMA_PERSIST_DIR=vector-store",
             ]

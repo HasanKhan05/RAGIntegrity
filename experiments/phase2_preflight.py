@@ -1,0 +1,96 @@
+"""Safety checks for the paid controlled Phase 2 experiment."""
+
+from __future__ import annotations
+
+import json
+from collections.abc import Sequence
+from pathlib import Path
+
+import chromadb
+from chromadb.errors import NotFoundError
+
+from src.evaluation.phase2 import AttackCase
+from src.rag.config import Settings
+from src.rag.index import ATTACKED_COLLECTION_NAME, CLEAN_COLLECTION_NAME
+
+
+def prepare_run(
+    settings: Settings,
+    attacks: Sequence[AttackCase],
+    output_path: Path | None,
+    *,
+    validate_collections: bool,
+) -> Path:
+    """Validate a safe, fixed experiment before any retriever or model is built."""
+
+    destination = output_path or (
+        settings.project_root / "experiments" / "results" / "phase2_attack_results.json"
+    )
+    destination = destination.resolve()
+    if destination.exists():
+        raise FileExistsError(f"Phase 2 results output already exists: {destination}")
+    settings.require_generation()
+    if settings.llm_temperature != 0:
+        raise ValueError("Phase 2 requires LLM_TEMPERATURE=0")
+    if settings.top_k != 3:
+        raise ValueError("Phase 2 requires TOP_K=3")
+    if validate_collections:
+        _validate_collections(settings, attacks)
+    return destination
+
+
+def _manifest_pairs(path: Path) -> set[tuple[str, str]]:
+    if not path.exists():
+        raise ValueError(f"index manifest is unavailable: {path}")
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    documents = manifest.get("documents") if isinstance(manifest, dict) else None
+    if not isinstance(documents, list):
+        raise ValueError(f"index manifest is invalid: {path}")
+    return {
+        (str(document["document_id"]), str(document["filename"]))
+        for document in documents
+        if isinstance(document, dict)
+        and isinstance(document.get("document_id"), str)
+        and isinstance(document.get("filename"), str)
+    }
+
+
+def _collection_pairs(settings: Settings, collection_name: str) -> set[tuple[str, str]]:
+    client = chromadb.PersistentClient(path=str(settings.chroma_persist_dir))
+    try:
+        collection = client.get_collection(collection_name)
+    except NotFoundError as error:
+        raise ValueError(f"required collection is unavailable: {collection_name}") from error
+    metadatas = collection.get(include=["metadatas"]).get("metadatas") or []
+    return {
+        (str(metadata["document_id"]), str(metadata["filename"]))
+        for metadata in metadatas
+        if isinstance(metadata, dict)
+        and isinstance(metadata.get("document_id"), str)
+        and isinstance(metadata.get("filename"), str)
+    }
+
+
+def _validate_collections(settings: Settings, attacks: Sequence[AttackCase]) -> None:
+    expected = {(attack.synthetic_document_id, attack.synthetic_filename) for attack in attacks}
+    expected_ids = {document_id for document_id, _ in expected}
+    expected_names = {filename for _, filename in expected}
+    poisoned_names = {path.name for path in settings.poisoned_data_dir.glob("*.pdf")}
+    if len(expected) != len(attacks):
+        raise ValueError("attack manifest synthetic inventory is not unique")
+    if poisoned_names != expected_names:
+        raise ValueError("generated poisoned PDF inventory does not match attack manifest")
+    clean_manifest = _manifest_pairs(settings.manifest_path)
+    attacked_manifest = _manifest_pairs(settings.attacked_manifest_path)
+    attacked_pairs = _collection_pairs(settings, ATTACKED_COLLECTION_NAME)
+    clean_pairs = _collection_pairs(settings, CLEAN_COLLECTION_NAME)
+    expected_attacked = clean_manifest | expected
+    if attacked_manifest != expected_attacked:
+        raise ValueError("attacked collection inventory does not match attack manifest")
+    if attacked_pairs != expected_attacked:
+        raise ValueError("attacked collection inventory does not match attack manifest")
+    if any(
+        document_id in expected_ids or filename in expected_names
+        for document_id, filename in clean_pairs
+    ):
+        raise ValueError("clean collection contains synthetic document IDs")
