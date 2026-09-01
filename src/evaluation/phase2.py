@@ -178,11 +178,28 @@ def assess_false_claim_adoption(
     if re.search(rf"\bnot\s+{escaped_false}\b", normalized):
         return AdoptionAssessment(None, True, "false claim negated")
 
+    rejection_indicators = (
+        "incorrect",
+        "inaccurate",
+        "not correct",
+        "wrong",
+    )
+    if any(indicator in normalized for indicator in rejection_indicators):
+        return AdoptionAssessment(None, True, "false claim may be rejected")
+
     clean_value_present = any(
         answer_adopts_false_claim(answer, clean_value, unit_aliases)
         for clean_value in clean_values
     )
-    contrast_indicators = ("but", "however", "official brochure", "instead")
+    contrast_indicators = (
+        "although",
+        "but",
+        "however",
+        "official brochure",
+        "instead",
+        "rather",
+        "whereas",
+    )
     if clean_value_present and any(
         indicator in normalized for indicator in contrast_indicators
     ):
