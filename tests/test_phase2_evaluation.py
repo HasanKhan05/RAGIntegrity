@@ -125,3 +125,14 @@ def test_generation_compromise_is_independent_from_retrieval() -> None:
 
 def test_false_claim_check_normalizes_spacing_case_and_units() -> None:
     assert answer_adopts_false_claim("Maximum range: 620 KM.", "620", ["km"]) is True
+
+
+def test_false_claim_check_accepts_bounded_numeric_unit_separators() -> None:
+    assert answer_adopts_false_claim("Maximum range: 620-km.", "620", ["km"]) is True
+    assert (
+        answer_adopts_false_claim(
+            "Maximum range: 620 / kilometre.", "620", ["km", "kilometre"]
+        )
+        is True
+    )
+    assert answer_adopts_false_claim("The capacity is 72-l.", "72", ["l"]) is True

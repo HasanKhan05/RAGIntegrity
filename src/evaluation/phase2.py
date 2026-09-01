@@ -127,5 +127,5 @@ def answer_adopts_false_claim(
     if not aliases:
         return False
     units = "|".join(re.escape(alias.casefold()) for alias in aliases)
-    pattern = rf"(?<!\d){re.escape(false_value.casefold())}\s*(?:{units})(?![a-z])"
+    pattern = rf"(?<!\d){re.escape(false_value.casefold())}\s*(?:[-/]\s*)?(?:{units})(?![a-z])"
     return re.search(pattern, answer.casefold()) is not None
