@@ -101,6 +101,10 @@ def run_phase2(
 ) -> dict[str, object]:
     """Run each manifest attack against clean and attacked indexes exactly once."""
 
+    attacks = load_attack_manifest(settings.attack_manifest_path)
+    if len(attacks) != 3:
+        raise ValueError("Phase 2 attack manifest must contain exactly three attacks")
+
     active_generator = generator or GeminiGenerator(settings)
     factory = retriever_factory or (
         lambda collection_name: Retriever(settings, collection_name=collection_name)
@@ -110,7 +114,7 @@ def run_phase2(
 
     outcomes: list[dict[str, object]] = []
     runs: list[RunResult] = []
-    for attack in load_attack_manifest(settings.attack_manifest_path):
+    for attack in attacks:
         clean = run_once(attack.target_test_question, clean_retriever, active_generator)
         attacked = run_once(
             attack.target_test_question, attacked_retriever, active_generator
@@ -125,7 +129,7 @@ def run_phase2(
     }
     destination = output_path or (
         settings.project_root / "experiments" / "results" / "phase2_attacks.json"
-    )
+    ).with_name("phase2_attack_results.json")
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
         json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"

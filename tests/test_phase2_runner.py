@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from experiments.run_phase2_attacks import run_phase2
 from src.rag.config import Settings
 from src.rag.models import GeneratedAnswer, RetrievedChunk, TokenUsage
@@ -147,3 +149,53 @@ def test_runner_makes_six_calls_and_sums_fake_token_usage(tmp_path: Path) -> Non
         "output_tokens": 27,
         "total_tokens": 48,
     }
+
+
+def test_runner_uses_canonical_default_results_path(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings = _settings(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    run_phase2(
+        settings,
+        generator=RecordingGenerator(
+            [GeneratedAnswer("Answer", TokenUsage(1, 1, 2)) for _ in range(6)]
+        ),
+        retriever_factory=FakeRetrieverFactory(
+            [_chunk("clean", 1)], [_chunk("clean", 1)]
+        ),
+    )
+
+    assert (
+        tmp_path / "experiments" / "results" / "phase2_attack_results.json"
+    ).exists()
+
+
+@pytest.mark.parametrize("attack_count", [2, 4])
+def test_runner_rejects_invalid_manifest_counts_before_any_generation(
+    tmp_path: Path, attack_count: int
+) -> None:
+    settings = _settings(tmp_path)
+    manifest = json.loads(settings.attack_manifest_path.read_text(encoding="utf-8"))
+    attacks = manifest["attacks"]
+    if attack_count == 4:
+        attacks.append({**attacks[0], "attack_id": "attack_004"})
+    else:
+        manifest["attacks"] = attacks[:attack_count]
+    settings.attack_manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    generator = RecordingGenerator(
+        [GeneratedAnswer("Answer", TokenUsage(1, 1, 2)) for _ in range(8)]
+    )
+
+    with pytest.raises(ValueError, match="exactly three"):
+        run_phase2(
+            settings,
+            generator=generator,
+            retriever_factory=FakeRetrieverFactory(
+                [_chunk("clean", 1)], [_chunk("clean", 1)]
+            ),
+            output_path=tmp_path / "results.json",
+        )
+
+    assert generator.calls == []
