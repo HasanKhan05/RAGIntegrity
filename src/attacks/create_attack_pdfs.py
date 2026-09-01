@@ -11,6 +11,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 
+from src.attacks.benchmark import ATTACK_DEFINITIONS
 from src.rag.config import Settings
 from src.rag.ingest import _document_id
 
@@ -62,6 +63,9 @@ ATTACKS = (
         "false_unit_aliases": ["mm", "millimetre", "millimetres"],
     },
 )
+
+# Task 3 extends PDF authoring; until then preserve the legacy three-file behavior.
+ATTACKS = ATTACK_DEFINITIONS[:3]
 
 
 VISIBLE_DOCUMENTS = {

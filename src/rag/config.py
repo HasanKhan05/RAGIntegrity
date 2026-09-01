@@ -53,6 +53,8 @@ class Settings:
     poisoned_data_dir: Path
     attacked_manifest_path: Path
     attack_manifest_path: Path
+    attack_questions_path: Path
+    clean_control_questions_path: Path
 
     @classmethod
     def from_env(cls, env_file: Path | None = None) -> Settings:
@@ -113,6 +115,12 @@ class Settings:
             ).resolve(),
             attack_manifest_path=(
                 project_root / "data" / "manifests" / "attack_manifest.json"
+            ).resolve(),
+            attack_questions_path=(
+                project_root / "data" / "evaluation" / "attack_questions.json"
+            ).resolve(),
+            clean_control_questions_path=(
+                project_root / "data" / "evaluation" / "clean_control_questions.json"
             ).resolve(),
         )
 

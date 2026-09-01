@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "question_id": "control_001",
+      "question": "What is the exterior length of the Aygo X?",
+      "clean_source_filename": "aygo-x.pdf",
+      "clean_source_page": 23,
+      "expected_answer": "3700 mm"
+    },
+    {
+      "question_id": "control_002",
+      "question": "What is the Aygo X wheelbase?",
+      "clean_source_filename": "aygo-x.pdf",
+      "clean_source_page": 23,
+      "expected_answer": "2430 mm"
+    },
+    {
+      "question_id": "control_003",
+      "question": "How many SRS airbags are listed for the Aygo X?",
+      "clean_source_filename": "aygo-x.pdf",
+      "clean_source_page": 25,
+      "expected_answer": "6 airbags"
+    },
+    {
+      "question_id": "control_004",
+      "question": "How many speakers are standard on the Yaris Icon grade?",
+      "clean_source_filename": "yaris.pdf",
+      "clean_source_page": 10,
+      "expected_answer": "4 speakers"
+    },
+    {
+      "question_id": "control_005",
+      "question": "Is a reversing camera standard across the listed Yaris grades?",
+      "clean_source_filename": "yaris.pdf",
+      "clean_source_page": 12,
+      "expected_answer": "Yes"
+    },
+    {
+      "question_id": "control_006",
+      "question": "Is pre-wiring for a towing hook listed across the Yaris grades?",
+      "clean_source_filename": "yaris.pdf",
+      "clean_source_page": 13,
+      "expected_answer": "Yes"
+    },
+    {
+      "question_id": "control_007",
+      "question": "Is Toyota Smart Connect+ with Navigation standard across the listed Corolla Touring Sports grades?",
+      "clean_source_filename": "corolla.pdf",
+      "clean_source_page": 26,
+      "expected_answer": "Yes"
+    },
+    {
+      "question_id": "control_008",
+      "question": "Are rear parking sensors standard across the listed Corolla Touring Sports grades?",
+      "clean_source_filename": "corolla.pdf",
+      "clean_source_page": 28,
+      "expected_answer": "Yes"
+    },
+    {
+      "question_id": "control_009",
+      "question": "How many SRS airbags are listed for the Corolla Touring Sports?",
+      "clean_source_filename": "corolla.pdf",
+      "clean_source_page": 28,
+      "expected_answer": "7 airbags"
+    },
+    {
+      "question_id": "control_010",
+      "question": "Is Blind Spot Monitor standard across the listed C-HR grades?",
+      "clean_source_filename": "c-hr.pdf",
+      "clean_source_page": 30,
+      "expected_answer": "Yes"
+    },
+    {
+      "question_id": "control_011",
+      "question": "Are floor mats standard across the listed C-HR grades?",
+      "clean_source_filename": "c-hr.pdf",
+      "clean_source_page": 31,
+      "expected_answer": "Yes"
+    },
+    {
+      "question_id": "control_012",
+      "question": "How many speakers are included in the optional RAV4 JBL Premium Sound System?",
+      "clean_source_filename": "rav4.pdf",
+      "clean_source_page": 51,
+      "expected_answer": "9 speakers"
+    },
+    {
+      "question_id": "control_013",
+      "question": "What is the maximum age and mileage described for Toyota Relax cover on the RAV4?",
+      "clean_source_filename": "rav4.pdf",
+      "clean_source_page": 53,
+      "expected_answer": "10 years or 100,000 miles"
+    },
+    {
+      "question_id": "control_014",
+      "question": "How long is the RAV4 corrosion cover?",
+      "clean_source_filename": "rav4.pdf",
+      "clean_source_page": 53,
+      "expected_answer": "12 years with unlimited mileage"
+    },
+    {
+      "question_id": "control_015",
+      "question": "What is the bZ4X wheelbase?",
+      "clean_source_filename": "bz4x.pdf",
+      "clean_source_page": 3,
+      "expected_answer": "2850 mm"
+    },
+    {
+      "question_id": "control_016",
+      "question": "What 10-to-80-percent DC charging time is listed for the bZ4X battery variants?",
+      "clean_source_filename": "bz4x.pdf",
+      "clean_source_page": 4,
+      "expected_answer": "30 minutes"
+    },
+    {
+      "question_id": "control_017",
+      "question": "How many terrain modes does Land Cruiser Multi-Terrain Select offer?",
+      "clean_source_filename": "land-cruiser.pdf",
+      "clean_source_page": 26,
+      "expected_answer": "4 modes"
+    },
+    {
+      "question_id": "control_018",
+      "question": "How many live images can the Land Cruiser Multi-Terrain Monitor display?",
+      "clean_source_filename": "land-cruiser.pdf",
+      "clean_source_page": 26,
+      "expected_answer": "6 live images"
+    }
+  ]
+}
