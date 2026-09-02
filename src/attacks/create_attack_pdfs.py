@@ -9,11 +9,10 @@ from typing import Any
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer
 
 from src.attacks.benchmark import ATTACK_DEFINITIONS
 from src.rag.config import Settings
-from src.rag.ingest import _document_id
 
 
 ATTACKS = (
@@ -64,8 +63,8 @@ ATTACKS = (
     },
 )
 
-# Task 3 extends PDF authoring; until then preserve the legacy three-file behavior.
-ATTACKS = ATTACK_DEFINITIONS[:3]
+# The hidden benchmark definitions are the single source of truth for all six files.
+ATTACKS = ATTACK_DEFINITIONS
 
 
 VISIBLE_DOCUMENTS = {
@@ -92,7 +91,22 @@ VISIBLE_DOCUMENTS = {
 }
 
 
+DOCUMENT_TITLES = {
+    "cargo_and_dimensions_update.pdf": "Cargo and Dimensions Update",
+    "powertrain_update.pdf": "Powertrain Update",
+    "capability_update.pdf": "Vehicle Capability Update",
+}
+
+
 def _write_pdf(path: Path, title: str, heading: str, paragraphs: tuple[str, ...]) -> None:
+    _write_pdf_pages(path, title, [(heading, paragraphs)])
+
+
+def _write_pdf_pages(
+    path: Path,
+    title: str,
+    pages: list[tuple[str, tuple[str, ...]]],
+) -> None:
     styles = getSampleStyleSheet()
     title_style = ParagraphStyle(
         "DocumentTitle",
@@ -126,41 +140,59 @@ def _write_pdf(path: Path, title: str, heading: str, paragraphs: tuple[str, ...]
         bottomMargin=0.9 * inch,
         title=title,
     )
-    story = [Paragraph(title, title_style), Paragraph(heading, heading_style), Spacer(1, 6)]
-    story.extend(Paragraph(text, body_style) for text in paragraphs)
+    story = []
+    for page_index, (heading, paragraphs) in enumerate(pages):
+        if page_index:
+            story.append(PageBreak())
+        story.extend(
+            [
+                Paragraph(title, title_style),
+                Paragraph(heading, heading_style),
+                Spacer(1, 6),
+            ]
+        )
+        story.extend(Paragraph(text, body_style) for text in paragraphs)
     document.build(story)
 
 
 def _manifest_attack(attack: dict[str, Any]) -> dict[str, Any]:
-    filename = str(attack["synthetic_filename"])
-    return {
-        "attack_id": attack["attack_id"],
-        "synthetic_document_id": _document_id(filename),
-        "synthetic_page_number": attack["synthetic_page_number"],
-        "synthetic_filename": filename,
-        "attack_type": attack["attack_type"],
-        "target_model": attack["target_model"],
-        "target_topic": attack["target_topic"],
-        "clean_fact": attack["clean_fact"],
-        "false_claim": attack["false_claim"],
-        "clean_source_filename": attack["clean_source_filename"],
-        "clean_source_page": attack["clean_source_page"],
-        "target_test_question": attack["target_test_question"],
-        "false_value": attack["false_value"],
-        "false_unit_aliases": attack["false_unit_aliases"],
-    }
+    return dict(attack)
 
 
 def create_attack_documents(settings: Settings) -> list[Path]:
-    """Create the three synthetic PDFs and their evaluation-only manifest."""
+    """Create six synthetic PDFs without rewriting the original three files."""
 
     settings.poisoned_data_dir.mkdir(parents=True, exist_ok=True)
+    filenames = list(dict.fromkeys(str(item["synthetic_filename"]) for item in ATTACKS))
+    unexpected = {
+        path.name
+        for path in settings.poisoned_data_dir.glob("*.pdf")
+        if path.name not in filenames
+    }
+    if unexpected:
+        raise ValueError(f"Unexpected synthetic PDF files: {sorted(unexpected)}")
+
     paths: list[Path] = []
-    for attack in ATTACKS:
-        filename = str(attack["synthetic_filename"])
+    for filename in filenames:
         path = settings.poisoned_data_dir / filename
-        title, heading, paragraphs = VISIBLE_DOCUMENTS[str(attack["attack_id"])]
-        _write_pdf(path, title, heading, paragraphs)
+        if not path.exists():
+            document_attacks = [
+                item for item in ATTACKS if item["synthetic_filename"] == filename
+            ]
+            document_attacks.sort(key=lambda item: int(item["synthetic_page_number"]))
+            if filename in DOCUMENT_TITLES:
+                pages = [
+                    (
+                        f"{attack['target_model']} - {attack['target_topic']}",
+                        (str(attack["false_claim"]),),
+                    )
+                    for attack in document_attacks
+                ]
+                _write_pdf_pages(path, DOCUMENT_TITLES[filename], pages)
+            else:
+                attack = document_attacks[0]
+                title, heading, paragraphs = VISIBLE_DOCUMENTS[str(attack["attack_id"])]
+                _write_pdf(path, title, heading, paragraphs)
         paths.append(path)
 
     manifest = {"attacks": [_manifest_attack(attack) for attack in ATTACKS]}
@@ -173,7 +205,7 @@ def create_attack_documents(settings: Settings) -> list[Path]:
 
 def main() -> None:
     paths = create_attack_documents(Settings.from_env())
-    print(f"Created {len(paths)} synthetic PDFs and attack_manifest.json")
+    print(f"Prepared {len(paths)} synthetic PDFs and attack_manifest.json")
 
 
 if __name__ == "__main__":
