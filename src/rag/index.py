@@ -136,6 +136,7 @@ def _index_corpus(
         not force
         and _manifest_matches(manifest, fingerprint)
         and existing_collection is not None
+        and existing_collection.count() == int(manifest.get("chunk_count", -1))
         and existing_collection.count() > 0
     ):
         documents = manifest.get("documents", []) if manifest else []

@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+import chromadb
 import pymupdf
 import pytest
 
@@ -80,3 +81,39 @@ def test_index_persists_safe_manifest_and_reuses_unchanged_corpus(
     ]
     assert "secret" not in manifest_text
     assert "poison" not in manifest_text.lower()
+
+
+def test_index_rebuilds_when_collection_count_disagrees_with_manifest(
+    tmp_path: Path,
+) -> None:
+    settings = _settings(tmp_path)
+    settings.clean_data_dir.mkdir(parents=True)
+    _write_pdf(settings.clean_data_dir / "rav4.pdf", "RAV4 capacity is 580 litres.")
+    embedder = RecordingEmbedder()
+    first = index_clean_corpus(settings, embedder=embedder)
+    collection = chromadb.PersistentClient(
+        path=str(settings.chroma_persist_dir)
+    ).get_collection("clean_brochures")
+    collection.upsert(
+        ids=["stale-extra-chunk"],
+        documents=["Stale text."],
+        embeddings=[[1.0, 1.0, 0.5]],
+        metadatas=[
+            {
+                "document_id": "stale-document",
+                "filename": "stale.pdf",
+                "page_number": 1,
+                "chunk_id": "stale-extra-chunk",
+            }
+        ],
+    )
+
+    second = index_clean_corpus(settings, embedder=embedder)
+
+    assert first.chunk_count == 1
+    assert second.reused is False
+    rebuilt = chromadb.PersistentClient(
+        path=str(settings.chroma_persist_dir)
+    ).get_collection("clean_brochures")
+    assert rebuilt.count() == 1
+    assert len(embedder.calls) == 2
