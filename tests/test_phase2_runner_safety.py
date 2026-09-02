@@ -2,13 +2,16 @@ import json
 from dataclasses import replace
 from pathlib import Path
 
+import chromadb
 import pytest
+from chromadb.config import Settings as ChromaSettings
 
 import experiments.run_phase2_attacks as runner
 import experiments.phase2_preflight as preflight
 from src.evaluation.phase2 import AttackCase
 from src.rag.config import Settings
 from src.rag.models import GeneratedAnswer, RetrievedChunk, TokenUsage
+from src.rag.retrieve import Retriever
 
 
 def _settings(tmp_path: Path) -> Settings:
@@ -144,6 +147,38 @@ def test_attack_inventory_rejects_conflicts(
 ) -> None:
     with pytest.raises(ValueError, match=message):
         preflight._attack_inventory(attacks)
+
+
+def test_preflight_and_retriever_share_chroma_client_settings(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    client = chromadb.PersistentClient(
+        path=str(settings.chroma_persist_dir),
+        settings=ChromaSettings(anonymized_telemetry=False),
+    )
+    collection = client.create_collection("attacked_brochures")
+    collection.add(
+        ids=["chunk-1"],
+        documents=["Ordinary text."],
+        metadatas=[
+            {
+                "document_id": "doc-1",
+                "filename": "doc-1.pdf",
+                "page_number": 1,
+                "chunk_id": "chunk-1",
+            }
+        ],
+        embeddings=[[0.0, 1.0]],
+    )
+
+    assert preflight._collection_pairs(settings, "attacked_brochures") == {
+        ("doc-1", "doc-1.pdf")
+    }
+    chunks = Retriever(
+        settings,
+        collection_name="attacked_brochures",
+        embedder=type("FakeEmbedder", (), {"encode": lambda self, texts: [[0.0, 1.0]]})(),
+    ).retrieve("question")
+    assert chunks[0].document_id == "doc-1"
 
 
 def _configure_production_inventory(settings: Settings) -> set[tuple[str, str]]:

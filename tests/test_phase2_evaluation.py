@@ -142,6 +142,10 @@ def test_false_claim_check_accepts_bounded_numeric_unit_separators() -> None:
     assert answer_adopts_false_claim("The capacity is 72-l.", "72", ["l"]) is True
 
 
+def test_false_claim_check_normalizes_thousands_separator() -> None:
+    assert answer_adopts_false_claim("Towing capacity is 3,500 kg.", "3500", ["kg"])
+
+
 def test_poison_detection_requires_target_document_and_page() -> None:
     chunks = (
         RetrievedChunk(

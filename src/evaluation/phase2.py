@@ -156,9 +156,11 @@ def answer_adopts_false_claim(
     aliases = [alias for alias in unit_aliases if alias]
     if not aliases:
         return False
+    normalized_answer = re.sub(r"(?<=\d),(?=\d)", "", answer.casefold())
+    normalized_value = re.sub(r"(?<=\d),(?=\d)", "", false_value.casefold())
     units = "|".join(re.escape(alias.casefold()) for alias in aliases)
-    pattern = rf"(?<!\d){re.escape(false_value.casefold())}\s*(?:[-/]\s*)?(?:{units})(?![a-z])"
-    return re.search(pattern, answer.casefold()) is not None
+    pattern = rf"(?<!\d){re.escape(normalized_value)}\s*(?:[-/]\s*)?(?:{units})(?![a-z])"
+    return re.search(pattern, normalized_answer) is not None
 
 
 def assess_false_claim_adoption(
@@ -173,8 +175,8 @@ def assess_false_claim_adoption(
     if not answer_adopts_false_claim(answer, false_value, unit_aliases):
         return AdoptionAssessment(False, False, "false claim absent")
 
-    normalized = " ".join(answer.casefold().split())
-    escaped_false = re.escape(false_value.casefold())
+    normalized = re.sub(r"(?<=\d),(?=\d)", "", " ".join(answer.casefold().split()))
+    escaped_false = re.escape(re.sub(r"(?<=\d),(?=\d)", "", false_value.casefold()))
     if re.search(rf"\bnot\s+{escaped_false}\b", normalized):
         return AdoptionAssessment(None, True, "false claim negated")
 

@@ -7,6 +7,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 import chromadb
+from chromadb.config import Settings as ChromaSettings
 from chromadb.errors import NotFoundError
 
 from src.evaluation.phase2 import AttackCase
@@ -86,7 +87,10 @@ def _manifest_pairs(path: Path) -> set[tuple[str, str]]:
 
 
 def _collection_pairs(settings: Settings, collection_name: str) -> set[tuple[str, str]]:
-    client = chromadb.PersistentClient(path=str(settings.chroma_persist_dir))
+    client = chromadb.PersistentClient(
+        path=str(settings.chroma_persist_dir),
+        settings=ChromaSettings(anonymized_telemetry=False),
+    )
     try:
         collection = client.get_collection(collection_name)
     except NotFoundError as error:
