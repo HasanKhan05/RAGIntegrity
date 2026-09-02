@@ -23,6 +23,9 @@ from src.rag.models import GeneratedAnswer, RetrievedChunk, TokenUsage
 from src.rag.retrieve import Retriever
 
 
+LEGACY_ATTACK_IDS = ("attack_001", "attack_002", "attack_003")
+
+
 @dataclass(frozen=True)
 class RunResult:
     """One retrieval and generation outcome for an experiment question."""
@@ -106,12 +109,17 @@ def run_phase2(
 ) -> dict[str, object]:
     """Run each manifest attack against clean and attacked indexes exactly once."""
 
-    attacks = load_attack_manifest(settings.attack_manifest_path)
-    if len(attacks) != 3:
-        raise ValueError("Phase 2 attack manifest must contain exactly three attacks")
+    inventory_attacks = load_attack_manifest(settings.attack_manifest_path)
+    by_id = {attack.attack_id: attack for attack in inventory_attacks}
+    if len(by_id) != len(inventory_attacks) or any(
+        attack_id not in by_id for attack_id in LEGACY_ATTACK_IDS
+    ):
+        raise ValueError("Phase 2 manifest must contain each original legacy attacks exactly once")
+    attacks = [by_id[attack_id] for attack_id in LEGACY_ATTACK_IDS]
     destination = prepare_run(
         settings,
         attacks,
+        inventory_attacks,
         output_path,
         validate_collections=generator is None or retriever_factory is None,
     )

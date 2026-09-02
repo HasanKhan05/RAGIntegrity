@@ -6,6 +6,7 @@ import pytest
 
 import experiments.run_phase2_attacks as runner
 import experiments.phase2_preflight as preflight
+from src.evaluation.phase2 import AttackCase
 from src.rag.config import Settings
 from src.rag.models import GeneratedAnswer, RetrievedChunk, TokenUsage
 
@@ -30,7 +31,7 @@ def _settings(tmp_path: Path) -> Settings:
             {
                 "attacks": [
                     {
-                        "attack_id": f"attack_{number}",
+                        "attack_id": f"attack_{number:03d}",
                         "synthetic_document_id": f"synthetic-{number}",
                         "synthetic_page_number": 1,
                         "synthetic_filename": f"update-{number}.pdf",
@@ -72,6 +73,77 @@ class FakeRetrieverFactory:
             (),
             {"retrieve": lambda self, question: []},
         )()
+
+
+def _attack_case(
+    attack_id: str,
+    document_id: str,
+    filename: str,
+    page_number: int,
+) -> AttackCase:
+    return AttackCase(
+        attack_id=attack_id,
+        synthetic_document_id=document_id,
+        synthetic_page_number=page_number,
+        synthetic_filename=filename,
+        attack_type="false_specification",
+        target_model="Model",
+        target_topic="Topic",
+        clean_fact="Clean",
+        false_claim="False",
+        clean_source_filename="clean.pdf",
+        clean_source_page=1,
+        target_test_question="Question?",
+        false_value="71",
+        false_unit_aliases=("litres",),
+    )
+
+
+def test_attack_inventory_allows_shared_documents_with_unique_pages() -> None:
+    attacks = [
+        _attack_case("attack_004", "cargo", "cargo.pdf", 1),
+        _attack_case("attack_006", "cargo", "cargo.pdf", 2),
+        _attack_case("attack_005", "power", "power.pdf", 1),
+        _attack_case("attack_007", "power", "power.pdf", 2),
+    ]
+
+    assert preflight._attack_inventory(attacks) == {
+        ("cargo", "cargo.pdf"),
+        ("power", "power.pdf"),
+    }
+
+
+@pytest.mark.parametrize(
+    "attacks, message",
+    [
+        (
+            [
+                _attack_case("a", "same-id", "one.pdf", 1),
+                _attack_case("b", "same-id", "two.pdf", 2),
+            ],
+            "conflicting filenames",
+        ),
+        (
+            [
+                _attack_case("a", "one-id", "same.pdf", 1),
+                _attack_case("b", "two-id", "same.pdf", 2),
+            ],
+            "conflicting document IDs",
+        ),
+        (
+            [
+                _attack_case("a", "same-id", "same.pdf", 1),
+                _attack_case("b", "same-id", "same.pdf", 1),
+            ],
+            "document-plus-page target is not unique",
+        ),
+    ],
+)
+def test_attack_inventory_rejects_conflicts(
+    attacks: list[AttackCase], message: str
+) -> None:
+    with pytest.raises(ValueError, match=message):
+        preflight._attack_inventory(attacks)
 
 
 def _configure_production_inventory(settings: Settings) -> set[tuple[str, str]]:

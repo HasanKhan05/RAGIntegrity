@@ -49,6 +49,31 @@ def _settings(tmp_path: Path) -> Settings:
     return settings
 
 
+def _expand_manifest_to_ten(settings: Settings) -> None:
+    manifest = json.loads(settings.attack_manifest_path.read_text(encoding="utf-8"))
+    template = manifest["attacks"][0]
+    grouped = [
+        (4, "cargo-doc", "cargo.pdf", 1),
+        (5, "power-doc", "power.pdf", 1),
+        (6, "cargo-doc", "cargo.pdf", 2),
+        (7, "power-doc", "power.pdf", 2),
+        (8, "cargo-doc", "cargo.pdf", 3),
+        (9, "cargo-doc", "cargo.pdf", 4),
+        (10, "capability-doc", "capability.pdf", 1),
+    ]
+    manifest["attacks"].extend(
+        {
+            **template,
+            "attack_id": f"attack_{number:03d}",
+            "synthetic_document_id": document_id,
+            "synthetic_filename": filename,
+            "synthetic_page_number": page_number,
+        }
+        for number, document_id, filename, page_number in grouped
+    )
+    settings.attack_manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+
 def _chunk(document_id: str, rank: int) -> RetrievedChunk:
     return RetrievedChunk(
         document_id=document_id,
@@ -154,6 +179,33 @@ def test_runner_makes_six_calls_and_sums_fake_token_usage(tmp_path: Path) -> Non
     }
 
 
+def test_legacy_runner_selects_original_three_from_ten_entry_manifest(
+    tmp_path: Path,
+) -> None:
+    settings = _settings(tmp_path)
+    _expand_manifest_to_ten(settings)
+    generator = RecordingGenerator(
+        [GeneratedAnswer("Answer", TokenUsage(1, 1, 2)) for _ in range(6)]
+    )
+
+    result = run_phase2(
+        settings,
+        generator=generator,
+        retriever_factory=FakeRetrieverFactory(
+            [_chunk("clean", 1)], [_chunk("clean", 1)]
+        ),
+        output_path=tmp_path / "results.json",
+    )
+
+    assert len(generator.calls) == 6
+    assert result["gemini_calls"] == 6
+    assert [item["attack_id"] for item in result["attacks"]] == [
+        "attack_001",
+        "attack_002",
+        "attack_003",
+    ]
+
+
 def test_runner_uses_canonical_default_results_path(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -175,23 +227,19 @@ def test_runner_uses_canonical_default_results_path(
     ).exists()
 
 
-@pytest.mark.parametrize("attack_count", [2, 4])
-def test_runner_rejects_invalid_manifest_counts_before_any_generation(
-    tmp_path: Path, attack_count: int
+def test_runner_rejects_missing_legacy_attack_before_any_generation(
+    tmp_path: Path,
 ) -> None:
     settings = _settings(tmp_path)
     manifest = json.loads(settings.attack_manifest_path.read_text(encoding="utf-8"))
     attacks = manifest["attacks"]
-    if attack_count == 4:
-        attacks.append({**attacks[0], "attack_id": "attack_004"})
-    else:
-        manifest["attacks"] = attacks[:attack_count]
+    manifest["attacks"] = attacks[:2]
     settings.attack_manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     generator = RecordingGenerator(
         [GeneratedAnswer("Answer", TokenUsage(1, 1, 2)) for _ in range(8)]
     )
 
-    with pytest.raises(ValueError, match="exactly three"):
+    with pytest.raises(ValueError, match="legacy attacks"):
         run_phase2(
             settings,
             generator=generator,

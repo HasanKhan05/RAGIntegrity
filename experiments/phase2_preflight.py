@@ -16,7 +16,8 @@ from src.rag.index import ATTACKED_COLLECTION_NAME, CLEAN_COLLECTION_NAME
 
 def prepare_run(
     settings: Settings,
-    attacks: Sequence[AttackCase],
+    run_attacks: Sequence[AttackCase],
+    inventory_attacks: Sequence[AttackCase],
     output_path: Path | None,
     *,
     validate_collections: bool,
@@ -34,9 +35,33 @@ def prepare_run(
         raise ValueError("Phase 2 requires LLM_TEMPERATURE=0")
     if settings.top_k != 3:
         raise ValueError("Phase 2 requires TOP_K=3")
+    _attack_inventory(inventory_attacks)
     if validate_collections:
-        _validate_collections(settings, attacks)
+        _validate_collections(settings, inventory_attacks)
     return destination
+
+
+def _attack_inventory(
+    attacks: Sequence[AttackCase],
+) -> set[tuple[str, str]]:
+    pairs: set[tuple[str, str]] = set()
+    document_names: dict[str, str] = {}
+    filename_ids: dict[str, str] = {}
+    target_pages: set[tuple[str, int]] = set()
+    for attack in attacks:
+        pair = (attack.synthetic_document_id, attack.synthetic_filename)
+        previous_name = document_names.setdefault(*pair)
+        if previous_name != attack.synthetic_filename:
+            raise ValueError("synthetic document ID maps to conflicting filenames")
+        previous_id = filename_ids.setdefault(attack.synthetic_filename, attack.synthetic_document_id)
+        if previous_id != attack.synthetic_document_id:
+            raise ValueError("synthetic filename maps to conflicting document IDs")
+        target = (attack.synthetic_document_id, attack.synthetic_page_number)
+        if target in target_pages:
+            raise ValueError("attack manifest document-plus-page target is not unique")
+        target_pages.add(target)
+        pairs.add(pair)
+    return pairs
 
 
 def _manifest_pairs(path: Path) -> set[tuple[str, str]]:
@@ -77,12 +102,10 @@ def _collection_pairs(settings: Settings, collection_name: str) -> set[tuple[str
 
 
 def _validate_collections(settings: Settings, attacks: Sequence[AttackCase]) -> None:
-    expected = {(attack.synthetic_document_id, attack.synthetic_filename) for attack in attacks}
+    expected = _attack_inventory(attacks)
     expected_ids = {document_id for document_id, _ in expected}
     expected_names = {filename for _, filename in expected}
     poisoned_names = {path.name for path in settings.poisoned_data_dir.glob("*.pdf")}
-    if len(expected) != len(attacks):
-        raise ValueError("attack manifest synthetic inventory is not unique")
     if poisoned_names != expected_names:
         raise ValueError("generated poisoned PDF inventory does not match attack manifest")
     clean_manifest = _manifest_pairs(settings.manifest_path)
