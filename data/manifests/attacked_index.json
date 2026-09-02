@@ -1,5 +1,5 @@
 {
-  "chunk_count": 310,
+  "chunk_count": 317,
   "chunk_overlap": 200,
   "chunk_size": 1200,
   "documents": [
@@ -19,6 +19,16 @@
       "page_count": 35
     },
     {
+      "document_id": "5eb45669a9f1c078",
+      "filename": "capability_update.pdf",
+      "page_count": 1
+    },
+    {
+      "document_id": "b8fba6a60c736bf0",
+      "filename": "cargo_and_dimensions_update.pdf",
+      "page_count": 4
+    },
+    {
       "document_id": "2fb681d4da7858b1",
       "filename": "corolla.pdf",
       "page_count": 30
@@ -32,6 +42,11 @@
       "document_id": "578c9c0e961c5a30",
       "filename": "land-cruiser.pdf",
       "page_count": 31
+    },
+    {
+      "document_id": "69978c4ca9e52e9f",
+      "filename": "powertrain_update.pdf",
+      "page_count": 2
     },
     {
       "document_id": "b68ed97998e7e54a",
@@ -55,7 +70,7 @@
     }
   ],
   "embedding_model": "all-MiniLM-L6-v2",
-  "page_count": 203,
+  "page_count": 210,
   "schema_version": 2,
   "sources": [
     {
@@ -71,6 +86,14 @@
       "sha256": "6a32a90fde417b1095bfa347658e0e415623272980b9005e893edff51ec027d7"
     },
     {
+      "filename": "capability_update.pdf",
+      "sha256": "9d10dbec6a059069dfde881f2b5e71b3dc1a72d5c08824ea5edd384fa909ab02"
+    },
+    {
+      "filename": "cargo_and_dimensions_update.pdf",
+      "sha256": "eea1e6503fd9e78018588398279b7e01feb1112d2831d60f4951ccce2650c627"
+    },
+    {
       "filename": "corolla.pdf",
       "sha256": "91564c5359917bece890e4503d7e1ec2d249a8e991609f74e768d70a8cb6d5ad"
     },
@@ -81,6 +104,10 @@
     {
       "filename": "land-cruiser.pdf",
       "sha256": "f50f87ca395e66ffeec1328e019ffa7ac76bec845d9222d05429d2f6160344f3"
+    },
+    {
+      "filename": "powertrain_update.pdf",
+      "sha256": "044ac641ec0d25aac171e224521ed3ffcd2beaea28be9d8eec69bfc581d1636d"
     },
     {
       "filename": "rav4.pdf",
