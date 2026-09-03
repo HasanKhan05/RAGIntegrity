@@ -97,6 +97,32 @@ def _load_checks(path: Path) -> dict[str, dict[str, object]]:
     return checks
 
 
+def _validate_deterministic_checks(
+    path: Path, attacks: dict[str, AttackCase]
+) -> dict[str, tuple[str, ...]]:
+    checks = _load_checks(path)
+    clean_values_by_attack: dict[str, tuple[str, ...]] = {}
+    for attack_id in {attack_id for attack_id, _ in SMOKE_MATRIX}:
+        attack = attacks[attack_id]
+        check = checks.get(attack_id)
+        if not isinstance(check, dict):
+            raise ValueError("Phase 3 smoke deterministic checks are missing")
+        clean_values = check.get("clean_values")
+        unit_aliases = check.get("unit_aliases")
+        if (
+            check.get("type") != "numeric_adoption"
+            or check.get("false_value") != attack.false_value
+            or not isinstance(clean_values, list)
+            or not clean_values
+            or not all(isinstance(value, str) and value for value in clean_values)
+            or not isinstance(unit_aliases, list)
+            or tuple(unit_aliases) != attack.false_unit_aliases
+        ):
+            raise ValueError(f"invalid deterministic check for {attack_id}")
+        clean_values_by_attack[attack_id] = tuple(clean_values)
+    return clean_values_by_attack
+
+
 def _load_baselines(paths: Sequence[Path]) -> dict[str, dict[str, object]]:
     baselines: dict[str, dict[str, object]] = {}
     for path in paths:
@@ -120,6 +146,27 @@ def _load_baselines(paths: Sequence[Path]) -> dict[str, dict[str, object]]:
                 "generation_compromised": record.get("generation_compromised"),
             }
     return baselines
+
+
+def _validate_selected_baselines(
+    baselines: dict[str, dict[str, object]]
+) -> None:
+    expected_files = {
+        "attack_003": "phase2_attack_results.json",
+        "attack_005": "phase2_expansion_smoke.json",
+        "attack_010": "phase2_expansion_smoke.json",
+    }
+    for attack_id, expected_file in expected_files.items():
+        baseline = baselines.get(attack_id)
+        if (
+            not isinstance(baseline, dict)
+            or baseline.get("result_file") != expected_file
+            or not isinstance(baseline.get("attacked_answer"), str)
+            or not baseline["attacked_answer"].strip()
+            or not isinstance(baseline.get("retrieval_compromised"), bool)
+            or not isinstance(baseline.get("generation_compromised"), bool)
+        ):
+            raise ValueError(f"invalid Phase 2 baseline for {attack_id}")
 
 
 def _required_attacks(inventory: Sequence[AttackCase]) -> dict[str, AttackCase]:
@@ -158,13 +205,11 @@ def run_phase3_defense_smoke(
         destination,
         validate_collections=generator is None or retriever is None,
     )
-    checks = _load_checks(settings.attack_manifest_path)
-    required_ids = {attack_id for attack_id, _ in SMOKE_MATRIX}
-    if required_ids - set(checks):
-        raise ValueError("Phase 3 smoke deterministic checks are missing")
+    clean_values_by_attack = _validate_deterministic_checks(
+        settings.attack_manifest_path, attacks
+    )
     baselines = _load_baselines(baseline_paths or _default_baseline_paths(settings))
-    if required_ids - set(baselines):
-        raise ValueError("Phase 3 smoke baselines are missing selected attacks")
+    _validate_selected_baselines(baselines)
 
     active_generator = generator or GeminiGenerator(settings)
     active_retriever = retriever or Retriever(
@@ -191,16 +236,10 @@ def run_phase3_defense_smoke(
         detection = detect_poison(
             snapshot, attack.synthetic_document_id, attack.synthetic_page_number
         )
-        check = checks[attack_id]
-        clean_values = check.get("clean_values")
-        if not isinstance(clean_values, list) or not all(
-            isinstance(value, str) for value in clean_values
-        ):
-            raise ValueError(f"missing deterministic clean values for {attack_id}")
         assessment = assess_false_claim_adoption(
             answer.text,
             false_value=attack.false_value,
-            clean_values=clean_values,
+            clean_values=clean_values_by_attack[attack_id],
             unit_aliases=attack.false_unit_aliases,
         )
         runs.append(

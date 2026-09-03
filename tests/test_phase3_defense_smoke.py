@@ -140,6 +140,18 @@ class DistinctEmbedder:
         return [[float(index + 1), 1.0] for index, _ in enumerate(texts)]
 
 
+class RecordingCoordinator:
+    def __init__(self, delegate: DefenseCoordinator) -> None:
+        self.delegate = delegate
+        self.inputs: list[tuple[object, tuple[RetrievedChunk, ...]]] = []
+
+    def apply(
+        self, chunks: tuple[RetrievedChunk, ...], mode: object
+    ) -> object:
+        self.inputs.append((mode, chunks))
+        return self.delegate.apply(chunks, mode)
+
+
 def test_defended_smoke_uses_fixed_matrix_and_retained_contexts(
     tmp_path: Path,
 ) -> None:
@@ -165,8 +177,10 @@ def test_defended_smoke_uses_fixed_matrix_and_retained_contexts(
             "The towing capacity is 3,000 kg.",
         ]
     )
-    coordinator = DefenseCoordinator(
-        trusted_filenames={"official.pdf"}, embedder=DistinctEmbedder()
+    coordinator = RecordingCoordinator(
+        DefenseCoordinator(
+            trusted_filenames={"official.pdf"}, embedder=DistinctEmbedder()
+        )
     )
 
     result = run_phase3_defense_smoke(
@@ -203,12 +217,23 @@ def test_defended_smoke_uses_fixed_matrix_and_retained_contexts(
     assert all(run["retrieval_compromised"] is True for run in result["runs"])
     assert all(run["retained_sources"][0]["filename"] == "official.pdf" for run in result["runs"])
     assert all(run["trace"][0]["included"] is False for run in result["runs"])
-    assert result["runs"][0]["phase2_baseline"]["attacked_answer"] == (
-        "Baseline wading answer: 900 mm."
-    )
-    assert result["runs"][2]["phase2_baseline"]["attacked_answer"] == (
-        "Baseline Yaris answer: 145 DIN hp."
-    )
+    assert coordinator.inputs[0][1] is coordinator.inputs[1][1]
+    assert coordinator.inputs[2][1] is coordinator.inputs[3][1]
+    assert coordinator.inputs[4][1] is coordinator.inputs[5][1]
+    expected_baselines = {
+        "attack_003": ("phase2_attack_results.json", "Baseline wading answer: 900 mm."),
+        "attack_005": ("phase2_expansion_smoke.json", "Baseline Yaris answer: 145 DIN hp."),
+        "attack_010": ("phase2_expansion_smoke.json", "Baseline towing answer: 3,500 kg."),
+    }
+    for run in result["runs"]:
+        result_file, answer = expected_baselines[run["attack_id"]]
+        assert run["phase2_baseline"]["result_file"] == result_file
+        assert run["phase2_baseline"]["attacked_answer"] == answer
+        assert isinstance(run["source_snapshot"], list)
+        assert isinstance(run["retained_sources"], list)
+        assert isinstance(run["trace"], list)
+        assert isinstance(run["answer"], str)
+    assert json.loads((tmp_path / "phase3_defense_smoke.json").read_text(encoding="utf-8")) == result
 
 
 @pytest.mark.parametrize("change", [{"llm_temperature": 0.1}, {"top_k": 2}])
@@ -252,6 +277,93 @@ def test_defended_smoke_refuses_existing_output_before_retrieval_or_generation(
             coordinator=DefenseCoordinator(trusted_filenames=set()),
             baseline_paths=baselines,
             output_path=output_path,
+        )
+
+    assert retriever.questions == []
+    assert generator.calls == []
+
+
+def test_defended_smoke_rejects_malformed_deterministic_config_before_calls(
+    tmp_path: Path,
+) -> None:
+    settings = _settings(tmp_path)
+    manifest = json.loads(settings.attack_manifest_path.read_text(encoding="utf-8"))
+    for attack in manifest["attacks"]:
+        if attack["attack_id"] == "attack_003":
+            attack["deterministic_compromise_check"]["clean_values"] = "700"
+    settings.attack_manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    generator = RecordingGenerator(["unused"] * 6)
+    retriever = RecordingRetriever({})
+
+    with pytest.raises(ValueError, match="deterministic"):
+        run_phase3_defense_smoke(
+            settings,
+            generator=generator,
+            retriever=retriever,
+            coordinator=DefenseCoordinator(trusted_filenames=set()),
+            baseline_paths=_write_baselines(tmp_path),
+            output_path=tmp_path / "phase3_defense_smoke.json",
+        )
+
+    assert retriever.questions == []
+    assert generator.calls == []
+
+
+@pytest.mark.parametrize("invalid_field", ["attacked_answer", "retrieval_compromised"])
+def test_defended_smoke_rejects_invalid_baseline_fields_before_calls(
+    tmp_path: Path, invalid_field: str
+) -> None:
+    settings = _settings(tmp_path)
+    baselines = _write_baselines(tmp_path)
+    payload = json.loads(baselines[0].read_text(encoding="utf-8"))
+    payload["attacks"][0][invalid_field] = None
+    baselines[0].write_text(json.dumps(payload), encoding="utf-8")
+    generator = RecordingGenerator(["unused"] * 6)
+    retriever = RecordingRetriever({})
+
+    with pytest.raises(ValueError, match="baseline"):
+        run_phase3_defense_smoke(
+            settings,
+            generator=generator,
+            retriever=retriever,
+            coordinator=DefenseCoordinator(trusted_filenames=set()),
+            baseline_paths=baselines,
+            output_path=tmp_path / "phase3_defense_smoke.json",
+        )
+
+    assert retriever.questions == []
+    assert generator.calls == []
+
+
+def test_defended_smoke_rejects_stale_baseline_source_mapping_before_calls(
+    tmp_path: Path,
+) -> None:
+    settings = _settings(tmp_path)
+    baselines = _write_baselines(tmp_path)
+    attack_results = json.loads(baselines[0].read_text(encoding="utf-8"))
+    expansion_results = json.loads(baselines[1].read_text(encoding="utf-8"))
+    attack_results["attacks"] = [expansion_results["attacks"].pop(0)]
+    expansion_results["attacks"].append(
+        {
+            "attack_id": "attack_003",
+            "attacked_answer": "Stale wading answer: 900 mm.",
+            "generation_compromised": True,
+            "retrieval_compromised": True,
+        }
+    )
+    baselines[0].write_text(json.dumps(attack_results), encoding="utf-8")
+    baselines[1].write_text(json.dumps(expansion_results), encoding="utf-8")
+    generator = RecordingGenerator(["unused"] * 6)
+    retriever = RecordingRetriever({})
+
+    with pytest.raises(ValueError, match="baseline"):
+        run_phase3_defense_smoke(
+            settings,
+            generator=generator,
+            retriever=retriever,
+            coordinator=DefenseCoordinator(trusted_filenames=set()),
+            baseline_paths=baselines,
+            output_path=tmp_path / "phase3_defense_smoke.json",
         )
 
     assert retriever.questions == []
