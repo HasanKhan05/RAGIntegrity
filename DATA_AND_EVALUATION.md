@@ -168,6 +168,30 @@ Calculated by the experiment runner and saved:
 
 The Results page must read these values from experiment output files. Never hardcode invented percentages.
 
+## Phase 3 defense evaluation
+
+The Phase 3 local runner uses the fixed Phase 2 attacked collection and benchmark. For each of 30 attack questions and 18 clean controls, it retrieves `top_k=3` exactly once and applies all five modes to the same immutable snapshot: `none`, `source_trust`, `instruction_filter`, `similarity_filter`, and `combined`. The default similarity threshold is `0.92`. Retrieval latency is recorded outside defense timing.
+
+Attack identity remains evaluation-only. The defenses receive ordinary text and source fields, and the evaluator later matches exact synthetic document ID plus page number. Consequently, the analysis separates:
+
+- retrieval compromise: the target synthetic page is present in the original top-k snapshot;
+- defense removal/survival: that target is absent/present after filtering; and
+- generation compromise: a generated answer adopts the false claim.
+
+The zero-Gemini analysis observed 23 target-page retrievals and 112 legitimate clean chunk retrievals across the 48 snapshots:
+
+| Mode | Poison removal | Poison survival | Clean false rejection | Average remaining chunks | Average defense latency |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `none` | 0/23 | 23/23 | 0/112 | 3.000 | 0.081 ms |
+| `source_trust` | 23/23 | 0/23 | 0/112 | 2.333 | 0.056 ms |
+| `instruction_filter` | 2/23 | 21/23 | 0/112 | 2.958 | 0.250 ms |
+| `similarity_filter` | 0/23 | 23/23 | 4/112 | 2.917 | 303.298 ms |
+| `combined` | 23/23 | 0/23 | 4/112 | 2.250 | 184.135 ms |
+
+The source-trust numbers rely on the testbed's closed clean inventory and do not generalize to unverified open uploads or source impersonation. Similarity latency includes local embedding work and is machine/run dependent.
+
+The six-call smoke selected the canonical questions for attacks 003, 005, and 010. Each source snapshot retrieved its target at rank #1, preserving retrieval compromise. The selected `instruction_filter`, `source_trust`, or `combined` mode removed the target before generation; all six defended answers avoided the false claim, so generation compromise was false in all six. The corresponding Phase 2 baseline answers were generation-compromised. Gemini reported 4,270 input tokens, 179 output tokens, and 4,449 total tokens. Per-run answers, traces, retained sources, baseline references, assessments, and provider usage are stored in `experiments/results/phase3_defense_smoke.json`; all 48 local outcomes are stored in `experiments/results/phase3_defense_analysis.json`.
+
 ---
 
 # Correctness strategy
