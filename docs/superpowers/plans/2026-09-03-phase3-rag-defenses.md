@@ -166,12 +166,12 @@
 
 - [x] **Step 3: Update documentation with measured values**
 
-  Explain defense modes, `0.92` default threshold, attack-blind boundary, same-snapshot methodology, retrieval versus generation compromise, source-trust threat-model limitation, local metrics, smoke outcomes, and exact Gemini usage. Mark Phase 3 complete after verification and the local commit; the recorded controller workflow defers push until reviews pass.
+  Explain defense modes, `0.92` default threshold, attack-blind boundary, same-snapshot methodology, retrieval versus generation compromise, source-trust threat-model limitation, local metrics, smoke outcomes, and exact Gemini usage. Mark Phase 3 complete only after verification, commit, and push succeed.
 
 - [x] **Step 4: Run completion verification**
 
   Run `.venv\Scripts\python.exe -m pytest -q`; `git diff --check`; verify `.env` is ignored and untracked; inspect both result JSON files; scan tracked Phase 3 code/trace/result fields for `LLM_API_KEY`, real key material, `is_poison`, and attack-manifest leakage into `src.rag.defenses` or API traces.
 
-- [x] **Step 5: Commit locally; controller pushes after review**
+- [x] **Step 5: Commit and push**
 
-  Stage only intended Phase 3 files, commit with `feat: complete phase 3 rag defenses`, verify `git status --short --branch`, and stop without starting Phase 4. Under the recorded workflow ruling, do not push here; the controller pushes only after task and whole-branch reviews pass.
+  Stage only intended Phase 3 files, commit with `feat: complete phase 3 rag defenses`, push `main` to `origin`, verify `git status --short --branch`, and stop without starting Phase 4.

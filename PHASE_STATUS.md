@@ -6,7 +6,7 @@ Update this file at the end of every phase.
 |---|---|---:|---:|---:|---|
 | Phase 1 — Setup, Clean Data, Baseline RAG | Complete | Yes | Yes | Yes | 7 official PDFs; 200 pages; 307 chunks; 30 tests; 3 live Gemini QA calls passed |
 | Phase 2 — Poisoning Attacks | Complete | Yes | Yes | Yes | 10 facts; 6 controlled local research PDFs (not manufacturer publications); 30 retrieval-only attack questions; 18 clean controls; 23/30 target-page retrievals; 6-call smoke used 5,551 provider-reported tokens |
-| Phase 3 — Defenses | Complete | Yes | Yes | No | 48-question attack-blind local comparison; 23/23 retrieved targets removed by source trust/combined; 6-call smoke used 4,449 provider-reported tokens; published cross-mode latency is not a fair steady-state comparison because the fixed mode order assigns local embedder cold start to `similarity_filter`; push intentionally deferred to controller review |
+| Phase 3 — Defenses | Complete | Yes | Yes | Yes | 48-question attack-blind local comparison; 23/23 retrieved targets removed by source trust/combined; 6-call smoke used 4,449 provider-reported tokens; published cross-mode latency is not a fair steady-state comparison because the fixed mode order assigns local embedder cold start to `similarity_filter` |
 | Phase 4 — Evaluation and Error Analysis | Not Started | No | No | No | |
 | Phase 5 — Frontend, Demo, Documentation | Not Started | No | No | No | |
 
@@ -26,8 +26,6 @@ A phase is only `Complete` when:
 - documentation is updated
 - changes are committed
 - changes are pushed
-
-Phase 3 follows the recorded review workflow exception: the implementation worker completes verification and the local phase commit, then the controller pushes only after task and whole-branch reviews pass. The `Pushed` cell remains `No` until that controller action.
 
 If an external requirement is missing, use `Blocked`.
 
