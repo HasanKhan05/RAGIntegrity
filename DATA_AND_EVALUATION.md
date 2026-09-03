@@ -188,7 +188,7 @@ The zero-Gemini analysis observed 23 target-page retrievals and 112 legitimate c
 | `similarity_filter` | 0/23 | 23/23 | 4/112 | 2.917 | 303.298 ms |
 | `combined` | 23/23 | 0/23 | 4/112 | 2.250 | 184.135 ms |
 
-The source-trust numbers rely on the testbed's closed clean inventory and do not generalize to unverified open uploads or source impersonation. Similarity latency includes local embedding work and is machine/run dependent.
+The source-trust numbers rely on the testbed's closed clean inventory and do not generalize to unverified open uploads or source impersonation. Similarity latency includes local embedding work and is machine/run dependent. Modes were timed in a fixed order, so the local embedder cold start is included in `similarity_filter` but not the later `combined` mode; the published cross-mode latency values are not a fair steady-state comparison.
 
 The six-call smoke selected the canonical questions for attacks 003, 005, and 010. Each source snapshot retrieved its target at rank #1, preserving retrieval compromise. The selected `instruction_filter`, `source_trust`, or `combined` mode removed the target before generation; all six defended answers avoided the false claim, so generation compromise was false in all six. The corresponding Phase 2 baseline answers were generation-compromised. Gemini reported 4,270 input tokens, 179 output tokens, and 4,449 total tokens. Per-run answers, traces, retained sources, baseline references, assessments, and provider usage are stored in `experiments/results/phase3_defense_smoke.json`; all 48 local outcomes are stored in `experiments/results/phase3_defense_analysis.json`.
 

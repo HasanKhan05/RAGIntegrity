@@ -18,7 +18,7 @@ _INSTRUCTION_PATTERNS = (
     "always state",
     "respond with",
     "ignore previous",
-    "prioritize this",
+    "prioritize this update",
 )
 
 

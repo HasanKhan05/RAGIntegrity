@@ -107,7 +107,7 @@ The local analysis retrieved each of 30 attack questions and 18 clean controls o
 | `similarity_filter` | 0/23 (0.0%) | 23/23 (100.0%) | 4/112 (3.6%) | 2.917 | 303.298 ms |
 | `combined` | 23/23 (100.0%) | 0/23 (0.0%) | 4/112 (3.6%) | 2.250 | 184.135 ms |
 
-These are measured benchmark outcomes, not a claim of perfect security. In particular, source trust is strong here because the clean corpus is a closed, curated filename inventory. It does not by itself solve provenance in an open-upload system or against an attacker able to replace or impersonate a trusted source. Latency is defense-only and machine/run dependent; retrieval timing is recorded separately.
+These are measured benchmark outcomes, not a claim of perfect security. In particular, source trust is strong here because the clean corpus is a closed, curated filename inventory. It does not by itself solve provenance in an open-upload system or against an attacker able to replace or impersonate a trusted source. Latency is defense-only and machine/run dependent; retrieval timing is recorded separately. Modes were timed in a fixed order, so the local embedder cold start is included in `similarity_filter` but not the later `combined` mode; the published cross-mode latency values are not a fair steady-state comparison.
 
 The fixed generation smoke reused the Phase 2 compromised baselines for attacks 003, 005, and 010 and made exactly six new Gemini calls. All six immutable attacked snapshots still contained the synthetic target at rank #1, so retrieval compromise remained **Yes**. After the selected defenses removed that target, all six answers stated the clean brochure value and generation compromise was **No**:
 
