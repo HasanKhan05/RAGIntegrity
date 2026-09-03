@@ -41,6 +41,27 @@ def test_settings_load_safe_defaults(tmp_path: Path) -> None:
     assert settings.embedding_model == "all-MiniLM-L6-v2"
     assert settings.chunk_size == 1200
     assert settings.chunk_overlap == 200
+    assert settings.defense_similarity_threshold == 0.92
+
+
+@pytest.mark.parametrize("threshold", ["-0.01", "1.01"])
+def test_similarity_threshold_must_be_a_cosine_boundary(
+    tmp_path: Path, threshold: str
+) -> None:
+    env_file = tmp_path / ".env"
+    env_file.write_text(
+        "\n".join(
+            [
+                "LLM_PROVIDER=gemini",
+                "LLM_MODEL=gemini-3.5-flash-lite",
+                f"DEFENSE_SIMILARITY_THRESHOLD={threshold}",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ConfigurationError, match="DEFENSE_SIMILARITY_THRESHOLD"):
+        Settings.from_env(env_file)
 
 
 def test_generation_requires_api_key(tmp_path: Path) -> None:

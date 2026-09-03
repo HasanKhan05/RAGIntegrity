@@ -55,6 +55,7 @@ class Settings:
     attack_manifest_path: Path
     attack_questions_path: Path
     clean_control_questions_path: Path
+    defense_similarity_threshold: float
 
     @classmethod
     def from_env(cls, env_file: Path | None = None) -> Settings:
@@ -75,6 +76,7 @@ class Settings:
         chunk_size = _read_int(values, "CHUNK_SIZE", 1200)
         chunk_overlap = _read_int(values, "CHUNK_OVERLAP", 200)
         temperature = _read_float(values, "LLM_TEMPERATURE", 0.0)
+        similarity_threshold = _read_float(values, "DEFENSE_SIMILARITY_THRESHOLD", 0.92)
 
         if max_output_tokens <= 0:
             raise ConfigurationError("MAX_OUTPUT_TOKENS must be positive")
@@ -86,6 +88,10 @@ class Settings:
             raise ConfigurationError("CHUNK_OVERLAP must be between 0 and CHUNK_SIZE")
         if not 0 <= temperature <= 2:
             raise ConfigurationError("LLM_TEMPERATURE must be between 0 and 2")
+        if not 0 <= similarity_threshold <= 1:
+            raise ConfigurationError(
+                "DEFENSE_SIMILARITY_THRESHOLD must be between 0 and 1"
+            )
 
         persist_value = Path(read("CHROMA_PERSIST_DIR", "data/vector_store"))
         persist_dir = persist_value if persist_value.is_absolute() else project_root / persist_value
@@ -122,6 +128,7 @@ class Settings:
             clean_control_questions_path=(
                 project_root / "data" / "evaluation" / "clean_control_questions.json"
             ).resolve(),
+            defense_similarity_threshold=similarity_threshold,
         )
 
     def require_generation(self) -> None:
