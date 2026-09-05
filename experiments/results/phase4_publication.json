@@ -1,0 +1,17 @@
+{
+  "artifacts": {
+    "phase4_evaluation.md": {
+      "sha256": "5bfe8c8503a866af73f1f9e46adf71ad8c52252b860fd2bb0705af9ad9b5fe39"
+    },
+    "phase4_evaluation_results.csv": {
+      "sha256": "917c86f4cf5b26834583b7d41f9bbe75e9141771355ad56346968453245bd5c1"
+    },
+    "phase4_evaluation_results.json": {
+      "sha256": "f612fa19f101c7f1ea25d8e7c06f2854834128dcfe3c90a85a26ca11fd2f705f"
+    },
+    "phase4_summary.json": {
+      "sha256": "9d24fd82269bdb3ac5e16243c292098ab62673069e8f3af18bfb70ce495b668f"
+    }
+  },
+  "schema_version": "phase4_publication_v1"
+}

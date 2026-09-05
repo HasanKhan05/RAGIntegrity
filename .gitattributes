@@ -1,1 +1,2 @@
 data/poisoned/*.pdf binary
+experiments/results/phase4_evaluation_results.csv text eol=lf

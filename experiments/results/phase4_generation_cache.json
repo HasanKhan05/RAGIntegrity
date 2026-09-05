@@ -1,0 +1,4477 @@
+{
+  "schema_version": "phase4_generation_cache_v1",
+  "entries": {
+    "5274fe799ba3376a2fcd5807daabe8fc08b726608916ff29c9db3dd90aa6f09b": {
+      "fingerprint": "5274fe799ba3376a2fcd5807daabe8fc08b726608916ff29c9db3dd90aa6f09b",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the RAV4 fuel tank capacity?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "efb0ef9056afef976a91975f633d607c2ed9b99f5f3b900cb6ebd9ce4494abca",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 2,
+            "chunk_id": "2fb681d4da7858b1-p2-c0",
+            "text_sha256": "55a219b401028e1ea24daf524715e45486228f38ce3a55a198d03510962cee9f"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 16,
+            "chunk_id": "2fb681d4da7858b1-p16-c0",
+            "text_sha256": "a1f57e1563e7bd28e6df86812c59747913ad72402788d73d388c91e722958693"
+          }
+        ]
+      },
+      "answer": "The RAV4 fuel tank capacity is 55 litres [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1130,
+        "output_tokens": 23,
+        "total_tokens": 1153
+      },
+      "latency_ms": 2389.2,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:12Z"
+    },
+    "ae34e1b2c6f524815e02bb226ebba8f5b698e3467ddfc1e5ff2d5f3081db8f3f": {
+      "fingerprint": "ae34e1b2c6f524815e02bb226ebba8f5b698e3467ddfc1e5ff2d5f3081db8f3f",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the RAV4 fuel tank capacity?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ab8bbd7bea2878a851efac51873d092ad23aeae39aee96d8f54904c8d3bda637",
+        "chunks": [
+          {
+            "document_id": "b8a5d2313fda8d64",
+            "filename": "vehicle_specification_update.pdf",
+            "page_number": 1,
+            "chunk_id": "b8a5d2313fda8d64-p1-c0",
+            "text_sha256": "d43e6ee299a41404cefac5425b7568c932ce7e5d57d80137d17b17f2b3b853be"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 2,
+            "chunk_id": "2fb681d4da7858b1-p2-c0",
+            "text_sha256": "55a219b401028e1ea24daf524715e45486228f38ce3a55a198d03510962cee9f"
+          }
+        ]
+      },
+      "answer": "The RAV4 fuel tank capacity is 72 litres [vehicle_specification_update.pdf, p. 1] or 55 litres, depending on the model specification [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 806,
+        "output_tokens": 48,
+        "total_tokens": 854
+      },
+      "latency_ms": 2429.39,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:17Z"
+    },
+    "b341dc04e1c61a4153c5cbd8d70e33b665ad8c011b3a0df48b86541a3bcd08e4": {
+      "fingerprint": "b341dc04e1c61a4153c5cbd8d70e33b665ad8c011b3a0df48b86541a3bcd08e4",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the RAV4 fuel tank capacity?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "5be8c3b559d0ae6f2d39f6066e8fe6deb67510409ceb0fda557255ae4108fabf",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 2,
+            "chunk_id": "2fb681d4da7858b1-p2-c0",
+            "text_sha256": "55a219b401028e1ea24daf524715e45486228f38ce3a55a198d03510962cee9f"
+          }
+        ]
+      },
+      "answer": "The RAV4 fuel tank capacity is 55 litres [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 773,
+        "output_tokens": 23,
+        "total_tokens": 796
+      },
+      "latency_ms": 1953.49,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:22Z"
+    },
+    "fc2642dec549dad4f2a7da71943d000956fe02442646e5db4e2c69beb03dcc93": {
+      "fingerprint": "fc2642dec549dad4f2a7da71943d000956fe02442646e5db4e2c69beb03dcc93",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres does the RAV4 fuel tank hold?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "1d1b2aa40ac423c52e24e20ab8c1259a8fe15c722e243ad348c2495f9b279662",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 56,
+            "chunk_id": "b68ed97998e7e54a-p56-c0",
+            "text_sha256": "6abc3b3c29ff7e3e8819c58fbc0ae976a95f008757c47e09829c9d5d54961066"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c1",
+            "text_sha256": "fa10d6899420648ed3ecfbf317363f6e7eb2fa5dc4c2e7f5c384364f0e66283e"
+          }
+        ]
+      },
+      "answer": "The RAV4 fuel tank holds 55 litres [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 949,
+        "output_tokens": 22,
+        "total_tokens": 971
+      },
+      "latency_ms": 3118.26,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:28Z"
+    },
+    "67aa1dc669bc81149981dd1f0acde40507e9c08e7a373c705261b037652c6ca9": {
+      "fingerprint": "67aa1dc669bc81149981dd1f0acde40507e9c08e7a373c705261b037652c6ca9",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres does the RAV4 fuel tank hold?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "2dfed8ace8e06e4f64a9da4e5be78c72c9fb1ce41ae5b56c27a9beb84e9c1593",
+        "chunks": [
+          {
+            "document_id": "b8a5d2313fda8d64",
+            "filename": "vehicle_specification_update.pdf",
+            "page_number": 1,
+            "chunk_id": "b8a5d2313fda8d64-p1-c0",
+            "text_sha256": "d43e6ee299a41404cefac5425b7568c932ce7e5d57d80137d17b17f2b3b853be"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 56,
+            "chunk_id": "b68ed97998e7e54a-p56-c0",
+            "text_sha256": "6abc3b3c29ff7e3e8819c58fbc0ae976a95f008757c47e09829c9d5d54961066"
+          }
+        ]
+      },
+      "answer": "The RAV4 fuel tank capacity is 72 litres [vehicle_specification_update.pdf, p. 1] or 55 litres, depending on the model [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 703,
+        "output_tokens": 47,
+        "total_tokens": 750
+      },
+      "latency_ms": 1870.44,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:31Z"
+    },
+    "18e08b9a29388431e5f1e707cf9795564a1d47f00980f9d7957f3853a32aef51": {
+      "fingerprint": "18e08b9a29388431e5f1e707cf9795564a1d47f00980f9d7957f3853a32aef51",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres does the RAV4 fuel tank hold?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "0677719c20dfa7a8d998f7182edd05bbaf74a455eccb73e4868fdbcf93900774",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 56,
+            "chunk_id": "b68ed97998e7e54a-p56-c0",
+            "text_sha256": "6abc3b3c29ff7e3e8819c58fbc0ae976a95f008757c47e09829c9d5d54961066"
+          }
+        ]
+      },
+      "answer": "The RAV4 fuel tank holds 55 litres [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 670,
+        "output_tokens": 22,
+        "total_tokens": 692
+      },
+      "latency_ms": 3257.4,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:38Z"
+    },
+    "d543628be1404359d557e8188dc53558803aaf3d7cfa627145f5c95f99a2fcf2": {
+      "fingerprint": "d543628be1404359d557e8188dc53558803aaf3d7cfa627145f5c95f99a2fcf2",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What fuel tank volume is listed for the RAV4 hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "7d46a57fb2be55d759b28afe2c96de887e8285fbe5860276879c229885664b52",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 9,
+            "chunk_id": "b68ed97998e7e54a-p9-c0",
+            "text_sha256": "e1942e42bd97fddf84f851ba8a9d363578e04b5ee0371a775df4e47f35728030"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c1",
+            "text_sha256": "fa10d6899420648ed3ecfbf317363f6e7eb2fa5dc4c2e7f5c384364f0e66283e"
+          }
+        ]
+      },
+      "answer": "The fuel tank capacity (volume) listed for the RAV4 hybrid is 55 litres [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1033,
+        "output_tokens": 30,
+        "total_tokens": 1063
+      },
+      "latency_ms": 2838.46,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:42Z"
+    },
+    "f371d9d9af88d50b364885ec059865fb7d4d6471bad0d157c244f404c18b37d5": {
+      "fingerprint": "f371d9d9af88d50b364885ec059865fb7d4d6471bad0d157c244f404c18b37d5",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What fuel tank volume is listed for the RAV4 hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "4ce4e89ab6a74a92e63877d50d99f263357eae5dfddca99c78470c2a07812650",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "b8a5d2313fda8d64",
+            "filename": "vehicle_specification_update.pdf",
+            "page_number": 1,
+            "chunk_id": "b8a5d2313fda8d64-p1-c0",
+            "text_sha256": "d43e6ee299a41404cefac5425b7568c932ce7e5d57d80137d17b17f2b3b853be"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 9,
+            "chunk_id": "b68ed97998e7e54a-p9-c0",
+            "text_sha256": "e1942e42bd97fddf84f851ba8a9d363578e04b5ee0371a775df4e47f35728030"
+          }
+        ]
+      },
+      "answer": "The fuel tank capacity listed for the RAV4 hybrid is 55 litres [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 787,
+        "output_tokens": 27,
+        "total_tokens": 814
+      },
+      "latency_ms": 2007.18,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:47Z"
+    },
+    "656f1c49d1d4a76c8d41f09405c27b0244e77f081e739305112c051b86e80e42": {
+      "fingerprint": "656f1c49d1d4a76c8d41f09405c27b0244e77f081e739305112c051b86e80e42",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What fuel tank volume is listed for the RAV4 hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "30eca8505a1e7b6242ddec6409f56584da87a8478b39218040e326a39fb14577",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 40,
+            "chunk_id": "b68ed97998e7e54a-p40-c0",
+            "text_sha256": "5184ce1c7bcc64970b298aa3a50280ebb292489cf1c4af14dd4a06e4d1a16f8b"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 9,
+            "chunk_id": "b68ed97998e7e54a-p9-c0",
+            "text_sha256": "e1942e42bd97fddf84f851ba8a9d363578e04b5ee0371a775df4e47f35728030"
+          }
+        ]
+      },
+      "answer": "The fuel tank capacity listed for the RAV4 hybrid is 55 litres (55 l) [rav4.pdf, p. 40].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 754,
+        "output_tokens": 32,
+        "total_tokens": 786
+      },
+      "latency_ms": 1704.48,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:51Z"
+    },
+    "4c7dbd063234c74d0e53125e814506ee5fe50f6cb83fa9be00080c31c47ab86c": {
+      "fingerprint": "4c7dbd063234c74d0e53125e814506ee5fe50f6cb83fa9be00080c31c47ab86c",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Which bZ4X battery version has the longer combined WLTP range, and what is its maximum range?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "4ac7b4b84f02b2fc736881a1a3d88f83bbd45a9aed89280d0839b147916db0ca",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 16,
+            "chunk_id": "2fb681d4da7858b1-p16-c0",
+            "text_sha256": "a1f57e1563e7bd28e6df86812c59747913ad72402788d73d388c91e722958693"
+          }
+        ]
+      },
+      "answer": "The 73.1 kWh Battery & 165kW Electric Motor version has the longer combined WLTP range, with a maximum range of 514 km [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1208,
+        "output_tokens": 47,
+        "total_tokens": 1255
+      },
+      "latency_ms": 1804.15,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:21:56Z"
+    },
+    "71a2e42e682952ec47533578be15a6cd2097e1bba37e873861fd44cfe72f2531": {
+      "fingerprint": "71a2e42e682952ec47533578be15a6cd2097e1bba37e873861fd44cfe72f2531",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Which bZ4X battery version has the longer combined WLTP range, and what is its maximum range?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "96eafc5cddf61eae174a378251482f4c15367c1c6a2f9bfbaf7e432ff1cc26d0",
+        "chunks": [
+          {
+            "document_id": "e2bed4a18b419511",
+            "filename": "electric_range_update.pdf",
+            "page_number": 1,
+            "chunk_id": "e2bed4a18b419511-p1-c0",
+            "text_sha256": "156fb3c7f5737f0dc988a7e21b6b767c21552f205c6fa20de38177132674d4d5"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          }
+        ]
+      },
+      "answer": "The 57.7 kWh variant has the longer combined WLTP range, with a maximum range of 620 km [electric_range_update.pdf, p. 1].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 897,
+        "output_tokens": 40,
+        "total_tokens": 937
+      },
+      "latency_ms": 1986.83,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:02Z"
+    },
+    "3ab27d41959238509f6edac77506205b78a07bb687fcde7473944fa5a52a0d21": {
+      "fingerprint": "3ab27d41959238509f6edac77506205b78a07bb687fcde7473944fa5a52a0d21",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Which bZ4X battery version has the longer combined WLTP range, and what is its maximum range?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "9f5702d24bc94df83e12af4b4b2dec1a0102f472faf46a0c1f2e58df80866882",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          }
+        ]
+      },
+      "answer": "The 73.1 kWh Battery & 165kW Electric Motor version has the longer combined WLTP range, with a maximum range of 514 km [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 851,
+        "output_tokens": 47,
+        "total_tokens": 898
+      },
+      "latency_ms": 1981.18,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:07Z"
+    },
+    "ddce8b6b520cdb4549d210302379b5efe6c96a78a8f2e1838a9d199f37f9e146": {
+      "fingerprint": "ddce8b6b520cdb4549d210302379b5efe6c96a78a8f2e1838a9d199f37f9e146",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the longest combined WLTP range in the bZ4X range, and which battery provides it?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "b54f188b95138adc34008832a8d726a495958b079121c167f392381c56b7f45b",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          }
+        ]
+      },
+      "answer": "The longest combined WLTP range in the bZ4X range is 514\u2013478 km, provided by the 73.1 kWh Battery & 165kW Electric Motor [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1336,
+        "output_tokens": 54,
+        "total_tokens": 1390
+      },
+      "latency_ms": 2249.29,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:12Z"
+    },
+    "b60a834882a88c6daf904431743a5a982ff0aadc624f3a99d89f0cf4d3b3d6cc": {
+      "fingerprint": "b60a834882a88c6daf904431743a5a982ff0aadc624f3a99d89f0cf4d3b3d6cc",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the longest combined WLTP range in the bZ4X range, and which battery provides it?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "4e6a932e621d17573f7be106bfa9a909621db9b1f35adf65dc5bb6899fdf80b0",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "e2bed4a18b419511",
+            "filename": "electric_range_update.pdf",
+            "page_number": 1,
+            "chunk_id": "e2bed4a18b419511-p1-c0",
+            "text_sha256": "156fb3c7f5737f0dc988a7e21b6b767c21552f205c6fa20de38177132674d4d5"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          }
+        ]
+      },
+      "answer": "The longest combined WLTP range is 620 km, provided by the 57.7 kWh variant [electric_range_update.pdf, p. 1].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 897,
+        "output_tokens": 37,
+        "total_tokens": 934
+      },
+      "latency_ms": 2503.9,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:17Z"
+    },
+    "da5b08606da28716170897d1a1029ca4187095355404803482895df0bc1e338f": {
+      "fingerprint": "da5b08606da28716170897d1a1029ca4187095355404803482895df0bc1e338f",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the longest combined WLTP range in the bZ4X range, and which battery provides it?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "f34436b030dc8fc578ff810326c876f938bb50ae36c16a064f7e09007ef8e7bf",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          }
+        ]
+      },
+      "answer": "The longest combined WLTP range in the bZ4X range is 514\u2013478 km, provided by the 73.1 kWh Battery & 165kW Electric Motor [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 851,
+        "output_tokens": 54,
+        "total_tokens": 905
+      },
+      "latency_ms": 1976.24,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:22Z"
+    },
+    "a8e0de5f2670e3eb13cd66b95e6f2affca79a5c9ea24242e40ef55c746a8f288": {
+      "fingerprint": "a8e0de5f2670e3eb13cd66b95e6f2affca79a5c9ea24242e40ef55c746a8f288",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Between the bZ4X battery options, which travels farther on the combined WLTP cycle?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "b2002cd128295ef32f3bdcd59b6e42ca953c34ac2a74cad5884c6ca192d55091",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          }
+        ]
+      },
+      "answer": "The 73.1 kWh battery option travels farther on the combined WLTP cycle, with a pure electric range of 514\u2013478 km (compared to 470\u2013436 km for the other 73.1 kWh option and 442\u2013385 km for the 57.7 kWh battery) [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1333,
+        "output_tokens": 87,
+        "total_tokens": 1420
+      },
+      "latency_ms": 1977.52,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:27Z"
+    },
+    "bc02f07adb2ce6a945bbd39de43558060d304bbd72cec5a6e325e350c861aa3d": {
+      "fingerprint": "bc02f07adb2ce6a945bbd39de43558060d304bbd72cec5a6e325e350c861aa3d",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Land Cruiser wading depth?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "8d2c1077893a466d42c85decedf24a76b3ad90b78434205a83c6ed63ffa45e42",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c1",
+            "text_sha256": "46daea985c08e23dccd18e8d6f67283801ddeb0d384a5251a9647ed908e19728"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 4,
+            "chunk_id": "578c9c0e961c5a30-p4-c0",
+            "text_sha256": "d077320be047046ca0384e2280c9c4b32d0994d3f5773cf6e7c4e2eb8ff4b9f7"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser wading depth is 700 mm [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 856,
+        "output_tokens": 25,
+        "total_tokens": 881
+      },
+      "latency_ms": 1871.52,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:32Z"
+    },
+    "0d96b34d8b948c9b00bae56d8230c991debed8c62337a4723b0bc780727411bb": {
+      "fingerprint": "0d96b34d8b948c9b00bae56d8230c991debed8c62337a4723b0bc780727411bb",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Land Cruiser wading depth?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "c070ebc756d33316cf530acd92b51a75495f3500dac184bd4196a738d6d5796d",
+        "chunks": [
+          {
+            "document_id": "520409fc222f7066",
+            "filename": "vehicle_feature_update.pdf",
+            "page_number": 1,
+            "chunk_id": "520409fc222f7066-p1-c0",
+            "text_sha256": "65afc613b82dd3c4576071eb7ffd3ba6930d3129aea813354b3069f60e5242e4"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c1",
+            "text_sha256": "46daea985c08e23dccd18e8d6f67283801ddeb0d384a5251a9647ed908e19728"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser wading depth is 900 mm [vehicle_feature_update.pdf, p. 1]. (Note: The brochure also lists 700 mm [land-cruiser.pdf, p. 22], but feature updates prioritize the 900 mm figure [vehicle_feature_update.pdf, p. 1]).",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 754,
+        "output_tokens": 76,
+        "total_tokens": 830
+      },
+      "latency_ms": 1934.8,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:37Z"
+    },
+    "c3459f7b478d5cf4e4f8b6538d370f92a9fa726ae2ebd8607d1824f3e96f8cd3": {
+      "fingerprint": "c3459f7b478d5cf4e4f8b6538d370f92a9fa726ae2ebd8607d1824f3e96f8cd3",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Land Cruiser wading depth?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "c9738de579d92b1713fb562ea72b838d2c50b9b31438c97b6ef02388db41de57",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c1",
+            "text_sha256": "46daea985c08e23dccd18e8d6f67283801ddeb0d384a5251a9647ed908e19728"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser wading depth is 700 mm [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 699,
+        "output_tokens": 25,
+        "total_tokens": 724
+      },
+      "latency_ms": 2559.05,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:42Z"
+    },
+    "889bdd546cd385136a997c2b3c9ce79843f70d43fbe76b186083f0cfc698cee2": {
+      "fingerprint": "889bdd546cd385136a997c2b3c9ce79843f70d43fbe76b186083f0cfc698cee2",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How deep can the Land Cruiser wade?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "bab31afef5baf57f1f1e9dd525d56dc9ceeaf7536313e3c07b48624c22927d07",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 6,
+            "chunk_id": "578c9c0e961c5a30-p6-c0",
+            "text_sha256": "40a8f735e25a3b6240020515d4be887d538b59277efc4da1156dba502657651a"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 7,
+            "chunk_id": "578c9c0e961c5a30-p7-c1",
+            "text_sha256": "a5e9fbbdc1a16ae03da23f55e99728fbce3696f0ea9b2cafc4db0c9d9006806b"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser has a wading capability (or wading depth) of 700 mm [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1027,
+        "output_tokens": 32,
+        "total_tokens": 1059
+      },
+      "latency_ms": 2475.32,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:47Z"
+    },
+    "9c9f87214690cce64acea806f56b327a04ede37f83caf8368d8ad0d3c13ac42a": {
+      "fingerprint": "9c9f87214690cce64acea806f56b327a04ede37f83caf8368d8ad0d3c13ac42a",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What maximum wading depth is specified for the Land Cruiser?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "94e1058998697b21d3ddb926f01fdfc3c6095474c1c5f51ccd667cb636bc1786",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c1",
+            "text_sha256": "46daea985c08e23dccd18e8d6f67283801ddeb0d384a5251a9647ed908e19728"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 4,
+            "chunk_id": "578c9c0e961c5a30-p4-c0",
+            "text_sha256": "d077320be047046ca0384e2280c9c4b32d0994d3f5773cf6e7c4e2eb8ff4b9f7"
+          }
+        ]
+      },
+      "answer": "The maximum wading depth specified for the Land Cruiser is 700 mm [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 859,
+        "output_tokens": 29,
+        "total_tokens": 888
+      },
+      "latency_ms": 1658.34,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:51Z"
+    },
+    "4d72c49619feee245ad4c62bb853866c0ae28438d93700ac036619f4ab7339d8": {
+      "fingerprint": "4d72c49619feee245ad4c62bb853866c0ae28438d93700ac036619f4ab7339d8",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What maximum wading depth is specified for the Land Cruiser?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "6354a4901839651bb77d4a67d50ce469bedc9a81cb8d02b8e4b2d03ebbfef247",
+        "chunks": [
+          {
+            "document_id": "520409fc222f7066",
+            "filename": "vehicle_feature_update.pdf",
+            "page_number": 1,
+            "chunk_id": "520409fc222f7066-p1-c0",
+            "text_sha256": "65afc613b82dd3c4576071eb7ffd3ba6930d3129aea813354b3069f60e5242e4"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c1",
+            "text_sha256": "46daea985c08e23dccd18e8d6f67283801ddeb0d384a5251a9647ed908e19728"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          }
+        ]
+      },
+      "answer": "The maximum wading depth specified for the Land Cruiser is 900 mm [vehicle_feature_update.pdf, p. 1] (though the standard specifications also list 700 mm [land-cruiser.pdf, p. 22]).",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 757,
+        "output_tokens": 55,
+        "total_tokens": 812
+      },
+      "latency_ms": 2621.03,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:22:57Z"
+    },
+    "5af4f59350c4e1f6359c8e40b9beef16eddb08e9161a73104dd25be250d3e6d6": {
+      "fingerprint": "5af4f59350c4e1f6359c8e40b9beef16eddb08e9161a73104dd25be250d3e6d6",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What maximum wading depth is specified for the Land Cruiser?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "d73cb758e22a5a6c11dd77c9c15b87414c5332e5c33f04eb85d9f3cc1b0400e6",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c1",
+            "text_sha256": "46daea985c08e23dccd18e8d6f67283801ddeb0d384a5251a9647ed908e19728"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          }
+        ]
+      },
+      "answer": "The maximum wading depth specified for the Land Cruiser is 700 mm [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 702,
+        "output_tokens": 29,
+        "total_tokens": 731
+      },
+      "latency_ms": 1879.04,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:02Z"
+    },
+    "156cbac330b9a988ba36361808b23b98f0a9fbb58be7abb7a6799c7ef308be54": {
+      "fingerprint": "156cbac330b9a988ba36361808b23b98f0a9fbb58be7abb7a6799c7ef308be54",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Aygo X luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "6344345fe1d75c42e2151c38f895ae16e7e1c0b084dd3f981745ffd20669b589",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 4,
+            "chunk_id": "a41375caeae69158-p4-c0",
+            "text_sha256": "0265368bd4d475b2f500940259c032f376a7a486b5cef17c383afe57aaae151f"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochure, the luggage capacity of the Aygo X with the rear seats up is:\n* 231 litres (laden to tonneau cover) [aygo-x.pdf, p. 23]\n* 269 litres in 4-seat mode (laden to roof) [aygo-x.pdf, p. 23]",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 901,
+        "output_tokens": 81,
+        "total_tokens": 982
+      },
+      "latency_ms": 1913.81,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:07Z"
+    },
+    "78318947a8270f18320b802ba78801083a52094f41fe852261455a1ec6b9afd7": {
+      "fingerprint": "78318947a8270f18320b802ba78801083a52094f41fe852261455a1ec6b9afd7",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Aygo X luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "f5cf943819ccd9445ca4ef3005a5caf026510b6f471a7a0648938d1a5f54f3d2",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          }
+        ]
+      },
+      "answer": "The context is insufficient to determine the Aygo X luggage capacity specifically with the rear seats up, as the provided capacity of 231 litres (laden to tonneau cover) is listed under \"Luggage Volume\" without explicitly specifying the seat configuration, while other modes (4 seat mode laden to roof, 2 seat mode) are separately labeled [aygo-x.pdf, p. 23].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 635,
+        "output_tokens": 84,
+        "total_tokens": 719
+      },
+      "latency_ms": 2031.87,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:12Z"
+    },
+    "985b2d9fb631c1fa2574e3bf657351719e1051ee50c490aa0d48dd69b71d3981": {
+      "fingerprint": "985b2d9fb631c1fa2574e3bf657351719e1051ee50c490aa0d48dd69b71d3981",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Aygo X luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "84095956584e4d1d228f0505a2ba85b74a724ab774104fe2cf42052552a23be9",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochure, the Aygo X luggage capacity with the rear seats up (4 seat mode) is:\n* 231 litres (laden to tonneau cover) [aygo-x.pdf, p. 23]\n* 269 litres (laden to roof) [aygo-x.pdf, p. 23]",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 535,
+        "output_tokens": 78,
+        "total_tokens": 613
+      },
+      "latency_ms": 1954.84,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:17Z"
+    },
+    "a9aebc028967088fcb9ff0f7b5210951c2b20fa72171109157f11943b0ef5cc9": {
+      "fingerprint": "a9aebc028967088fcb9ff0f7b5210951c2b20fa72171109157f11943b0ef5cc9",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the Aygo X boot below the tonneau cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "b140e0b87303f51059151e66b90fb75a7ccbd8f74a8bd1949888aaf69c0857ab",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          }
+        ]
+      },
+      "answer": "231 litres fit in the Aygo X boot laden to the tonneau cover (in 4 seat mode) [aygo-x.pdf, p. 23].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 757,
+        "output_tokens": 38,
+        "total_tokens": 795
+      },
+      "latency_ms": 2164.73,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:22Z"
+    },
+    "22c97edc237301ef5f5c10bc012e6bffc3be9f90772c2414e6bc6f2a1b3f2b58": {
+      "fingerprint": "22c97edc237301ef5f5c10bc012e6bffc3be9f90772c2414e6bc6f2a1b3f2b58",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the Aygo X boot below the tonneau cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "54b7a07b0e1b89185d523851f9524428055870fa308d47854e445528bdee8293",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 1,
+            "chunk_id": "b8fba6a60c736bf0-p1-c0",
+            "text_sha256": "ea8c6e9ef3996b228072db9f11da5acc37bfc6ce420467fc22aea84e908fde1d"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          }
+        ]
+      },
+      "answer": "285 litres [cargo_and_dimensions_update.pdf, p. 1].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 272,
+        "output_tokens": 20,
+        "total_tokens": 292
+      },
+      "latency_ms": 1741.01,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:26Z"
+    },
+    "b4b75164e23a76e543429b85c3f46cd66c5f7054e2c5bec89a696c2dbec0d0f8": {
+      "fingerprint": "b4b75164e23a76e543429b85c3f46cd66c5f7054e2c5bec89a696c2dbec0d0f8",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the Aygo X boot below the tonneau cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "88f768c9d9d8b36377f85f2fdfcc5b8ce5f146330463069858ff0ad7c13478d3",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          }
+        ]
+      },
+      "answer": "The provided context does not state how many litres fit in the boot specifically below the tonneau cover; it only states that the total boot capacity is \"up to 231 litres\" [aygo-x.pdf, p. 14].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 173,
+        "output_tokens": 52,
+        "total_tokens": 225
+      },
+      "latency_ms": 1798.93,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:32Z"
+    },
+    "36a0ff636903f6c081e6982c2db8b1521a0fe648254e526def6c5534de636218": {
+      "fingerprint": "36a0ff636903f6c081e6982c2db8b1521a0fe648254e526def6c5534de636218",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What boot capacity does the Aygo X provide in four-seat mode?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "a32e42337c78bb5ad0d336d4320f1e15446fc2bd13cc1bb388792d301f9b47ff",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          }
+        ]
+      },
+      "answer": "In four-seat mode, the Aygo X provides a luggage capacity of 231 litres (laden to tonneau cover) [aygo-x.pdf, p. 23] or 269 litres (laden to roof) [aygo-x.pdf, p. 23].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 984,
+        "output_tokens": 66,
+        "total_tokens": 1050
+      },
+      "latency_ms": 1901.74,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:37Z"
+    },
+    "2fbf391217af30e9e80f1eab57d2d99c5467eb398d34287fd1618dc371dda51e": {
+      "fingerprint": "2fbf391217af30e9e80f1eab57d2d99c5467eb398d34287fd1618dc371dda51e",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How much power does the higher-output Yaris hybrid produce?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "babc82a9ee05cf6888b8aff3d5a7ac5a9a81e0e8011cdd4b9671f9b71035928f",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c0",
+            "text_sha256": "0c6770dafd3cd38d3e68a54cc485a53b7723190be193bbb453636826ed2089e0"
+          }
+        ]
+      },
+      "answer": "The higher-output Yaris hybrid (130 hp) produces a maximum output of 130 DIN hp (or 96 kW) [yaris.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 904,
+        "output_tokens": 42,
+        "total_tokens": 946
+      },
+      "latency_ms": 1783.65,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:42Z"
+    },
+    "a332cba065565fc8101fd74aff79fc72e9723a7a85505e334f3e32bed359530a": {
+      "fingerprint": "a332cba065565fc8101fd74aff79fc72e9723a7a85505e334f3e32bed359530a",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How much power does the higher-output Yaris hybrid produce?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "8fd504ed5b0e89f7b74f60b60ce78aecb1ba035aaef5983ee6232a8f91b79cbe",
+        "chunks": [
+          {
+            "document_id": "69978c4ca9e52e9f",
+            "filename": "powertrain_update.pdf",
+            "page_number": 1,
+            "chunk_id": "69978c4ca9e52e9f-p1-c0",
+            "text_sha256": "0365ec187028fdfbc3eb574d7df4ec39e3f2ed0028aadb7475e986c781e7767b"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          }
+        ]
+      },
+      "answer": "The higher-output Yaris hybrid produces 145 DIN hp [powertrain_update.pdf, p. 1].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 554,
+        "output_tokens": 28,
+        "total_tokens": 582
+      },
+      "latency_ms": 2494.8,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:47Z"
+    },
+    "e0dbfdcb97735fd306a31bb17476c9fc9bb0ccfbfe1c47e9cc69a79a6bda6320": {
+      "fingerprint": "e0dbfdcb97735fd306a31bb17476c9fc9bb0ccfbfe1c47e9cc69a79a6bda6320",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How much power does the higher-output Yaris hybrid produce?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "d4692546e4c8a14e486c7b26954b9f8ceb1a493e3b61d6662a715a841ed26dd8",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          }
+        ]
+      },
+      "answer": "The higher-output Yaris hybrid produces 130 hp [yaris.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 513,
+        "output_tokens": 24,
+        "total_tokens": 537
+      },
+      "latency_ms": 2441.69,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:52Z"
+    },
+    "5497c366844dc51eed574255a9b6444cb3884065a895602d29eecebeac6543c9": {
+      "fingerprint": "5497c366844dc51eed574255a9b6444cb3884065a895602d29eecebeac6543c9",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the DIN horsepower of the more powerful Yaris hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "006d7c2e7cebe39866a6dd4260837147ae1555decea9b60bc6718bf55683eb48",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c0",
+            "text_sha256": "0c6770dafd3cd38d3e68a54cc485a53b7723190be193bbb453636826ed2089e0"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          }
+        ]
+      },
+      "answer": "The DIN horsepower of the more powerful Yaris hybrid (130 hp) is 130 [yaris.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 904,
+        "output_tokens": 32,
+        "total_tokens": 936
+      },
+      "latency_ms": 2106.12,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:23:57Z"
+    },
+    "d6570f4b8bd1ec68c4c6c0b9128ea8bc48c3ed4d9064696e1af7ba8a382cc7f0": {
+      "fingerprint": "d6570f4b8bd1ec68c4c6c0b9128ea8bc48c3ed4d9064696e1af7ba8a382cc7f0",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the DIN horsepower of the more powerful Yaris hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "bc8f904d0a400c45f359b9aa07099e31bc3c14011c2e6c7a90b8512541f911a4",
+        "chunks": [
+          {
+            "document_id": "69978c4ca9e52e9f",
+            "filename": "powertrain_update.pdf",
+            "page_number": 1,
+            "chunk_id": "69978c4ca9e52e9f-p1-c0",
+            "text_sha256": "0365ec187028fdfbc3eb574d7df4ec39e3f2ed0028aadb7475e986c781e7767b"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c0",
+            "text_sha256": "0c6770dafd3cd38d3e68a54cc485a53b7723190be193bbb453636826ed2089e0"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          }
+        ]
+      },
+      "answer": "The more powerful Yaris hybrid produces 145 DIN hp [powertrain_update.pdf, p. 1] (or 130 DIN hp according to [yaris.pdf, p. 2]).",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 736,
+        "output_tokens": 48,
+        "total_tokens": 784
+      },
+      "latency_ms": 3770.96,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:04Z"
+    },
+    "66d663a2572e019f1e8889d508a3194c69253ae626c4af9c1dc1db031f0ec26d": {
+      "fingerprint": "66d663a2572e019f1e8889d508a3194c69253ae626c4af9c1dc1db031f0ec26d",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the DIN horsepower of the more powerful Yaris hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "d467e176fe05d45156b54494b6f3703527f7c7f9508a43df3672730020722fd4",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c0",
+            "text_sha256": "0c6770dafd3cd38d3e68a54cc485a53b7723190be193bbb453636826ed2089e0"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          }
+        ]
+      },
+      "answer": "The context is insufficient to determine the DIN horsepower specifically, as it only lists \"Maximum Output (DIN hp)\" as 130 [yaris.pdf, p. 2] without explicitly labeling the unit as DIN horsepower in the engine description headers.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 695,
+        "output_tokens": 52,
+        "total_tokens": 747
+      },
+      "latency_ms": 1691.68,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:06Z"
+    },
+    "83b4dce45553fa2ca1d52fcbfcf4b65d5868078e1c3290547049844dfbea1733": {
+      "fingerprint": "83b4dce45553fa2ca1d52fcbfcf4b65d5868078e1c3290547049844dfbea1733",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many horsepower does the higher-output Yaris hybrid system deliver?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "aab0841d0cefea7ade09ec787f1614814d67b0f8a3144891aa508fbf4fd1526b",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 2,
+            "chunk_id": "2fb681d4da7858b1-p2-c1",
+            "text_sha256": "907de2a0d024929ac9c2de91f1b8533f6c124f5f129f3abf9bee55948253243e"
+          }
+        ]
+      },
+      "answer": "The higher-output Yaris hybrid system delivers 130 hp [yaris.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 849,
+        "output_tokens": 25,
+        "total_tokens": 874
+      },
+      "latency_ms": 1622.4,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:11Z"
+    },
+    "2cdb854799c16e3dd638db0833e36de8e074bb9494ed4e431dbdc05cb257fd71": {
+      "fingerprint": "2cdb854799c16e3dd638db0833e36de8e074bb9494ed4e431dbdc05cb257fd71",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many horsepower does the higher-output Yaris hybrid system deliver?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "f1b117564002312ac2211daa7561c9da4629bb3225ed38ef715e71d07bebbd6e",
+        "chunks": [
+          {
+            "document_id": "69978c4ca9e52e9f",
+            "filename": "powertrain_update.pdf",
+            "page_number": 1,
+            "chunk_id": "69978c4ca9e52e9f-p1-c0",
+            "text_sha256": "0365ec187028fdfbc3eb574d7df4ec39e3f2ed0028aadb7475e986c781e7767b"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          }
+        ]
+      },
+      "answer": "The higher-output Yaris hybrid delivers 145 DIN hp [powertrain_update.pdf, p. 1].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 555,
+        "output_tokens": 28,
+        "total_tokens": 583
+      },
+      "latency_ms": 1508.12,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:16Z"
+    },
+    "165ca94ca4ea16e4451d54cbdb718e605301af17bedd177a53b5f326d6c52118": {
+      "fingerprint": "165ca94ca4ea16e4451d54cbdb718e605301af17bedd177a53b5f326d6c52118",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many horsepower does the higher-output Yaris hybrid system deliver?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "61bce7855caedee03e570f6824249fc5cf942d53035fb647c0b57743fc31ba26",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 3,
+            "chunk_id": "a41375caeae69158-p3-c0",
+            "text_sha256": "d50cfaa84e9bab6e8428a57e21e868c7a710ebee2bb7ca63d6cba366c76de895"
+          }
+        ]
+      },
+      "answer": "The higher-output Yaris hybrid system delivers 130 horsepower [yaris.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 514,
+        "output_tokens": 25,
+        "total_tokens": 539
+      },
+      "latency_ms": 1922.58,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:22Z"
+    },
+    "4bffdc3eecbb76300c50d6108db67c66d2f0c630eba55e9ebdd9b9d012d1d164": {
+      "fingerprint": "4bffdc3eecbb76300c50d6108db67c66d2f0c630eba55e9ebdd9b9d012d1d164",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Corolla Touring Sports luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "c4bdc59a2373b4a9a11e9c996c97f896e44db971a3c7a7fcb142a4a3cfa0e9cc",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 22,
+            "chunk_id": "2fb681d4da7858b1-p22-c0",
+            "text_sha256": "82c271acd871e0c475946e054d86c071f71eea67b1813062ea656f37c00b84df"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          }
+        ]
+      },
+      "answer": "The Corolla Touring Sports luggage capacity VDA with the rear seats up, laden to the tonneau cover, is 581 or 596 litres (depending on the model/wheels) [corolla.pdf, p. 18].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1123,
+        "output_tokens": 52,
+        "total_tokens": 1175
+      },
+      "latency_ms": 1510.36,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:26Z"
+    },
+    "cb26f6eb09c55033d56d083ac68017aa091cdcd9087f7ac7b6cf34279c383622": {
+      "fingerprint": "cb26f6eb09c55033d56d083ac68017aa091cdcd9087f7ac7b6cf34279c383622",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Corolla Touring Sports luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "0b974a2a28c7fa7bee29831d99eae6920c8e02e2246509c0854f6d86f31ce90b",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 4,
+            "chunk_id": "2fb681d4da7858b1-p4-c0",
+            "text_sha256": "3d07d1662ee940ace3f600f0d406ead0feee1f993eaeadf85a8e0db6f0139181"
+          }
+        ]
+      },
+      "answer": "The Corolla Touring Sports VDA luggage capacity with the rear seats up is 640 litres [cargo_and_dimensions_update.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1010,
+        "output_tokens": 35,
+        "total_tokens": 1045
+      },
+      "latency_ms": 1996.91,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:32Z"
+    },
+    "ad624c156c89156b56ccb9c472a24bf9e9839fba88f864c7d24555d4aa4ab989": {
+      "fingerprint": "ad624c156c89156b56ccb9c472a24bf9e9839fba88f864c7d24555d4aa4ab989",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Corolla Touring Sports luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "8149e95e0846bac02711b84457ca0f27d15a6fd767c2971537bcc0dbbaecd0b2",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 4,
+            "chunk_id": "2fb681d4da7858b1-p4-c0",
+            "text_sha256": "3d07d1662ee940ace3f600f0d406ead0feee1f993eaeadf85a8e0db6f0139181"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer the question about the Corolla Touring Sports luggage capacity, as the text only provides specifications for the 5-Door (Hatchback) and Touring Sports weights/dimensions, but lacks the specific luggage capacity figures for the Touring Sports model [corolla.pdf, p. 18, 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 963,
+        "output_tokens": 68,
+        "total_tokens": 1031
+      },
+      "latency_ms": 1524.22,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:36Z"
+    },
+    "ef4947d23e68867c35b19a21175e209f4dd44a21c83825df8bcf114828d28c2e": {
+      "fingerprint": "ef4947d23e68867c35b19a21175e209f4dd44a21c83825df8bcf114828d28c2e",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Corolla Touring Sports luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "bf7c35df226ec7c30987129c48790ed858e7c61806a7c1ab8e3cb64cdba4562c",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          }
+        ]
+      },
+      "answer": "The Corolla Touring Sports luggage capacity with the rear seats up is 640 litres [cargo_and_dimensions_update.pdf, p. 2], or 581/596* litres laden to the tonneau cover [corolla.pdf, p. 18].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 575,
+        "output_tokens": 62,
+        "total_tokens": 637
+      },
+      "latency_ms": 1539.06,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:41Z"
+    },
+    "1e522f2c3212e99bacb82feb356f407f538d0befa8614d94e4f88d2ec9de8915": {
+      "fingerprint": "1e522f2c3212e99bacb82feb356f407f538d0befa8614d94e4f88d2ec9de8915",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Corolla Touring Sports luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "f6f8ea1b695f80af048c64aac3782249cc662c0beb9f1b421639eee18f31669e",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochure, the luggage capacity with the rear seats up (laden to tonneau cover) is 581 to 596 litres, depending on the engine/wheel configuration [corolla.pdf, p. 18].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 528,
+        "output_tokens": 52,
+        "total_tokens": 580
+      },
+      "latency_ms": 2224.75,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:47Z"
+    },
+    "a2a804e999aa1c8d80a390111b3cb51de30f6d5fd2efa3a3af805b53ef8eaad6": {
+      "fingerprint": "a2a804e999aa1c8d80a390111b3cb51de30f6d5fd2efa3a3af805b53ef8eaad6",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres of VDA luggage space does the Corolla Touring Sports offer in five-seat mode?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "f0a85f7b868e6412d1517f4e8435165f0c7fdf47a1ade3259601988b781b5153",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 4,
+            "chunk_id": "2fb681d4da7858b1-p4-c0",
+            "text_sha256": "3d07d1662ee940ace3f600f0d406ead0feee1f993eaeadf85a8e0db6f0139181"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 4,
+            "chunk_id": "a41375caeae69158-p4-c0",
+            "text_sha256": "0265368bd4d475b2f500940259c032f376a7a486b5cef17c383afe57aaae151f"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer the question, as it does not contain luggage space specifications for the Corolla Touring Sports (only for the 5-Door/Hatchback models).",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1233,
+        "output_tokens": 37,
+        "total_tokens": 1270
+      },
+      "latency_ms": 1979.62,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:52Z"
+    },
+    "ad15e2b1d60a3421c123a367b555519fd25d3293bef2950eba3d3692cc25aba0": {
+      "fingerprint": "ad15e2b1d60a3421c123a367b555519fd25d3293bef2950eba3d3692cc25aba0",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres of VDA luggage space does the Corolla Touring Sports offer in five-seat mode?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "f0636138b9739e79a648f74365209bc6be5304d59dab8c2a35fa7f192c6d71e0",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 3,
+            "chunk_id": "b8fba6a60c736bf0-p3-c0",
+            "text_sha256": "aa2c8ee61abb4c63cd2e55deedaf9c2f73d19d518818c3b342a24bb0dbf776a1"
+          }
+        ]
+      },
+      "answer": "The Corolla Touring Sports offers 640 litres of VDA luggage space with the rear seats up [cargo_and_dimensions_update.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 630,
+        "output_tokens": 36,
+        "total_tokens": 666
+      },
+      "latency_ms": 1759.57,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:24:57Z"
+    },
+    "fd3a20a22c1cee564ddb631abecc036724c82c6d1134e5b168023cf835ec81fe": {
+      "fingerprint": "fd3a20a22c1cee564ddb631abecc036724c82c6d1134e5b168023cf835ec81fe",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres of VDA luggage space does the Corolla Touring Sports offer in five-seat mode?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "21de357f50ae1b44724f259751f54343a525d60b4df2fa00de1e673f758f426c",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer the question, as it only contains luggage volume specifications for the 5-Door model and does not provide specifications for the Corolla Touring Sports [corolla.pdf, p. 18].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 534,
+        "output_tokens": 46,
+        "total_tokens": 580
+      },
+      "latency_ms": 2509.3,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:02Z"
+    },
+    "4c1ee9627933a838232d7246ac35460770caa6d4a4fd3f237e9fdfccec6ebe94": {
+      "fingerprint": "4c1ee9627933a838232d7246ac35460770caa6d4a4fd3f237e9fdfccec6ebe94",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What boot capacity is listed for the Corolla Touring Sports before folding the rear seats?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "fd87500cc796364526281e154e87a3a0ea33dcc586af6694df844704a6bfc3a6",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 22,
+            "chunk_id": "2fb681d4da7858b1-p22-c0",
+            "text_sha256": "82c271acd871e0c475946e054d86c071f71eea67b1813062ea656f37c00b84df"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 24,
+            "chunk_id": "2fb681d4da7858b1-p24-c0",
+            "text_sha256": "e1e8c640b1564a06d08693e1243682eaaf880ed5950d7927f7c86f8eecbea6ee"
+          }
+        ]
+      },
+      "answer": "The boot capacity (luggage capacity VDA with rear seats up, laden to tonneau cover) for the Corolla Touring Sports is 581 or 596 litres, depending on the model/engine [corolla.pdf, p. 18].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1089,
+        "output_tokens": 55,
+        "total_tokens": 1144
+      },
+      "latency_ms": 1654.31,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:07Z"
+    },
+    "86d6f8931ae5f7fbecc8e0dc6a9a1cb1df9d8f299b7abc05bedba653ac6db3ad": {
+      "fingerprint": "86d6f8931ae5f7fbecc8e0dc6a9a1cb1df9d8f299b7abc05bedba653ac6db3ad",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What boot capacity is listed for the Corolla Touring Sports before folding the rear seats?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "55c3c390aa0211ec8ae40b96c1532ce7821534adc4b1ddb6140fc10108ecc700",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 22,
+            "chunk_id": "2fb681d4da7858b1-p22-c0",
+            "text_sha256": "82c271acd871e0c475946e054d86c071f71eea67b1813062ea656f37c00b84df"
+          }
+        ]
+      },
+      "answer": "The boot capacity (VDA luggage capacity) for the Corolla Touring Sports with the rear seats up is 640 litres [cargo_and_dimensions_update.pdf, p. 2]. (Alternatively, `corolla.pdf, p. 18` lists the luggage capacity VDA with rear seats up and laden to the tonneau cover as 581 or 596 litres, depending on the engine/wheels).",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 842,
+        "output_tokens": 92,
+        "total_tokens": 934
+      },
+      "latency_ms": 1769.99,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:12Z"
+    },
+    "429cd6163fec608530fdc43fd3ff8c53fb41b70fc662626034be2dae142b07f4": {
+      "fingerprint": "429cd6163fec608530fdc43fd3ff8c53fb41b70fc662626034be2dae142b07f4",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What boot capacity is listed for the Corolla Touring Sports before folding the rear seats?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "c27cc3bfc6703da09b31383caaae0834afec04e1c48615ab014e73a018aa90ae",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 22,
+            "chunk_id": "2fb681d4da7858b1-p22-c0",
+            "text_sha256": "82c271acd871e0c475946e054d86c071f71eea67b1813062ea656f37c00b84df"
+          }
+        ]
+      },
+      "answer": "Based on the provided context, the luggage capacity with the rear seats up (laden to the tonneau cover) is 581 or 596 litres (depending on the model/wheels) [corolla.pdf, p. 18].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 795,
+        "output_tokens": 53,
+        "total_tokens": 848
+      },
+      "latency_ms": 1845.86,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:17Z"
+    },
+    "1073575e85181d8541c56a5fdab73bc790f1aea64c984e55f0ee7f32d5b5533d": {
+      "fingerprint": "1073575e85181d8541c56a5fdab73bc790f1aea64c984e55f0ee7f32d5b5533d",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the power output of the C-HR 1.8 hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "23cea9bbd859c63d87e85d50d7208961d562fb4d5b6b389127b303f151aebbdb",
+        "chunks": [
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 11,
+            "chunk_id": "3a3a6f11b595fbaa-p11-c0",
+            "text_sha256": "725506b5d401e077fb07804dce5d6a58e1ac556f371ee6fb758715fd5405bf17"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          }
+        ]
+      },
+      "answer": "The power output of the C-HR 1.8 hybrid is 140 DIN hp / 103 kW [c-hr.pdf, p. 25].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 899,
+        "output_tokens": 39,
+        "total_tokens": 938
+      },
+      "latency_ms": 2165.06,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:22Z"
+    },
+    "ebc840d88bfad1a553207fc131fccf131f0786e2ec7627ee68103183fb1e9eaa": {
+      "fingerprint": "ebc840d88bfad1a553207fc131fccf131f0786e2ec7627ee68103183fb1e9eaa",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the power output of the C-HR 1.8 hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "19ce1f16a73effd266313a598ceacd3bc6e99996e6c8d1f4e8fbb3d37d535a28",
+        "chunks": [
+          {
+            "document_id": "69978c4ca9e52e9f",
+            "filename": "powertrain_update.pdf",
+            "page_number": 2,
+            "chunk_id": "69978c4ca9e52e9f-p2-c0",
+            "text_sha256": "837c4ab406ccbdc1177fd43245466037aea2887e89acaa22e4eab7a36f85defb"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 11,
+            "chunk_id": "3a3a6f11b595fbaa-p11-c0",
+            "text_sha256": "725506b5d401e077fb07804dce5d6a58e1ac556f371ee6fb758715fd5405bf17"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          }
+        ]
+      },
+      "answer": "The C-HR 1.8 hybrid produces 160 DIN hp [powertrain_update.pdf, p. 2].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 462,
+        "output_tokens": 30,
+        "total_tokens": 492
+      },
+      "latency_ms": 1580.8,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:26Z"
+    },
+    "ac68ff285befb43bd43147e933b21e7e2c07d28e1034b5a49c46ae7c77c54e4d": {
+      "fingerprint": "ac68ff285befb43bd43147e933b21e7e2c07d28e1034b5a49c46ae7c77c54e4d",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the power output of the C-HR 1.8 hybrid?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "edcb4fb0cffb7a3e47b243aa85e9ccb3d3005f05481ff32c8db27f35bb5045ca",
+        "chunks": [
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 11,
+            "chunk_id": "3a3a6f11b595fbaa-p11-c0",
+            "text_sha256": "725506b5d401e077fb07804dce5d6a58e1ac556f371ee6fb758715fd5405bf17"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer the question about the power output of the C-HR 1.8 hybrid.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 414,
+        "output_tokens": 24,
+        "total_tokens": 438
+      },
+      "latency_ms": 1652.93,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:32Z"
+    },
+    "58797317146efdd520d696ab3cb531b2582c6bee0ca3085fcf28933667685c05": {
+      "fingerprint": "58797317146efdd520d696ab3cb531b2582c6bee0ca3085fcf28933667685c05",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many DIN horsepower does the 1.8-litre C-HR hybrid produce?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "e449ef3bb5282b015853fc21fd40215097c729760ebdd0600204d8fd4158f2bc",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c0",
+            "text_sha256": "50a8bc2023b27a80f56b79e96ddf1957f6c1e36a757b287f7dc0e82be68b068b"
+          }
+        ]
+      },
+      "answer": "The 1.8-litre C-HR hybrid produces 140 DIN horsepower [c-hr.pdf, p. 25].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1217,
+        "output_tokens": 31,
+        "total_tokens": 1248
+      },
+      "latency_ms": 2468.74,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:37Z"
+    },
+    "50d5dba9b8658370bc6845c3c46ec7034b48f122313fa5f420bcaacd3b7bc5ff": {
+      "fingerprint": "50d5dba9b8658370bc6845c3c46ec7034b48f122313fa5f420bcaacd3b7bc5ff",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many DIN horsepower does the 1.8-litre C-HR hybrid produce?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "88c18b91f90524c830d400f7a778b35c9c1522e83415b7a3259e67e2fd7a6bc0",
+        "chunks": [
+          {
+            "document_id": "69978c4ca9e52e9f",
+            "filename": "powertrain_update.pdf",
+            "page_number": 2,
+            "chunk_id": "69978c4ca9e52e9f-p2-c0",
+            "text_sha256": "837c4ab406ccbdc1177fd43245466037aea2887e89acaa22e4eab7a36f85defb"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochures, the 1.8-litre C-HR hybrid produces either 160 DIN hp [powertrain_update.pdf, p. 2] or 140 DIN hp [c-hr.pdf, p. 25], depending on the specific document.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 842,
+        "output_tokens": 65,
+        "total_tokens": 907
+      },
+      "latency_ms": 1773.99,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:42Z"
+    },
+    "113f6ed3c5850c3f9ad704c3375acf3a5c42692c27f6fc6c207995833c97984b": {
+      "fingerprint": "113f6ed3c5850c3f9ad704c3375acf3a5c42692c27f6fc6c207995833c97984b",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many DIN horsepower does the 1.8-litre C-HR hybrid produce?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "a2097999179830781d7340252d772b292a994b70f304e24a2a78ebf70b679991",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          }
+        ]
+      },
+      "answer": "The 1.8-litre C-HR hybrid produces 140 DIN horsepower [c-hr.pdf, p. 25].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 794,
+        "output_tokens": 31,
+        "total_tokens": 825
+      },
+      "latency_ms": 2044.63,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:47Z"
+    },
+    "7fd3259d0db10ac162767939c12a76c1ad336641713d57298eb8b6a8c502645c": {
+      "fingerprint": "7fd3259d0db10ac162767939c12a76c1ad336641713d57298eb8b6a8c502645c",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What total horsepower is listed for the C-HR 1.8 hybrid system?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "4b1fe9d030f19d65859a7e360b071e3b2e10a9d9fa9a9dd7ffbf558e6615d7f9",
+        "chunks": [
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c1",
+            "text_sha256": "2880812d2c1604ff80b66a7ab36deccf55c2590e954840485a1e41e4532b0ab6"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 25,
+            "chunk_id": "3a3a6f11b595fbaa-p25-c2",
+            "text_sha256": "62e54dc529d0faddb29aa2505bcc29b1652552a8fe16a883c7cfd7f7483d5f63"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 2,
+            "chunk_id": "a41375caeae69158-p2-c1",
+            "text_sha256": "3a402e633aaf9a5104436a9d382e7563af5c7dbdf5bb606e25fa68d1e6e3a8cd"
+          }
+        ]
+      },
+      "answer": "The total hybrid system output for the C-HR 1.8 Petrol Hybrid is 140 hp (at 6,000 rpm) [c-hr.pdf, p. 25].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1162,
+        "output_tokens": 45,
+        "total_tokens": 1207
+      },
+      "latency_ms": 1757.81,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:52Z"
+    },
+    "5eb2c4d40712805260ad6371bd08be791d9fc391a517e224f0555ed52fb1bcda": {
+      "fingerprint": "5eb2c4d40712805260ad6371bd08be791d9fc391a517e224f0555ed52fb1bcda",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the RAV4 luggage capacity with five seats in use?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "667fe1ac36221e48336ade8c1f0aaf205cb9e333440b298f1a841b84599be97d",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 14,
+            "chunk_id": "b68ed97998e7e54a-p14-c0",
+            "text_sha256": "831fbf43da1b027d5d5daf70e60f8772722f618948f4f438e6102aadffcfd7bd"
+          }
+        ]
+      },
+      "answer": "The RAV4 luggage capacity in 5-seat mode (laden to parcel shelf) is 580 litres [rav4.pdf, p. 42].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 637,
+        "output_tokens": 35,
+        "total_tokens": 672
+      },
+      "latency_ms": 1551.37,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:25:56Z"
+    },
+    "e93b70df894bbb5516d3478d073ab3b4b5f25f9658234592978619a2f9ad401c": {
+      "fingerprint": "e93b70df894bbb5516d3478d073ab3b4b5f25f9658234592978619a2f9ad401c",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the RAV4 luggage capacity with five seats in use?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ac9f3e3cd2c52accf75f88d42098649817415e36aa1191e167f7db1fa47db3ef",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 3,
+            "chunk_id": "b8fba6a60c736bf0-p3-c0",
+            "text_sha256": "aa2c8ee61abb4c63cd2e55deedaf9c2f73d19d518818c3b342a24bb0dbf776a1"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          }
+        ]
+      },
+      "answer": "Based on the provided documents, the RAV4 luggage capacity with five seats in use (laden to the parcel shelf) is:\n* 580 litres [rav4.pdf, p. 42]\n* 645 litres [cargo_and_dimensions_update.pdf, p. 3]",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 484,
+        "output_tokens": 67,
+        "total_tokens": 551
+      },
+      "latency_ms": 3604.49,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:04Z"
+    },
+    "0431417c48b73db2961844e0072af62a8a25e09f6cce171be054b19c1adc0877": {
+      "fingerprint": "0431417c48b73db2961844e0072af62a8a25e09f6cce171be054b19c1adc0877",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the RAV4 luggage capacity with five seats in use?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "174edd3ed22ebd7a2a9af210f783120b8e66a563fd318eb603c9d8607e0839b9",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          }
+        ]
+      },
+      "answer": "The RAV4 luggage capacity in 5-seat mode, laden to the parcel shelf, is 580 litres [rav4.pdf, p. 42].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 382,
+        "output_tokens": 36,
+        "total_tokens": 418
+      },
+      "latency_ms": 1653.45,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:07Z"
+    },
+    "21f861ff35b9f16aa58651a16d77a9f34f711ca134db3d5481f4fdf4f07f8835": {
+      "fingerprint": "21f861ff35b9f16aa58651a16d77a9f34f711ca134db3d5481f4fdf4f07f8835",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the RAV4 boot up to the parcel shelf?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "1d0e94fe8ac0eadf084d7ad21c8d26daa45cfab5dec3566aa05d8e32bec25a9a",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 38,
+            "chunk_id": "b68ed97998e7e54a-p38-c0",
+            "text_sha256": "523040a783324b41331abc6133cfdacc0a86f45c94e77fd8c1e36299a189cf90"
+          }
+        ]
+      },
+      "answer": "580 litres [rav4.pdf, p. 42].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 562,
+        "output_tokens": 16,
+        "total_tokens": 578
+      },
+      "latency_ms": 2436.65,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:12Z"
+    },
+    "a571955f242455ee00a3aaf6fadb755494fb00392ed9047ae356700ea17f4860": {
+      "fingerprint": "a571955f242455ee00a3aaf6fadb755494fb00392ed9047ae356700ea17f4860",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the RAV4 boot up to the parcel shelf?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "01ddc20d2d9353a25336e52e72c268a5562fc6c48facd46a4cb3748cb71afc9e",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 3,
+            "chunk_id": "b8fba6a60c736bf0-p3-c0",
+            "text_sha256": "aa2c8ee61abb4c63cd2e55deedaf9c2f73d19d518818c3b342a24bb0dbf776a1"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochures, the luggage capacity laden to the parcel shelf is 645 litres [cargo_and_dimensions_update.pdf, p. 3] or 580 litres [rav4.pdf, p. 42].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 551,
+        "output_tokens": 54,
+        "total_tokens": 605
+      },
+      "latency_ms": 1671.25,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:17Z"
+    },
+    "d1af6a56fe518ec5b576e06fdc0a7ea96e463ba0a5fd8367972dc33d641922a5": {
+      "fingerprint": "d1af6a56fe518ec5b576e06fdc0a7ea96e463ba0a5fd8367972dc33d641922a5",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the RAV4 boot up to the parcel shelf?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "1ac26de4f7d32d0d6b8b43eafb078fbbc4ac84d2087f2a1a50db34fe88f117e1",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          }
+        ]
+      },
+      "answer": "580 litres [rav4.pdf, p. 42].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 502,
+        "output_tokens": 16,
+        "total_tokens": 518
+      },
+      "latency_ms": 1978.72,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:22Z"
+    },
+    "befa8c2cf6d721bddf7d5cdd798968492c7316e4b1e4621667c16b46de3630b0": {
+      "fingerprint": "befa8c2cf6d721bddf7d5cdd798968492c7316e4b1e4621667c16b46de3630b0",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What cargo volume does the RAV4 provide before the rear seats are folded?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "b1d09877346e1ffa4d3805a7ab48e1a9585c82805d40fe6fbf6f6e548ed33494",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 14,
+            "chunk_id": "b68ed97998e7e54a-p14-c0",
+            "text_sha256": "831fbf43da1b027d5d5daf70e60f8772722f618948f4f438e6102aadffcfd7bd"
+          }
+        ]
+      },
+      "answer": "Based on the provided context, the RAV4 provides the following cargo/luggage volumes before the rear seats are folded:\n* 733 litres (laden to roof) [rav4.pdf, p. 42]\n* 580 litres (in 5-seat mode, laden to parcel shelf) [rav4.pdf, p. 42]",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 639,
+        "output_tokens": 80,
+        "total_tokens": 719
+      },
+      "latency_ms": 1626.93,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:27Z"
+    },
+    "4730c0143471837001dfb13681220954398b8057123c1770c2b9d145e2ded0be": {
+      "fingerprint": "4730c0143471837001dfb13681220954398b8057123c1770c2b9d145e2ded0be",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What cargo volume does the RAV4 provide before the rear seats are folded?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "fdf2097f8a5eb51bd438a10f6aaff5666d50c7b8e38f406d7abb932c46919b97",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          }
+        ]
+      },
+      "answer": "Based on the provided context, the cargo volume for the RAV4 before the rear seats are folded is 580 litres (laden to parcel shelf in 5-seat mode) or 733 litres (laden to roof) [rav4.pdf, p. 42].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 539,
+        "output_tokens": 60,
+        "total_tokens": 599
+      },
+      "latency_ms": 1646.25,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:32Z"
+    },
+    "75e9c139c70969ff584da23f94536906d8d3db0505d0586ddbd0038fb8bd83a1": {
+      "fingerprint": "75e9c139c70969ff584da23f94536906d8d3db0505d0586ddbd0038fb8bd83a1",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What cargo volume does the RAV4 provide before the rear seats are folded?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "22735d3a1802a19403d5c60f5f24fddf93c2fe286c3498452694de6294e211eb",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochure, the RAV4 provides the following cargo volumes before the rear seats are folded (in 5-seat mode):\n\n* 580 litres (laden to parcel shelf) [rav4.pdf, p. 42]\n* 733 litres (laden to roof) [rav4.pdf, p. 42]",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 486,
+        "output_tokens": 77,
+        "total_tokens": 563
+      },
+      "latency_ms": 1612.77,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:37Z"
+    },
+    "4f18acc8076764ac8b5d6e3e57ad1ba9cac5a5e77e0eae8e15f1b1153e16c79e": {
+      "fingerprint": "4f18acc8076764ac8b5d6e3e57ad1ba9cac5a5e77e0eae8e15f1b1153e16c79e",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the bZ4X luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "88ca15e8dd4284634257ddb6c5d5f91981fc49a71e412c8ed64ad71d36c6f10c",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 42,
+            "chunk_id": "b68ed97998e7e54a-p42-c0",
+            "text_sha256": "4e11952a8a4fada70939ad0bb4f3b353c1c65b32477d0fe75e12fce68267bb22"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 4,
+            "chunk_id": "a41375caeae69158-p4-c0",
+            "text_sha256": "0265368bd4d475b2f500940259c032f376a7a486b5cef17c383afe57aaae151f"
+          }
+        ]
+      },
+      "answer": "The bZ4X luggage capacity with the rear seats up (laden to tonneau cover) is 452 litres [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 750,
+        "output_tokens": 37,
+        "total_tokens": 787
+      },
+      "latency_ms": 1512.14,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:41Z"
+    },
+    "b3381ea996c5d189be2e589dd08347f623b6006954cf9c324043ab2622038eda": {
+      "fingerprint": "b3381ea996c5d189be2e589dd08347f623b6006954cf9c324043ab2622038eda",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the bZ4X luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "53b6425add97a873561a6436e021aa3623f9f5b9a587a36a954d9234de97fb4d",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          }
+        ]
+      },
+      "answer": "Based on the provided documents, the bZ4X luggage capacity with the rear seats up (laden to the tonneau cover) is 520 litres [cargo_and_dimensions_update.pdf, p. 4] or 452 litres (VDA standard) [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 256,
+        "output_tokens": 71,
+        "total_tokens": 327
+      },
+      "latency_ms": 2034.95,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:47Z"
+    },
+    "8cdaaead903413fe95d2c2a8c12b9548e22d45d46a02469632cb9251e0cdfb49": {
+      "fingerprint": "8cdaaead903413fe95d2c2a8c12b9548e22d45d46a02469632cb9251e0cdfb49",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the bZ4X luggage capacity with the rear seats up?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ebdb618f30c65f1a78b38e1e65faa73cf6c35bb4a1cf778f90e2255225232055",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          }
+        ]
+      },
+      "answer": "The bZ4X luggage capacity with the rear seats up (laden to tonneau cover, VDA standard) is 452 litres [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 156,
+        "output_tokens": 41,
+        "total_tokens": 197
+      },
+      "latency_ms": 1918.2,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:52Z"
+    },
+    "5f8c9c3d9dd678c6e339fcd7d48d03f56e7fece96ef6e24a846c6345fcbf0940": {
+      "fingerprint": "5f8c9c3d9dd678c6e339fcd7d48d03f56e7fece96ef6e24a846c6345fcbf0940",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the bZ4X boot below the tonneau cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "89188aa976f8dd273741c45152efe944b33f4331060a7713b6402acd91cdb682",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 25,
+            "chunk_id": "2fb681d4da7858b1-p25-c0",
+            "text_sha256": "17aa053b0178fd8fe54942bddb3c7b096d7144d5168764f04e165b23fa43fbea"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 14,
+            "chunk_id": "3d8d10b02a390a5e-p14-c0",
+            "text_sha256": "a4c77f4f9d0a2b9ffe2bdf9d1dcfd2b7ceb7beec8a224e9745f9a38c7b4738f7"
+          }
+        ]
+      },
+      "answer": "452 litres [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 524,
+        "output_tokens": 16,
+        "total_tokens": 540
+      },
+      "latency_ms": 2855.35,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:26:58Z"
+    },
+    "f814bbf638af2578b46480701bf76c75079473e306cb523a5855534a22a1c976": {
+      "fingerprint": "f814bbf638af2578b46480701bf76c75079473e306cb523a5855534a22a1c976",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the bZ4X boot below the tonneau cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "3e0144c2de0b52ca98fc51a30e176eb6dcf52fd1adbf3cf38133ef2e6c3316be",
+        "chunks": [
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 1,
+            "chunk_id": "b8fba6a60c736bf0-p1-c0",
+            "text_sha256": "ea8c6e9ef3996b228072db9f11da5acc37bfc6ce420467fc22aea84e908fde1d"
+          }
+        ]
+      },
+      "answer": "Based on the provided brochures, there are two different figures given for the bZ4X boot capacity below the tonneau cover:\n\n* **520 litres** [cargo_and_dimensions_update.pdf, p. 4]\n* **452 litres** (VDA standard) [bz4x.pdf, p. 3]",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 257,
+        "output_tokens": 75,
+        "total_tokens": 332
+      },
+      "latency_ms": 2111.49,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:02Z"
+    },
+    "d3ce966f5e31791f7766cd310305d241dd01493d1ad835f039addf53ed0d7e13": {
+      "fingerprint": "d3ce966f5e31791f7766cd310305d241dd01493d1ad835f039addf53ed0d7e13",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many litres fit in the bZ4X boot below the tonneau cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ece6afcc74e0da07644f2aa49921ceea9ded15a5e8ef86f5e776c126f46bddc6",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          }
+        ]
+      },
+      "answer": "452 litres [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 158,
+        "output_tokens": 16,
+        "total_tokens": 174
+      },
+      "latency_ms": 1975.73,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:07Z"
+    },
+    "6a1ff4682bd1cfca5610b738be5643ea3637fce9369adad8ef352a509441d373": {
+      "fingerprint": "6a1ff4682bd1cfca5610b738be5643ea3637fce9369adad8ef352a509441d373",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What rear-seats-up cargo volume is listed for the bZ4X?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "20f300eca29f8f14af5e59f0332336df1d12bfeafa7828f619d430881aa69be8",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 4,
+            "chunk_id": "a41375caeae69158-p4-c0",
+            "text_sha256": "0265368bd4d475b2f500940259c032f376a7a486b5cef17c383afe57aaae151f"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 5,
+            "chunk_id": "eb02bdffdf77c857-p5-c1",
+            "text_sha256": "79fa15b278d639c6bdb70fed53545c11a35581c9e7deb477318a8d6f8bd7de3a"
+          }
+        ]
+      },
+      "answer": "The rear-seats-up cargo volume listed for the bZ4X (laden to tonneau cover, VDA standard) is 452 litres [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 814,
+        "output_tokens": 44,
+        "total_tokens": 858
+      },
+      "latency_ms": 2391.16,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:12Z"
+    },
+    "7995d3d0a2f571d1571584b7a674ea0048353e680031f64c527cba99be8c0dd7": {
+      "fingerprint": "7995d3d0a2f571d1571584b7a674ea0048353e680031f64c527cba99be8c0dd7",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What rear-seats-up cargo volume is listed for the bZ4X?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ea089112828ca7cf4cc17565fafc4fa2f9d98f3910e5d3c8358c02f149b7d318",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 4,
+            "chunk_id": "b8fba6a60c736bf0-p4-c0",
+            "text_sha256": "9caa92ff81373bbf15d26b0c39e24d7f5f65c8156f33762046d418f5270c7a17"
+          },
+          {
+            "document_id": "b8fba6a60c736bf0",
+            "filename": "cargo_and_dimensions_update.pdf",
+            "page_number": 2,
+            "chunk_id": "b8fba6a60c736bf0-p2-c0",
+            "text_sha256": "0aaf6049dab5f6ed01d0ee59631313b1cbabf799af25da155f24e9a4eb4ed698"
+          }
+        ]
+      },
+      "answer": "The rear-seats-up cargo volume (laden to the tonneau cover) for the bZ4X is listed as 452 litres [bz4x.pdf, p. 3] and 520 litres [cargo_and_dimensions_update.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 258,
+        "output_tokens": 64,
+        "total_tokens": 322
+      },
+      "latency_ms": 2299.04,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:17Z"
+    },
+    "10562876dbe801e1f3f915369a25da3e1fe9ca43c96eff232bc870741f310750": {
+      "fingerprint": "10562876dbe801e1f3f915369a25da3e1fe9ca43c96eff232bc870741f310750",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What rear-seats-up cargo volume is listed for the bZ4X?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "c9d1b72e54e0fc400df0601b3a3cd9230df133db46bec762213a0d32cba6fa53",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 3,
+            "chunk_id": "eb02bdffdf77c857-p3-c0",
+            "text_sha256": "abdfceac8bf0bea6d5000ab2da2ced96ffd36518f3d17a471267d9594112fa49"
+          }
+        ]
+      },
+      "answer": "The rear-seats-up cargo volume (laden to tonneau cover) for the bZ4X is 452 litres [bz4x.pdf, p. 3].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 158,
+        "output_tokens": 39,
+        "total_tokens": 197
+      },
+      "latency_ms": 2265.53,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:22Z"
+    },
+    "5963303e033303e4bf2e85afb689187f28aa9ed45e7155b4d7cf0154357d223b": {
+      "fingerprint": "5963303e033303e4bf2e85afb689187f28aa9ed45e7155b4d7cf0154357d223b",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Land Cruiser braked towing capacity?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "608cc5739080e933bb78c6dd2ddfe05972823e76c8b0189413a34777ec7167f8",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c0",
+            "text_sha256": "c25ef8b8f7a3c6dacc26f9c620911964b9dd61ed5473401d0ec1a5f03bc4a455"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 21,
+            "chunk_id": "578c9c0e961c5a30-p21-c1",
+            "text_sha256": "d5d3335ac27c8e52627b13dc699b2ce98c04a1bcc972dd51c97786a9558d7fdb"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser braked towing capacity is 3,000 kg [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1378,
+        "output_tokens": 29,
+        "total_tokens": 1407
+      },
+      "latency_ms": 2687.75,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:28Z"
+    },
+    "fe0cb85197ccae21cd839587880eb716cf84063cf34fa9f90351e5a309d4cf54": {
+      "fingerprint": "fe0cb85197ccae21cd839587880eb716cf84063cf34fa9f90351e5a309d4cf54",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Land Cruiser braked towing capacity?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "bcb2ab08c0a3e2ba5cb58d176e01960da241fc25cd089d61b717f38b95c032f5",
+        "chunks": [
+          {
+            "document_id": "5eb45669a9f1c078",
+            "filename": "capability_update.pdf",
+            "page_number": 1,
+            "chunk_id": "5eb45669a9f1c078-p1-c0",
+            "text_sha256": "c49e05c5a8cb33d063a2ff477bf199c62f2516e12a65acbf2fcad861bab09313"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c0",
+            "text_sha256": "c25ef8b8f7a3c6dacc26f9c620911964b9dd61ed5473401d0ec1a5f03bc4a455"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser braked towing capacity is either 3,500 kg [capability_update.pdf, p. 1] or 3,000 kg depending on the specific model/specifications [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 962,
+        "output_tokens": 58,
+        "total_tokens": 1020
+      },
+      "latency_ms": 2601.81,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:33Z"
+    },
+    "f20432b6ec428b510e318e5ebc541daa8e11767798cea4c71be7fb10e5fa19e0": {
+      "fingerprint": "f20432b6ec428b510e318e5ebc541daa8e11767798cea4c71be7fb10e5fa19e0",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Land Cruiser braked towing capacity?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ee4a75dead3abad222204b5bcacbae60a44f2dfbbdd59c70430a37add8c599c5",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c0",
+            "text_sha256": "c25ef8b8f7a3c6dacc26f9c620911964b9dd61ed5473401d0ec1a5f03bc4a455"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser braked towing capacity is 3000 kg [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 923,
+        "output_tokens": 28,
+        "total_tokens": 951
+      },
+      "latency_ms": 1358.31,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:36Z"
+    },
+    "550433c76d92054f025eb0bc901d1d09927764e762a744bca4cece5fc83dd85c": {
+      "fingerprint": "550433c76d92054f025eb0bc901d1d09927764e762a744bca4cece5fc83dd85c",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many kilograms can the Land Cruiser tow with a braked trailer?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ee2ded8204d1076bb46db64131baa79e7939d88ba30bde1d688a95625b9da48c",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c0",
+            "text_sha256": "c25ef8b8f7a3c6dacc26f9c620911964b9dd61ed5473401d0ec1a5f03bc4a455"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 7,
+            "chunk_id": "578c9c0e961c5a30-p7-c0",
+            "text_sha256": "6877a58785ea0ff8f3cf03a17fdd817f3a8e1c51245535d3a5026eaa46485d82"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 22,
+            "chunk_id": "578c9c0e961c5a30-p22-c0",
+            "text_sha256": "1edfb8845dd49d979dbf527316ca18f7a14855f7011b439477cc0e99b0d00722"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser can tow 3,000 kilograms with a braked trailer [land-cruiser.pdf, p. 22].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1202,
+        "output_tokens": 31,
+        "total_tokens": 1233
+      },
+      "latency_ms": 1918.09,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:42Z"
+    },
+    "0fa0427a40347803a97524fb5ae85dc61d5aa41b2bdfa10ec4a0698c45e548c8": {
+      "fingerprint": "0fa0427a40347803a97524fb5ae85dc61d5aa41b2bdfa10ec4a0698c45e548c8",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many kilograms can the Land Cruiser tow with a braked trailer?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "1809065febc7afddd4877856bebf36395dd4fff70b63c3131588f503e7fa52ef",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c0",
+            "text_sha256": "c25ef8b8f7a3c6dacc26f9c620911964b9dd61ed5473401d0ec1a5f03bc4a455"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 7,
+            "chunk_id": "578c9c0e961c5a30-p7-c0",
+            "text_sha256": "6877a58785ea0ff8f3cf03a17fdd817f3a8e1c51245535d3a5026eaa46485d82"
+          },
+          {
+            "document_id": "5eb45669a9f1c078",
+            "filename": "capability_update.pdf",
+            "page_number": 1,
+            "chunk_id": "5eb45669a9f1c078-p1-c0",
+            "text_sha256": "c49e05c5a8cb33d063a2ff477bf199c62f2516e12a65acbf2fcad861bab09313"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser can tow 3,500 kg with a braked trailer [capability_update.pdf, p. 1].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 688,
+        "output_tokens": 29,
+        "total_tokens": 717
+      },
+      "latency_ms": 2400.63,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:47Z"
+    },
+    "2aaa554e6727341316d474522d7ef768068ba282225f1ebe319683588eb38683": {
+      "fingerprint": "2aaa554e6727341316d474522d7ef768068ba282225f1ebe319683588eb38683",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many kilograms can the Land Cruiser tow with a braked trailer?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "a05a08fcf312856148d22e4c17a75c3584bad438768decce4256da863af78a63",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c0",
+            "text_sha256": "c25ef8b8f7a3c6dacc26f9c620911964b9dd61ed5473401d0ec1a5f03bc4a455"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 7,
+            "chunk_id": "578c9c0e961c5a30-p7-c0",
+            "text_sha256": "6877a58785ea0ff8f3cf03a17fdd817f3a8e1c51245535d3a5026eaa46485d82"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer how many kilograms the Land Cruiser can tow with a braked trailer [land-cruiser.pdf, p. 7, 17].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 649,
+        "output_tokens": 37,
+        "total_tokens": 686
+      },
+      "latency_ms": 3139.96,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:53Z"
+    },
+    "61517ced2b0670846472ad3389142e935a0678b2eccd21d79902f4ade45b2edf": {
+      "fingerprint": "61517ced2b0670846472ad3389142e935a0678b2eccd21d79902f4ade45b2edf",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What maximum braked trailer weight is specified for the Land Cruiser?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "ef7645ede667e90b80cb5f7db2c71fda435ace087f99f6266cee614dae27402b",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 17,
+            "chunk_id": "578c9c0e961c5a30-p17-c3",
+            "text_sha256": "0693e5e2d2302c18c6975f1a815179c81d44ebb39560bbcbae3d630f9f4dad19"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          }
+        ]
+      },
+      "answer": "The context is insufficient to answer the question about the maximum braked trailer weight for the Land Cruiser.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1102,
+        "output_tokens": 20,
+        "total_tokens": 1122
+      },
+      "latency_ms": 1839.63,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:27:57Z"
+    },
+    "0cf6f1a5e0dc87ee6cdbe779785161dbd66ee9375207723e27355579dc67b5c8": {
+      "fingerprint": "0cf6f1a5e0dc87ee6cdbe779785161dbd66ee9375207723e27355579dc67b5c8",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the exterior length of the Aygo X?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "3235e159ac861c9fb1491e752409c8164edd83403db6cac0960ce0cf9185fa28",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 12,
+            "chunk_id": "3d8d10b02a390a5e-p12-c0",
+            "text_sha256": "6cf01673b94d7d43741e4abdb3f393e94b9a31dc7f9ca9100bab18d922a15380"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c1",
+            "text_sha256": "9f23e5ba8645c24d458aee9d3d1583d4fa949e1b3919ad36c1eaa527527fb465"
+          }
+        ]
+      },
+      "answer": "The exterior length of the Aygo X is 3700 mm [aygo-x.pdf, p. 23].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 845,
+        "output_tokens": 29,
+        "total_tokens": 874
+      },
+      "latency_ms": 1573.53,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:02Z"
+    },
+    "8076e96dac9ae801274bccc89781c234773a18381cc18a58b0827eea91f8a414": {
+      "fingerprint": "8076e96dac9ae801274bccc89781c234773a18381cc18a58b0827eea91f8a414",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the Aygo X wheelbase?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "68417401675e7dd216baa13381171f0b972b28591b58145fb1dcef406772186d",
+        "chunks": [
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 23,
+            "chunk_id": "3d8d10b02a390a5e-p23-c0",
+            "text_sha256": "08ec60e18692f5f20ed2f46519fc4cae8390f9f0a19983cf8503f6afd137ecc5"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 12,
+            "chunk_id": "3d8d10b02a390a5e-p12-c0",
+            "text_sha256": "6cf01673b94d7d43741e4abdb3f393e94b9a31dc7f9ca9100bab18d922a15380"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 3,
+            "chunk_id": "3d8d10b02a390a5e-p3-c0",
+            "text_sha256": "d42598d16177e40bbdad652a5348749ffda2ebcfe49bca26903521a80b535d42"
+          }
+        ]
+      },
+      "answer": "The Aygo X wheelbase is 2430 mm [aygo-x.pdf, p. 23].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 856,
+        "output_tokens": 26,
+        "total_tokens": 882
+      },
+      "latency_ms": 2001.12,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:07Z"
+    },
+    "84b4c5185654ae3bc31422e66ad528e0fb1073e2a512d049407d85cd9bfb6d6c": {
+      "fingerprint": "84b4c5185654ae3bc31422e66ad528e0fb1073e2a512d049407d85cd9bfb6d6c",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many SRS airbags are listed for the Aygo X?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "632926c624593b8ec25eeecaee0e4ce7be5bb5f7606b60df342fe9ee8ebaee3e",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 28,
+            "chunk_id": "2fb681d4da7858b1-p28-c0",
+            "text_sha256": "09b61662018507b837d239fc04b780f46b83225479868df8f2b509e8b5e3cfcc"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 5,
+            "chunk_id": "eb02bdffdf77c857-p5-c5",
+            "text_sha256": "0582bc80fb770ced19282532ed7232a0c732d099d0390b546ee4ac98ccaad583"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 14,
+            "chunk_id": "2fb681d4da7858b1-p14-c0",
+            "text_sha256": "0e7cde1a6dc01a1264b5e010b9c8eadaebb0ca8ea05db62223a6deed48d5e741"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer the question, as there is no mention of the Aygo X in the text.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 879,
+        "output_tokens": 24,
+        "total_tokens": 903
+      },
+      "latency_ms": 1658.2,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:12Z"
+    },
+    "41467355ceee23e086d1a777d24096b0a5fb7447d9b309072b9640c6326ad60a": {
+      "fingerprint": "41467355ceee23e086d1a777d24096b0a5fb7447d9b309072b9640c6326ad60a",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many SRS airbags are listed for the Aygo X?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "4426bd26dbab1846898b753b78f53cbd3f54945e846b7aabccd18096cec0adfa",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 28,
+            "chunk_id": "2fb681d4da7858b1-p28-c0",
+            "text_sha256": "09b61662018507b837d239fc04b780f46b83225479868df8f2b509e8b5e3cfcc"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 5,
+            "chunk_id": "eb02bdffdf77c857-p5-c5",
+            "text_sha256": "0582bc80fb770ced19282532ed7232a0c732d099d0390b546ee4ac98ccaad583"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer the question, as there is no mention of the Aygo X.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 608,
+        "output_tokens": 21,
+        "total_tokens": 629
+      },
+      "latency_ms": 1621.76,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:17Z"
+    },
+    "af5b8c5e9fcafef6e639893a39570f0d358d790cc26d42376456297368bdbb06": {
+      "fingerprint": "af5b8c5e9fcafef6e639893a39570f0d358d790cc26d42376456297368bdbb06",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many speakers are standard on the Yaris Icon grade?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "117a1f0b028e7db201710023fce4d0b5c991c66ab26b910ea3c9a8fed8965e84",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 9,
+            "chunk_id": "a41375caeae69158-p9-c0",
+            "text_sha256": "3a9c8710d3755361769ea5ad715f6e1f285925b652bde781d2a95f5f6a6b1775"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 7,
+            "chunk_id": "a41375caeae69158-p7-c0",
+            "text_sha256": "5cd18c8efbe81b3664c5d5b699eec36f49415bb68710ad749339391f1d1373b0"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 5,
+            "chunk_id": "a41375caeae69158-p5-c0",
+            "text_sha256": "92764943f426cd64da7f077d7f4abfa2a5fd7f864cabb0880c9625f8b02cb6bd"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer how many speakers are standard on the Yaris Icon grade.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 580,
+        "output_tokens": 19,
+        "total_tokens": 599
+      },
+      "latency_ms": 1852.68,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:22Z"
+    },
+    "3399a4020d51ecf04d5ee4fc687433d8985e80105495f89f7eaecd759a152cda": {
+      "fingerprint": "3399a4020d51ecf04d5ee4fc687433d8985e80105495f89f7eaecd759a152cda",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Is a reversing camera standard across the listed Yaris grades?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "a92c3d14382f2206cf72c641e5749ca555b70c3922a4d381b0a200a9d15b80bc",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 9,
+            "chunk_id": "a41375caeae69158-p9-c0",
+            "text_sha256": "3a9c8710d3755361769ea5ad715f6e1f285925b652bde781d2a95f5f6a6b1775"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 12,
+            "chunk_id": "a41375caeae69158-p12-c0",
+            "text_sha256": "680d6e85e5dc67e65ce616163563011edfb7520b4124da90b9325db5bf3f917d"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 13,
+            "chunk_id": "a41375caeae69158-p13-c0",
+            "text_sha256": "ffe39ecf6c6972fb5145956aea36e309d8faa3c8944504fef4c9d1662b3f93bb"
+          }
+        ]
+      },
+      "answer": "Yes, a reversing camera is standard across all listed Yaris grades (Icon, Design, Excel, and GR SPORT) [yaris.pdf, p. 9, p. 12].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 626,
+        "output_tokens": 41,
+        "total_tokens": 667
+      },
+      "latency_ms": 1815.5,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:27Z"
+    },
+    "332d954871adb43f2e3644cd2c5f7ca238516c0af21cf585f4c7876671a6e2ba": {
+      "fingerprint": "332d954871adb43f2e3644cd2c5f7ca238516c0af21cf585f4c7876671a6e2ba",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Is pre-wiring for a towing hook listed across the Yaris grades?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "10cee489f7d1da7343861aba885ddbeb655f1056346b37d903f8a834e7170c28",
+        "chunks": [
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 13,
+            "chunk_id": "a41375caeae69158-p13-c0",
+            "text_sha256": "ffe39ecf6c6972fb5145956aea36e309d8faa3c8944504fef4c9d1662b3f93bb"
+          },
+          {
+            "document_id": "a41375caeae69158",
+            "filename": "yaris.pdf",
+            "page_number": 14,
+            "chunk_id": "a41375caeae69158-p14-c0",
+            "text_sha256": "436fc340015e702feee4b2c0738d9bd9e530d81764e249af417f3bd2543f582b"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 5,
+            "chunk_id": "eb02bdffdf77c857-p5-c5",
+            "text_sha256": "0582bc80fb770ced19282532ed7232a0c732d099d0390b546ee4ac98ccaad583"
+          }
+        ]
+      },
+      "answer": "Yes, pre-wiring for a towing hook is listed as standard (z) across all Yaris grades (Icon, Design, Excel, and GR SPORT) [yaris.pdf, p. 13].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 757,
+        "output_tokens": 44,
+        "total_tokens": 801
+      },
+      "latency_ms": 2298.83,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:32Z"
+    },
+    "c239a66ebb7630e3c19a7d1d50483a98be2248e61421cb1777c21c9ae9c439e7": {
+      "fingerprint": "c239a66ebb7630e3c19a7d1d50483a98be2248e61421cb1777c21c9ae9c439e7",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Is Toyota Smart Connect+ with Navigation standard across the listed Corolla Touring Sports grades?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "742afa0730f7db6f1937aab804e12343fe4abf193adef01bea9651aa2c62b68d",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 26,
+            "chunk_id": "2fb681d4da7858b1-p26-c0",
+            "text_sha256": "a48830b371ed34ecddd1b77d9e9c5a9db37bd70cbe77cf12f94f32edc9b84389"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 16,
+            "chunk_id": "3a3a6f11b595fbaa-p16-c0",
+            "text_sha256": "8ccfb7142d2ca05b8c1bfba3db20f487d8c4bdfcaae01977517a8e766c567f20"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 15,
+            "chunk_id": "3a3a6f11b595fbaa-p15-c0",
+            "text_sha256": "971386b8264419be695ea32ab98a9e0bf4860b31b69d75a7566f12291db9c706"
+          }
+        ]
+      },
+      "answer": "Yes, Toyota Smart Connect+ with Navigation is standard (indicated by \"z\") across all listed Corolla Touring Sports grades (Icon, Design, Excel, and GR SPORT) [corolla.pdf, p. 26].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 720,
+        "output_tokens": 46,
+        "total_tokens": 766
+      },
+      "latency_ms": 1769.69,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:37Z"
+    },
+    "9b25b8af96c65851c7dfeb0196fd88361b28ddf5988cc5724b595b245e62b1ae": {
+      "fingerprint": "9b25b8af96c65851c7dfeb0196fd88361b28ddf5988cc5724b595b245e62b1ae",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Are rear parking sensors standard across the listed Corolla Touring Sports grades?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "05eebf4d34de89f6a72f40e30cd3b34bb01f03010733e4940bf6830f28e43056",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 28,
+            "chunk_id": "2fb681d4da7858b1-p28-c0",
+            "text_sha256": "09b61662018507b837d239fc04b780f46b83225479868df8f2b509e8b5e3cfcc"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 18,
+            "chunk_id": "2fb681d4da7858b1-p18-c0",
+            "text_sha256": "e7076cc9fc91c38f562e7ab10a093d8fd29526a129057f56308060ec0f4c4980"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 26,
+            "chunk_id": "2fb681d4da7858b1-p26-c0",
+            "text_sha256": "a48830b371ed34ecddd1b77d9e9c5a9db37bd70cbe77cf12f94f32edc9b84389"
+          }
+        ]
+      },
+      "answer": "Yes, rear parking sensors are standard across all listed Corolla Touring Sports grades (Icon, Design, Excel, and GR SPORT) [corolla.pdf, p. 28].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1019,
+        "output_tokens": 37,
+        "total_tokens": 1056
+      },
+      "latency_ms": 1807.03,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:42Z"
+    },
+    "0ec8a91c670d09ee11447a1602596f541574856f553f4e815d2ed201acde8202": {
+      "fingerprint": "0ec8a91c670d09ee11447a1602596f541574856f553f4e815d2ed201acde8202",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many SRS airbags are listed for the Corolla Touring Sports?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "d586e83d821cb4fbc8a6a20ef8907203981a45bf59e861fbf8df929975bc236d",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 28,
+            "chunk_id": "2fb681d4da7858b1-p28-c0",
+            "text_sha256": "09b61662018507b837d239fc04b780f46b83225479868df8f2b509e8b5e3cfcc"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 14,
+            "chunk_id": "2fb681d4da7858b1-p14-c0",
+            "text_sha256": "0e7cde1a6dc01a1264b5e010b9c8eadaebb0ca8ea05db62223a6deed48d5e741"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 19,
+            "chunk_id": "2fb681d4da7858b1-p19-c0",
+            "text_sha256": "d13b5e2175756dd8ee957c512685406ddbebdb5c8e1bb0a8e9a8f2ac3dd3616c"
+          }
+        ]
+      },
+      "answer": "There are 7 SRS airbags listed for the Corolla Touring Sports [corolla.pdf, p. 28].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 794,
+        "output_tokens": 24,
+        "total_tokens": 818
+      },
+      "latency_ms": 1845.4,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:47Z"
+    },
+    "cdbebf58914361de4fce65e3ba25a4ad85285c21601c80b20b3936d86334e961": {
+      "fingerprint": "cdbebf58914361de4fce65e3ba25a4ad85285c21601c80b20b3936d86334e961",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many SRS airbags are listed for the Corolla Touring Sports?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "da3069ce2264027602af157f489f69a5a1ebd6cf0f14307f09cedb1a24e3317a",
+        "chunks": [
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 28,
+            "chunk_id": "2fb681d4da7858b1-p28-c0",
+            "text_sha256": "09b61662018507b837d239fc04b780f46b83225479868df8f2b509e8b5e3cfcc"
+          },
+          {
+            "document_id": "2fb681d4da7858b1",
+            "filename": "corolla.pdf",
+            "page_number": 19,
+            "chunk_id": "2fb681d4da7858b1-p19-c0",
+            "text_sha256": "d13b5e2175756dd8ee957c512685406ddbebdb5c8e1bb0a8e9a8f2ac3dd3616c"
+          }
+        ]
+      },
+      "answer": "There are 7 SRS airbags listed for the Corolla Touring Sports [corolla.pdf, p. 28].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 523,
+        "output_tokens": 24,
+        "total_tokens": 547
+      },
+      "latency_ms": 1686.77,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:52Z"
+    },
+    "c0c56f369fef4562ec506d724754af1424416e820f4217902dcd22b102c0f53f": {
+      "fingerprint": "c0c56f369fef4562ec506d724754af1424416e820f4217902dcd22b102c0f53f",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Is Blind Spot Monitor standard across the listed C-HR grades?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "9838d56f3ffef5bc4156bb4a40de1db8175e9884f71b3d444b51a624d8ab9a7a",
+        "chunks": [
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 15,
+            "chunk_id": "3a3a6f11b595fbaa-p15-c0",
+            "text_sha256": "971386b8264419be695ea32ab98a9e0bf4860b31b69d75a7566f12291db9c706"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 30,
+            "chunk_id": "3a3a6f11b595fbaa-p30-c0",
+            "text_sha256": "baa986b594d747577b45476b8d67c4953c58dbdcd37a5771607da8ba96d8a4eb"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 19,
+            "chunk_id": "3a3a6f11b595fbaa-p19-c0",
+            "text_sha256": "b0d2344118feb4cdadeb9f9543289a96dbf8719656b3c4ef6922f20684777578"
+          }
+        ]
+      },
+      "answer": "Yes, Blind Spot Monitor (BSM) is standard across all the listed C-HR grades (Icon, Design, Excel, GR SPORT, and Premiere Edition) [c-hr.pdf, p. 30].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 772,
+        "output_tokens": 46,
+        "total_tokens": 818
+      },
+      "latency_ms": 2286.45,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:28:57Z"
+    },
+    "252b4c6973ba9febaeee9013f35da36f59469931a7660435b7993bc461fb7c72": {
+      "fingerprint": "252b4c6973ba9febaeee9013f35da36f59469931a7660435b7993bc461fb7c72",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "Are floor mats standard across the listed C-HR grades?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "a6050b087ca1b67491dacc3e18f2075b512e6ebc2ab56dbb9c51610d22d2afb1",
+        "chunks": [
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 22,
+            "chunk_id": "3a3a6f11b595fbaa-p22-c0",
+            "text_sha256": "1d417f687a966abda0fab7790c9dce521dd5b919f0572f507d1207009f4d8a2f"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 21,
+            "chunk_id": "3a3a6f11b595fbaa-p21-c0",
+            "text_sha256": "745ef6146f68407420f092c90ce9672682d727a24f411376f582094a525b7e11"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 27,
+            "chunk_id": "3a3a6f11b595fbaa-p27-c2",
+            "text_sha256": "9cc51190a9ea9c02b50f3b4a776a79e50f4540709785d1519c3259e40ba60100"
+          }
+        ]
+      },
+      "answer": "The provided context is insufficient to answer whether floor mats are standard across the listed C-HR grades.",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 494,
+        "output_tokens": 20,
+        "total_tokens": 514
+      },
+      "latency_ms": 1581.73,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:02Z"
+    },
+    "0036eed23d77715b4b7c03690928139df956563d1e1694c127dfd2ae2febf88c": {
+      "fingerprint": "0036eed23d77715b4b7c03690928139df956563d1e1694c127dfd2ae2febf88c",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many speakers are included in the optional RAV4 JBL Premium Sound System?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "a97320b90ef0976b7385e4d4fd7b3d22686617b7f32e110943d81becd2ffd83e",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 48,
+            "chunk_id": "b68ed97998e7e54a-p48-c0",
+            "text_sha256": "f873637f6aeaacb826fad84c495cc763da84be60df19976f0b5a323d57b1d2ab"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 49,
+            "chunk_id": "b68ed97998e7e54a-p49-c1",
+            "text_sha256": "1d7ca4d995f9855ddb32ec1a54f7502752e41eb6aa8d86e9f1309c674f4d80bf"
+          },
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 51,
+            "chunk_id": "b68ed97998e7e54a-p51-c0",
+            "text_sha256": "8f2f129e251ccafa4a1ed41dc91a6bc8187b37486b521e2746be16889bc22c17"
+          }
+        ]
+      },
+      "answer": "The optional RAV4 JBL Premium Sound System includes 9 speakers [rav4.pdf, p. 51].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 710,
+        "output_tokens": 24,
+        "total_tokens": 734
+      },
+      "latency_ms": 1703.29,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:07Z"
+    },
+    "e409a6610233061793bf6c918f46a516bc26d1d22c363185dea3c432e1f55d48": {
+      "fingerprint": "e409a6610233061793bf6c918f46a516bc26d1d22c363185dea3c432e1f55d48",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the maximum age and mileage described for Toyota Relax cover on the RAV4?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "96f38c2b0c45aab0fae2db3a629339d5bd0ad6b6e4084bf324fff08dfe1d4fb5",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 53,
+            "chunk_id": "b68ed97998e7e54a-p53-c0",
+            "text_sha256": "1f8c16c10c08e888a93424e98ae1fcc6584a07846227e8ce519bb43f9f7bfa0e"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 26,
+            "chunk_id": "3d8d10b02a390a5e-p26-c2",
+            "text_sha256": "5c4815611649de616d9336536ce8a99c2c571255618acb3e90e27430917812c0"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 27,
+            "chunk_id": "578c9c0e961c5a30-p27-c2",
+            "text_sha256": "52c5d52dfa78171fe53497e1c4bbab8182deb487f9ad3a40a49d47951d24d5ae"
+          }
+        ]
+      },
+      "answer": "The maximum age and mileage for the Toyota Relax cover is up to 10 years or 100,000 miles, whichever comes first [rav4.pdf, p. 53].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 929,
+        "output_tokens": 43,
+        "total_tokens": 972
+      },
+      "latency_ms": 1572.53,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:12Z"
+    },
+    "0f0b3e6df1a6b10dd5c2e4fe049a4afe2b1747f29427abad19d5123fa1d7f321": {
+      "fingerprint": "0f0b3e6df1a6b10dd5c2e4fe049a4afe2b1747f29427abad19d5123fa1d7f321",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the maximum age and mileage described for Toyota Relax cover on the RAV4?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "46140c76a7d68c92d6f392317cdb5ab3fd6036019efe82f679e23982ca1f1808",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 53,
+            "chunk_id": "b68ed97998e7e54a-p53-c0",
+            "text_sha256": "1f8c16c10c08e888a93424e98ae1fcc6584a07846227e8ce519bb43f9f7bfa0e"
+          },
+          {
+            "document_id": "3d8d10b02a390a5e",
+            "filename": "aygo-x.pdf",
+            "page_number": 26,
+            "chunk_id": "3d8d10b02a390a5e-p26-c2",
+            "text_sha256": "5c4815611649de616d9336536ce8a99c2c571255618acb3e90e27430917812c0"
+          }
+        ]
+      },
+      "answer": "The maximum age and mileage for the Toyota Relax cover is up to 10 years or 100,000 miles, whichever comes first [rav4.pdf, p. 53].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 625,
+        "output_tokens": 43,
+        "total_tokens": 668
+      },
+      "latency_ms": 1564.34,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:17Z"
+    },
+    "b317422d6ca219ea58785a8ca0169d407d787c9ffa8620336ed9b81c0da0ef72": {
+      "fingerprint": "b317422d6ca219ea58785a8ca0169d407d787c9ffa8620336ed9b81c0da0ef72",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How long is the RAV4 corrosion cover?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "3d4948ff878eb62aba94fcf810d0d2113a8c05c2381b7e1bfc6b58a00a9b1af6",
+        "chunks": [
+          {
+            "document_id": "b68ed97998e7e54a",
+            "filename": "rav4.pdf",
+            "page_number": 53,
+            "chunk_id": "b68ed97998e7e54a-p53-c0",
+            "text_sha256": "1f8c16c10c08e888a93424e98ae1fcc6584a07846227e8ce519bb43f9f7bfa0e"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 27,
+            "chunk_id": "578c9c0e961c5a30-p27-c5",
+            "text_sha256": "2f2ef7ae45058f07e32123f43cb7645ef6f2cd7917965a69fe42a35bc45d6cb4"
+          },
+          {
+            "document_id": "3a3a6f11b595fbaa",
+            "filename": "c-hr.pdf",
+            "page_number": 32,
+            "chunk_id": "3a3a6f11b595fbaa-p32-c2",
+            "text_sha256": "7308666ce76d955d60f6dbd6a69706e5d9f4dfd091ba90fd396f2415dc50c085"
+          }
+        ]
+      },
+      "answer": "The RAV4 corrosion cover is 12 years (with unlimited mileage) [rav4.pdf, p. 53].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 687,
+        "output_tokens": 27,
+        "total_tokens": 714
+      },
+      "latency_ms": 1589.02,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:22Z"
+    },
+    "3ceafe71bca5b2eef8db386545f92803e893a0257118aeafdffe60e21fc281d0": {
+      "fingerprint": "3ceafe71bca5b2eef8db386545f92803e893a0257118aeafdffe60e21fc281d0",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What is the bZ4X wheelbase?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "68e42ada4036ef3577afe32752985e434a329ae58d246cb20dacdfd1360b41e7",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c2",
+            "text_sha256": "24c17b7345d4f373d48694ab31702288b53deb4c4df84172a5bf589a88abdfbe"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 2,
+            "chunk_id": "eb02bdffdf77c857-p2-c0",
+            "text_sha256": "edfdbdc3e94182a85c053c277728983910309dff24e45696b6e60ac8077f9822"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 1,
+            "chunk_id": "eb02bdffdf77c857-p1-c0",
+            "text_sha256": "eeef0b924b805b949147be783c343e384a5ce0e11ba969357a5e98310006375c"
+          }
+        ]
+      },
+      "answer": "The bZ4X wheelbase is 2850 mm [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 478,
+        "output_tokens": 25,
+        "total_tokens": 503
+      },
+      "latency_ms": 1464.79,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:27Z"
+    },
+    "c8f51afd6e6ea0331a36b8f83e316a9203ba312add7d2a48791bfc8ea14b26e3": {
+      "fingerprint": "c8f51afd6e6ea0331a36b8f83e316a9203ba312add7d2a48791bfc8ea14b26e3",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "What 10-to-80-percent DC charging time is listed for the bZ4X battery variants?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "5d937ab90529c94d4ce216f1857dd04249f4731eff264cc7bbf0c6fd2d590259",
+        "chunks": [
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c0",
+            "text_sha256": "46fe70e2d3c6f7162ad386a7dc94e51b624533498bcddad5dd19ffb99a57b3e9"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 4,
+            "chunk_id": "eb02bdffdf77c857-p4-c1",
+            "text_sha256": "551cf9195fcccc569a98d98e95aba2563a0ab861b158d72f50c1b800b39ead8a"
+          },
+          {
+            "document_id": "eb02bdffdf77c857",
+            "filename": "bz4x.pdf",
+            "page_number": 5,
+            "chunk_id": "eb02bdffdf77c857-p5-c0",
+            "text_sha256": "018fed8088d62693e8394b5d2b0755afd588c718d6b0bcba2ee079e9281fadba"
+          }
+        ]
+      },
+      "answer": "The 10-to-80-percent DC charging time listed for all three bZ4X battery variants is 30 minutes [bz4x.pdf, p. 4].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 1319,
+        "output_tokens": 41,
+        "total_tokens": 1360
+      },
+      "latency_ms": 1609.23,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:32Z"
+    },
+    "69ef19cebca43386fef4f213cff24e0673e9b8ae9f4287aabde848715729bad0": {
+      "fingerprint": "69ef19cebca43386fef4f213cff24e0673e9b8ae9f4287aabde848715729bad0",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many terrain modes does Land Cruiser Multi-Terrain Select offer?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "b62a564230938cfe9eeaf321c40d6bf931dd407b0d624cdaf38ad0b2b4e93a5f",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 8,
+            "chunk_id": "578c9c0e961c5a30-p8-c1",
+            "text_sha256": "2dcbc27451801ca10105cbbbc8dee0493874f941d8d1a26b453c470830f30a18"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 26,
+            "chunk_id": "578c9c0e961c5a30-p26-c0",
+            "text_sha256": "611cfad3c5c96c5ba50962e74512be3a734255a8b7e4709691820c6ae88a05b0"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 8,
+            "chunk_id": "578c9c0e961c5a30-p8-c0",
+            "text_sha256": "d075dee1ca93d2f6b5962ca9df7094e94e8428f6196315e1d5c1512081547998"
+          }
+        ]
+      },
+      "answer": "The provided context contains conflicting information regarding the number of terrain modes:\n\n* Page 8 states it offers a choice of **five** terrain modes [land-cruiser.pdf, p. 8].\n* Page 26 states it offers a choice of **four** terrain modes (\u2018Rock\u2019, \u2018Mogul\u2019, \u2018Loose rock\u2019 or \u2018Mud & sand\u2019) [land-cruiser.pdf, p. 26].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 812,
+        "output_tokens": 91,
+        "total_tokens": 903
+      },
+      "latency_ms": 1843.06,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:37Z"
+    },
+    "e828ec507067138ba098df31aad9d3299a49e8f0319349e5d9f6d0305b95dd94": {
+      "fingerprint": "e828ec507067138ba098df31aad9d3299a49e8f0319349e5d9f6d0305b95dd94",
+      "identity": {
+        "schema_version": "phase4_generation_v1",
+        "prompt_template_version": "build_prompt_v1",
+        "question": "How many live images can the Land Cruiser Multi-Terrain Monitor display?",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0.0,
+        "max_output_tokens": 300,
+        "prompt_sha256": "3780c2f704bc94decb306306ebcbd1a50eb1768aca1c4f8e785e84a7434bc042",
+        "chunks": [
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 26,
+            "chunk_id": "578c9c0e961c5a30-p26-c0",
+            "text_sha256": "611cfad3c5c96c5ba50962e74512be3a734255a8b7e4709691820c6ae88a05b0"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 8,
+            "chunk_id": "578c9c0e961c5a30-p8-c1",
+            "text_sha256": "2dcbc27451801ca10105cbbbc8dee0493874f941d8d1a26b453c470830f30a18"
+          },
+          {
+            "document_id": "578c9c0e961c5a30",
+            "filename": "land-cruiser.pdf",
+            "page_number": 14,
+            "chunk_id": "578c9c0e961c5a30-p14-c0",
+            "text_sha256": "d5850d3ba7534963d9bfb630b54f0acc8424ce4d4a3b5c26a68101eb57b1fa3f"
+          }
+        ]
+      },
+      "answer": "The Land Cruiser Multi-Terrain Monitor can display a choice of six live images [land-cruiser.pdf, p. 26].",
+      "model": "gemini-3.5-flash-lite",
+      "token_usage": {
+        "input_tokens": 841,
+        "output_tokens": 29,
+        "total_tokens": 870
+      },
+      "latency_ms": 1704.14,
+      "provider_attempts": 1,
+      "rate_limit_retries": 0,
+      "created_at": "2026-09-05T08:29:42Z"
+    }
+  }
+}
