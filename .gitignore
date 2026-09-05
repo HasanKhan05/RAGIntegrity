@@ -18,6 +18,7 @@ data/vector_store/
 # Frontend
 node_modules/
 dist/
+*.tsbuildinfo
 
 # IDE / OS
 .vscode/

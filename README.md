@@ -8,9 +8,9 @@ A local portfolio/research demo showing how retrieval-augmented generation can b
 Clean RAG → Poisoned RAG → Defended RAG
 ```
 
-Phase 4 completes the frozen evaluation and error analysis on top of the Phase 2/3 testbed: official Toyota brochure ingestion, fixed-size page-aware chunking, local `all-MiniLM-L6-v2` embeddings, persistent ChromaDB retrieval, grounded Gemini answers, a separate attacked collection containing six synthetic PDFs, and four attack-blind defenses compared with clean and undefended conditions.
+The finished project combines official Toyota brochure ingestion, local `all-MiniLM-L6-v2` embeddings, persistent ChromaDB retrieval, grounded Gemini answers, a separate attacked collection containing six synthetic PDFs, four attack-blind defenses, a frozen 48-question evaluation, and a React interface implementing the finalized Figma design.
 
-## Phase 1 quick start
+## Local setup
 
 From the repository root in PowerShell:
 
@@ -60,6 +60,32 @@ python -m pytest -q
 ```
 
 The vector store is local and ignored by Git. Re-running the index command reuses it when the PDFs and index settings have not changed.
+
+In a second terminal, start the React frontend:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://127.0.0.1:5173`. Vite proxies `/api` requests to the local FastAPI server. To use a different API location, set `VITE_API_BASE_URL` when starting or building the frontend. The browser never receives the Gemini API key.
+
+The frontend uses these endpoints:
+
+- `GET /health` — API and clean-index status
+- `GET /documents/catalog` — human-facing official/synthetic PDF catalog
+- `GET /documents/file/{collection}/{filename}` — browser-native PDF viewing
+- `POST /ask` — free-form clean, attacked, or defended RAG run
+- `GET /results/summary` — normalized metrics from saved Phase 4 artifacts only
+
+Run focused frontend checks or create a production bundle with:
+
+```powershell
+cd frontend
+npm test
+npm run build
+```
 
 ## Phase 2 controlled attack result
 
@@ -140,7 +166,27 @@ Run the provider-free planning gate first, then inspect `new_calls` and the budg
 
 With the committed exact cache and unchanged frozen inputs, the second command republishes from cache with zero new Gemini calls. If any fingerprint is missing, `--execute` requires the configured provider key and calls only the missing inputs, paced to at most 12 attempts per minute with bounded retry handling.
 
-The principal outputs are `experiments/results/phase4_dry_run.json`, `experiments/results/phase4_evaluation_plan.json`, `experiments/results/phase4_generation_cache.json`, `experiments/results/phase4_generation_attempts.json`, `experiments/results/phase4_manual_reviews.json`, `experiments/results/phase4_evaluation_results.json`, `experiments/results/phase4_evaluation_results.csv`, `experiments/results/phase4_summary.json`, `experiments/results/phase4_publication.json`, and `reports/phase4_evaluation.md`. Phase 5 has not started.
+The principal outputs are `experiments/results/phase4_dry_run.json`, `experiments/results/phase4_evaluation_plan.json`, `experiments/results/phase4_generation_cache.json`, `experiments/results/phase4_generation_attempts.json`, `experiments/results/phase4_manual_reviews.json`, `experiments/results/phase4_evaluation_results.json`, `experiments/results/phase4_evaluation_results.csv`, `experiments/results/phase4_summary.json`, `experiments/results/phase4_publication.json`, and `reports/phase4_evaluation.md`.
+
+## Phase 5 portfolio demo
+
+The React/Vite/TypeScript frontend follows the finalized Figma page order and styling:
+
+1. **About** explains RAG, the experiment flow, the threat model, and the difference between retrieval and generation compromise.
+2. **Demo** accepts any free-form question and runs clean, attacked, and selected-defense RAG through the existing backend. Sources, ranks, pages, answers, latency, and public defense details are displayed. Injected-document badges are attached only after generation through evaluation-manifest identity matching.
+3. **Documents** separates the seven official brochure PDFs from the six synthetic test PDFs and opens either set in the browser.
+4. **Results** reads the saved Phase 4 summary through a normalized endpoint. Opening the page never reruns the benchmark or calls Gemini.
+
+The Results page reports the observed clean answer quality (28/30, 93.3%), undefended generation ASR (22/30, 73.3%), conditional ASR (22/23, 95.7%), combined-defense ASR (0/30 in this controlled run), 15/18 clean-control accuracy per condition, and measured combined-defense processing overhead. These values come from committed Phase 4 artifacts rather than frontend constants.
+
+## Limitations
+
+- The corpus is a controlled local collection of seven official brochure files.
+- The poisoning documents are synthetic research artifacts, not Toyota publications.
+- Source trust is unusually strong because the clean provenance inventory is known and closed.
+- Results cover one configured Gemini model and a modest fixed benchmark.
+- The instruction filter is rule-based, and the similarity filter depends on a local threshold and representation.
+- This is an understandable research testbed, not a production RAG security system; findings do not generalize to every deployment.
 
 ## Project references
 

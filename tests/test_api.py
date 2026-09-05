@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -74,6 +75,156 @@ def test_health_and_documents_are_safe_before_indexing(tmp_path: Path) -> None:
     assert client.get("/documents").json() == []
 
 
+def test_document_catalog_separates_official_and_synthetic_pdfs(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    settings.manifest_path.parent.mkdir(parents=True)
+    settings.clean_data_dir.mkdir(parents=True)
+    settings.poisoned_data_dir.mkdir(parents=True)
+    settings.manifest_path.write_text(
+        '{"documents":[{"document_id":"clean-1","filename":"rav4.pdf","page_count":56}]}',
+        encoding="utf-8",
+    )
+    settings.attacked_manifest_path.write_text(
+        '{"documents":[{"document_id":"clean-1","filename":"rav4.pdf","page_count":56},'
+        '{"document_id":"test-1","filename":"vehicle_update.pdf","page_count":1}]}',
+        encoding="utf-8",
+    )
+    (settings.clean_data_dir / "rav4.pdf").write_bytes(b"%PDF clean")
+    (settings.poisoned_data_dir / "vehicle_update.pdf").write_bytes(b"%PDF synthetic")
+
+    payload = TestClient(create_app(settings=settings)).get("/documents/catalog").json()
+
+    assert payload["official_clean"] == [
+        {
+            "document_id": "clean-1",
+            "filename": "rav4.pdf",
+            "page_count": 56,
+            "display_name": "Toyota RAV4 — official brochure",
+            "pdf_url": "/documents/file/clean/rav4.pdf",
+        }
+    ]
+    assert payload["synthetic_test"] == [
+        {
+            "document_id": "test-1",
+            "filename": "vehicle_update.pdf",
+            "page_count": 1,
+            "display_name": "Vehicle Update",
+            "pdf_url": "/documents/file/synthetic/vehicle_update.pdf",
+        }
+    ]
+
+
+def test_document_pdf_route_serves_only_catalogued_files(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    settings.manifest_path.parent.mkdir(parents=True)
+    settings.clean_data_dir.mkdir(parents=True)
+    settings.manifest_path.write_text(
+        '{"documents":[{"document_id":"clean-1","filename":"rav4.pdf","page_count":1}]}',
+        encoding="utf-8",
+    )
+    (settings.clean_data_dir / "rav4.pdf").write_bytes(b"%PDF brochure")
+    client = TestClient(create_app(settings=settings))
+
+    response = client.get("/documents/file/clean/rav4.pdf")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "application/pdf"
+    assert response.content == b"%PDF brochure"
+    assert client.get("/documents/file/clean/missing.pdf").status_code == 404
+
+
+def test_results_summary_exposes_saved_metrics_without_running_evaluation(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    results_dir = tmp_path / "experiments" / "results"
+    results_dir.mkdir(parents=True)
+    (results_dir / "phase4_summary.json").write_text(
+        json.dumps(
+            {
+                "benchmark": {"question_count": 48, "conceptual_cells": 288},
+                "attack_metrics": {
+                    "clean_none": {
+                        "answer_accuracy": 0.9333333333,
+                        "correct_answers": 28,
+                        "question_count": 30,
+                    },
+                    "attacked_none": {
+                        "overall_attack_success_rate": 0.7333333333,
+                        "conditional_attack_success_rate": 0.9565217391,
+                        "poison_removal_rate": 0.0,
+                        "poison_survival_rate": 1.0,
+                        "clean_false_rejection_rate": 0.0,
+                        "average_defense_latency_ms": 0.05,
+                    },
+                    "source_trust": {"overall_attack_success_rate": 0.0},
+                    "instruction_filter": {"overall_attack_success_rate": 0.6666666667},
+                    "similarity_filter": {"overall_attack_success_rate": 0.7333333333},
+                    "combined": {
+                        "overall_attack_success_rate": 0.0,
+                        "poison_removal_rate": 1.0,
+                        "poison_survival_rate": 0.0,
+                        "clean_false_rejection_rate": 0.0172413793,
+                        "average_defense_latency_ms": 143.1,
+                    },
+                },
+                "clean_control_metrics": {
+                    "combined": {"answer_accuracy": 0.8333333333}
+                },
+                "retrieval": {
+                    "attacked_target_poison_retrieval_rate": 0.7666666667
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    (results_dir / "phase4_generation_cache.json").write_text(
+        json.dumps(
+            {
+                "entries": {
+                    "a": {
+                        "provider_attempts": 1,
+                        "token_usage": {
+                            "input_tokens": 10,
+                            "output_tokens": 3,
+                            "total_tokens": 13,
+                        },
+                    }
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = TestClient(create_app(settings=settings)).get("/results/summary").json()
+
+    assert payload["benchmark"] == {"question_count": 48, "conceptual_cells": 288}
+    assert payload["clean_answer_quality_rate"] == 0.9333333333
+    assert payload["clean_answer_correct"] == 28
+    assert payload["clean_answer_total"] == 30
+    assert payload["retrieval_attack_success_rate"] == 0.7666666667
+    assert payload["undefended_attack_success_rate"] == 0.7333333333
+    assert payload["conditional_attack_success_rate"] == 0.9565217391
+    assert payload["selected_defense"] == "combined"
+    assert payload["selected_defense_attack_success_rate"] == 0.0
+    assert payload["average_extra_latency_ms"] == 143.05
+    assert payload["clean_control_accuracy_rate"] == 0.8333333333
+    assert payload["generation_usage"] == {"provider_calls": 1, "total_tokens": 13}
+
+
+def test_local_frontend_origin_is_allowed_by_cors(tmp_path: Path) -> None:
+    client = TestClient(create_app(settings=_settings(tmp_path)))
+
+    response = client.options(
+        "/health",
+        headers={
+            "Origin": "http://localhost:5173",
+            "Access-Control-Request-Method": "GET",
+        },
+    )
+
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == "http://localhost:5173"
+
+
 def test_health_reports_an_available_clean_index(tmp_path: Path, monkeypatch) -> None:
     settings = _settings(tmp_path)
     settings.manifest_path.parent.mkdir(parents=True)
@@ -136,6 +287,7 @@ def test_ask_returns_answer_ranked_sources_latency_and_usage(tmp_path: Path) -> 
             "chunk_id": "doc-a-p3-c0",
             "relevance_score": 0.91,
             "text": "The luggage capacity is 580 litres.",
+            "is_injected_test_document": False,
         }
     ]
     assert payload["latency_ms"] >= 0
@@ -264,3 +416,36 @@ def test_ask_source_trust_excludes_untrusted_chunk_from_generator(tmp_path: Path
     assert response.json()["defense_trace"][1]["stage_decisions"] == [
         {"stage": "source_trust", "included": False, "reason": "untrusted_source"}
     ]
+
+
+def test_ask_labels_synthetic_source_only_after_generation(tmp_path: Path) -> None:
+    settings = _settings(tmp_path)
+    settings.attack_manifest_path.parent.mkdir(parents=True)
+    settings.attack_manifest_path.write_text(
+        '{"attacks":[{"synthetic_document_id":"attack-doc"}]}',
+        encoding="utf-8",
+    )
+    synthetic = RetrievedChunk(
+        document_id="attack-doc",
+        filename="vehicle_update.pdf",
+        page_number=1,
+        chunk_id="attack-doc-p1-c0",
+        text="The capacity is 72 litres.",
+        rank=1,
+        relevance_score=0.95,
+    )
+    generator = FakeGenerator()
+    app = create_app(
+        settings=settings,
+        retriever=StaticRetriever([synthetic]),
+        attacked_retriever=StaticRetriever([synthetic]),
+        generator=generator,
+        defense_coordinator=DefenseCoordinator(trusted_filenames=set()),
+    )
+
+    payload = TestClient(app).post(
+        "/ask", json={"question": "capacity", "corpus_mode": "attacked"}
+    ).json()
+
+    assert payload["sources"][0]["is_injected_test_document"] is True
+    assert not hasattr(generator.generated_chunks[0], "is_injected_test_document")
