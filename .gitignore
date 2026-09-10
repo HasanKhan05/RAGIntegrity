@@ -1,5 +1,6 @@
-# Secrets
+# Local environment
 .env
+.env.local
 
 # Python
 .venv/
@@ -12,7 +13,7 @@ __pycache__/
 # Local vector store / generated data
 data/vector_store/
 
-# Experiment/runtime artifacts
+# Runtime artifacts
 *.log
 
 # Frontend
@@ -29,6 +30,15 @@ Thumbs.db
 # Local Git worktrees
 .worktrees/
 
-# Local generated document helpers
-tmp/
+# Development scratch files
+/tmp/
 output/pdf/rag_poisoning_test_questions.pdf
+
+# AI-assisted development files
+/AGENTS.md
+/00_START_HERE.md
+/PHASE_1_PROMPT.md
+/PROJECT_PLAN.md
+/PHASE_STATUS.md
+/.superpowers/
+/docs/superpowers/

@@ -148,13 +148,11 @@ The Results page reports the observed clean answer quality (28/30, 93.3%), undef
 - The instruction filter is rule-based, and the similarity filter depends on a local threshold and representation.
 - This is an understandable research testbed, not a production RAG security system; findings do not generalize to every deployment.
 
-## Project references
+## Documentation
 
-- `00_START_HERE.md` — execution entry point
-- `PROJECT_PLAN.md` — phased plan
+- `SETUP.md` — local setup and commands
 - `ARCHITECTURE_AND_THREAT_MODEL.md` — scope and trust boundaries
 - `DATA_AND_EVALUATION.md` — corpus and evaluation rules
-- `PHASE_STATUS.md` — completion tracker
+- `FRONTEND_SPEC.md` — finalized interface specification
+- `reports/phase4_evaluation.md` — concise Phase 4 results and limitations
 - [Final Figma](https://www.figma.com/design/m8D51hB7Q9KA8llSRHRBhb/RAG-Poisoning-Testbed-%E2%80%94-Muhammad-Hasan-Dad-Khan?node-id=1-169)
-
-> **DO NOT USE TOKENS HEAVILY.** Keep this project small, understandable, and inexpensive to run.
