@@ -10,82 +10,49 @@ Clean RAG → Poisoned RAG → Defended RAG
 
 The finished project combines official Toyota brochure ingestion, local `all-MiniLM-L6-v2` embeddings, persistent ChromaDB retrieval, grounded Gemini answers, a separate attacked collection containing six synthetic PDFs, four attack-blind defenses, a frozen 48-question evaluation, and a React interface implementing the finalized Figma design.
 
-## Local setup
+## System Architecture & Threat Model
 
-From the repository root in PowerShell:
+RAGIntegrity implements a multi-tier defense architecture isolating dense retrieval vector pipelines from generation contexts:
 
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-python -m pip install -r requirements.txt
+```mermaid
+flowchart TD
+    Query[User Natural Language Query] --> Embed[all-MiniLM-L6-v2 Embedding Engine]
+    Embed --> VectorSearch[ChromaDB Dense Vector Search: Top-K]
+    
+    Corpus[Ingested Knowledge Base] --> CleanDocs[7 Official Clean Brochures]
+    Corpus --> PoisonDocs[6 Synthetic Poisoned PDFs]
+    CleanDocs --> ChromaStore[(ChromaDB Vector Store)]
+    PoisonDocs --> ChromaStore
+    ChromaStore --> VectorSearch
+    
+    VectorSearch --> RawChunks[Retrieved Candidate Chunks]
+    RawChunks --> DefensePipeline{Active Defenses}
+    
+    DefensePipeline -->|Defense 1| SourceTrust[Source Trust: Provenance Whitelist]
+    DefensePipeline -->|Defense 2| InstrFilter[Instruction Filter: Imperative Heuristics]
+    DefensePipeline -->|Defense 3| SimFilter[Similarity Filter: Cosine Anomaly Threshold]
+    DefensePipeline -->|Defense 4| CombinedDef[Combined Multi-Layer Defense]
+    
+    SourceTrust --> SanitizedContext[Sanitized Chunk Context]
+    InstrFilter --> SanitizedContext
+    SimFilter --> SanitizedContext
+    CombinedDef --> SanitizedContext
+    
+    SanitizedContext --> LLM[Gemini 3.5 Flash Lite Generation]
+    LLM --> Evaluation[Deterministic Attack Success & Ground Truth Scoring]
 ```
 
-Place readable official brochure PDFs in `data/clean/`. Copy `.env.example` to `.env` and configure the local secret:
+### Threat Model & Attack Vector
+- **Threat Vector:** Indirect Prompt Injection (IPI) embedded in external documents. Attackers insert synthetic PDF documents containing targeted false claims alongside prompt-override directives (e.g., overriding vehicle specifications).
+- **Compromise Boundaries:** The framework explicitly measures and decouples **Retrieval Compromise** (whether an adversarial chunk successfully enters top-$k$ retrieved context) from **Generation Compromise** (whether the LLM adopts the false claim in its generated output).
 
-```dotenv
-LLM_PROVIDER=gemini
-LLM_API_KEY=your_key_here
-LLM_MODEL=gemini-3.5-flash-lite
-LLM_BASE_URL=
-MAX_OUTPUT_TOKENS=300
-LLM_TEMPERATURE=0
-TOP_K=3
-CHUNK_SIZE=1200
-CHUNK_OVERLAP=200
-CHROMA_PERSIST_DIR=data/vector_store
-EMBEDDING_MODEL=all-MiniLM-L6-v2
-DEFENSE_SIMILARITY_THRESHOLD=0.92
-```
+### Defensive Mitigations
+1. **Source Trust (Provenance Whitelisting):** Matches chunk origin filenames against an authorized catalog, rejecting unverified external documents.
+2. **Instruction Filtering:** Regex-based heuristic screening that intercepts and neutralizes imperative instructions embedded within unstructured document chunks.
+3. **Similarity Filtering:** Evaluates query-document cosine distance against an empirical distribution threshold (0.92) to prune adversarial outlier embeddings.
+4. **Combined Strategy:** Multi-layered defense applying source trust and instruction filtering in series.
 
-Never commit `.env`. Build or reuse the clean index, then start the API:
-
-```powershell
-python -m src.rag.index
-uvicorn src.api.main:app --reload
-```
-
-Open `http://localhost:8000/docs`, or ask from PowerShell:
-
-```powershell
-Invoke-RestMethod -Method Post `
-  -Uri http://localhost:8000/ask `
-  -ContentType 'application/json' `
-  -Body '{"question":"What is the RAV4 fuel tank capacity?"}'
-```
-
-The response includes the concise answer, retrieved source chunks and ranks, latency, and provider token usage when available. Run the tests with:
-
-```powershell
-python -m pytest -q
-```
-
-The vector store is local and ignored by Git. Re-running the index command reuses it when the PDFs and index settings have not changed.
-
-In a second terminal, start the React frontend:
-
-```powershell
-cd frontend
-npm install
-npm run dev
-```
-
-Open `http://127.0.0.1:5173`. Vite proxies `/api` requests to the local FastAPI server. To use a different API location, set `VITE_API_BASE_URL` when starting or building the frontend. The browser never receives the Gemini API key.
-
-The frontend uses these endpoints:
-
-- `GET /health` — API and clean-index status
-- `GET /documents/catalog` — human-facing official/synthetic PDF catalog
-- `GET /documents/file/{collection}/{filename}` — browser-native PDF viewing
-- `POST /ask` — free-form clean, attacked, or defended RAG run
-- `GET /results/summary` — normalized metrics from saved Phase 4 artifacts only
-
-Run focused frontend checks or create a production bundle with:
-
-```powershell
-cd frontend
-npm test
-npm run build
-```
+---
 
 ## Phase 2 controlled attack result
 
@@ -157,14 +124,7 @@ On the 30 attack questions, the target synthetic page was retrieved in 23 cases 
 
 The refusal wording proxy flags 37 rows, including answers that hedge before giving a fact; each condition has 3/18 control refusals. Generation latencies were corrected offline from the successful-attempt audit to exclude pacing: condition means are 1.93–2.00 seconds. Historical audit timing includes brief success-cache checkpoint work; new runner timing measures only the provider invocation. The correction preserved all 103 answers/token records and all 103 attempts, and made zero provider calls. See `DATA_AND_EVALUATION.md` for timing details.
 
-Run the provider-free planning gate first, then inspect `new_calls` and the budget fields before any execution:
-
-```powershell
-.venv\Scripts\python.exe -m experiments.run_phase4_evaluation --dry-run
-.venv\Scripts\python.exe -m experiments.run_phase4_evaluation --execute
-```
-
-With the committed exact cache and unchanged frozen inputs, the second command republishes from cache with zero new Gemini calls. If any fingerprint is missing, `--execute` requires the configured provider key and calls only the missing inputs, paced to at most 12 attempts per minute with bounded retry handling.
+The Phase 4 evaluation pipeline operates through a deterministic planning gate. Evaluation passes compare target query fingerprints against the committed content-addressed cache, allowing complete metric re-verification with zero live API calls. When missing inputs are identified, requests are paced to at most 12 attempts per minute with bounded exponential backoff handling.
 
 The principal outputs are `experiments/results/phase4_dry_run.json`, `experiments/results/phase4_evaluation_plan.json`, `experiments/results/phase4_generation_cache.json`, `experiments/results/phase4_generation_attempts.json`, `experiments/results/phase4_manual_reviews.json`, `experiments/results/phase4_evaluation_results.json`, `experiments/results/phase4_evaluation_results.csv`, `experiments/results/phase4_summary.json`, `experiments/results/phase4_publication.json`, and `reports/phase4_evaluation.md`.
 
