@@ -56,7 +56,7 @@ describe("portfolio application", () => {
     vi.stubGlobal("fetch", fetchMock);
     render(<App />, { wrapper: MemoryRouter });
 
-    expect(screen.getByRole("heading", { name: "About the Project" })).toBeVisible();
+    expect(screen.getByRole("heading", { name: "RAGIntegrity — Evaluating Retrieval Poisoning Attacks and Defenses" })).toBeVisible();
     expect(screen.getByText("What is RAG?")).toBeVisible();
 
     await userEvent.click(screen.getByRole("link", { name: "Demo" }));

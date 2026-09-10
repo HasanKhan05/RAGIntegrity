@@ -28,3 +28,7 @@ Thumbs.db
 
 # Local Git worktrees
 .worktrees/
+
+# Local generated document helpers
+tmp/
+output/pdf/rag_poisoning_test_questions.pdf

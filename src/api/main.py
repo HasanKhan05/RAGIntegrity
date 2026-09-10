@@ -259,7 +259,7 @@ def create_app(
         similarity_threshold=active_settings.defense_similarity_threshold,
         embedder=SentenceTransformerEmbedder(active_settings.embedding_model),
     )
-    application = FastAPI(title="RAG Poisoning Testbed", version="0.1.0")
+    application = FastAPI(title="RAGIntegrity — Evaluating Retrieval Poisoning Attacks and Defenses", version="0.1.0")
     application.add_middleware(
         CORSMiddleware,
         allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],

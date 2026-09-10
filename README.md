@@ -1,6 +1,6 @@
-# RAG Poisoning Testbed
+# RAGIntegrity — Evaluating Retrieval Poisoning Attacks and Defenses
 
-**Muhammad Hasan Dad Khan**
+**Muhammad Hasan Dad Khan** · [GitHub](https://github.com/HasanKhan05/RAGIntegrity)
 
 A local portfolio/research demo showing how retrieval-augmented generation can be influenced by synthetic documents and how simple defenses can reduce that effect.
 

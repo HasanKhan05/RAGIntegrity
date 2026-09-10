@@ -2,8 +2,8 @@ export default function About() {
   return (
     <main>
       <section className="page-intro about-intro">
-        <h1>About the Project</h1>
-        <p>A simple research demo showing how a RAG system can be influenced by a synthetic document added to a car-brochure knowledge base.</p>
+        <h1>RAGIntegrity — Evaluating Retrieval Poisoning Attacks and Defenses</h1>
+        <p>A research demo showing how synthetic documents can influence retrieval-augmented generation and how simple defenses can reduce that effect.</p>
       </section>
       <section className="panel rag-panel">
         <h2>What is RAG?</h2>

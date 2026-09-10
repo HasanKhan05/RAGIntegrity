@@ -1,4 +1,4 @@
-# RAG Poisoning Testbed — Start Here
+# RAGIntegrity — Evaluating Retrieval Poisoning Attacks and Defenses
 
 **Owner:** Muhammad Hasan Dad Khan  
 **Project type:** Personal portfolio / research demonstration  

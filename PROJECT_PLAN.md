@@ -1,4 +1,4 @@
-# Project Plan — RAG Poisoning Testbed
+# Project Plan — RAGIntegrity
 
 ## Goal
 
@@ -193,7 +193,7 @@ A polished local portfolio demo matching the final Figma and backed by real expe
 # Suggested repository structure
 
 ```text
-rag-poisoning-testbed/
+RAGIntegrity/
 │
 ├── README.md
 ├── AGENTS.md

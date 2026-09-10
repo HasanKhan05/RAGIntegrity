@@ -1,1 +1,1 @@
-"""RAG poisoning testbed package."""
+"""RAGIntegrity research testbed package."""
