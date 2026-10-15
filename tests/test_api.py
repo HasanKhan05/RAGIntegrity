@@ -1,4 +1,7 @@
 import json
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -63,6 +66,47 @@ class FakeGenerator:
             text="The luggage capacity is 580 litres. [rav4.pdf, p. 3]",
             token_usage=TokenUsage(24, 12, 36),
         )
+
+
+def test_concurrent_demo_requests_do_not_overlap_local_rag_initialization(tmp_path: Path) -> None:
+    active = threading.Lock()
+
+    class InitializingRetriever(FakeRetriever):
+        def retrieve(self, question):
+            if not active.acquire(blocking=False):
+                raise RuntimeError("Local RAG initialization overlapped")
+            try:
+                time.sleep(0.1)
+                return super().retrieve(question)
+            finally:
+                active.release()
+
+    retriever = InitializingRetriever()
+    app = create_app(
+        settings=_settings(tmp_path),
+        retriever=retriever,
+        attacked_retriever=retriever,
+        generator=FakeGenerator(),
+        defense_coordinator=DefenseCoordinator(trusted_filenames={"rav4.pdf"}),
+    )
+    ready = threading.Barrier(3)
+
+    with TestClient(app, raise_server_exceptions=False) as client:
+        def run(mode):
+            ready.wait(timeout=5)
+            corpus, defense = mode
+            return client.post("/ask", json={
+                "question": "RAV4 capacity?", "corpus_mode": corpus,
+                "defense_mode": defense,
+            })
+
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            responses = list(pool.map(run, [
+                ("clean", "none"), ("attacked", "none"), ("attacked", "combined"),
+            ]))
+
+    assert [response.status_code for response in responses] == [200, 200, 200]
+    assert all(response.json()["sources"] for response in responses)
 
 
 def test_health_and_documents_are_safe_before_indexing(tmp_path: Path) -> None:
@@ -163,7 +207,7 @@ def test_results_summary_exposes_saved_metrics_without_running_evaluation(tmp_pa
                         "poison_removal_rate": 1.0,
                         "poison_survival_rate": 0.0,
                         "clean_false_rejection_rate": 0.0172413793,
-                        "average_defense_latency_ms": 143.1,
+                        "average_defense_latency_ms": 135.04,
                     },
                 },
                 "clean_control_metrics": {
@@ -171,6 +215,10 @@ def test_results_summary_exposes_saved_metrics_without_running_evaluation(tmp_pa
                 },
                 "retrieval": {
                     "attacked_target_poison_retrieval_rate": 0.7666666667
+                },
+                "latency": {
+                    "attacked_none": {"average_defense_latency_ms": 0.0535416667},
+                    "combined": {"average_defense_latency_ms": 143.104375},
                 },
             }
         ),

@@ -54,19 +54,56 @@ The command writes `data/manifests/clean_index.json` and the ignored local Chrom
 
 ## API and tests
 
+Start the backend from the repository root using the existing virtual environment.
+Activation is optional when using its executable directly:
+
 ```powershell
-uvicorn src.api.main:app --reload
+.\.venv\Scripts\python.exe -m uvicorn src.api.main:app --host 127.0.0.1 --port 8000
 ```
 
-- API documentation: `http://localhost:8000/docs`
-- Health: `GET http://localhost:8000/health`
-- Indexed documents: `GET http://localhost:8000/documents`
-- Free-form grounded answer: `POST http://localhost:8000/ask`
+Wait for `Application startup complete`, then check health in another terminal:
+
+```powershell
+Invoke-RestMethod 'http://127.0.0.1:8000/health'
+```
+
+An existing index should return `status: ok` and `index_available: True`.
+The optional `--reload` flag is for development; first verify startup without it
+so an import failure appears directly in the terminal.
+
+Open a second terminal at the repository root, then start the frontend:
+
+```powershell
+Set-Location frontend
+npm run dev -- --host 127.0.0.1 --port 5173 --strictPort
+```
+
+Open `http://127.0.0.1:5173/`. Vite forwards `/api` requests to the backend on
+port 8000. Keep both terminals running, and press `Ctrl+C` in each to stop.
+
+- API documentation: `http://127.0.0.1:8000/docs`
+- Document catalog: `GET http://127.0.0.1:8000/documents/catalog`
+- Saved evaluation: `GET http://127.0.0.1:8000/results/summary`
+- Free-form grounded answer: `POST http://127.0.0.1:8000/ask`
+
+The existing `.env` needs no changes to serve documents and saved results.
+Live Demo answers require its Gemini settings and use provider calls.
+
+The first Demo run loads the local embedding model and can take longer than
+subsequent runs. Local retrieval and defense processing are serialized within
+the API to avoid concurrent Chroma/model initialization; generation runs outside
+that lock. The three Demo requests still use their respective corpus and defense.
+
+PDF extraction loads PyMuPDF only when ingesting PDFs. Serving existing indexes,
+PDF files, and saved results does not import its native DLL. If Windows blocks
+that DLL, PyMuPDF may report `No module named 'mupdf'` after hiding the original
+Application Control error. Resolve that dependency with the machine's security
+administrator before rebuilding indexes; do not disable security controls.
 
 Run the offline test suite with:
 
 ```powershell
-python -m pytest -q
+.\.venv\Scripts\python.exe -m pytest -q
 ```
 
 Live Gemini calls are not part of the automated tests.

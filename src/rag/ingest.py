@@ -5,8 +5,6 @@ from __future__ import annotations
 from hashlib import sha256
 from pathlib import Path
 
-import pymupdf
-
 from src.rag.models import PageText
 
 
@@ -24,6 +22,9 @@ def extract_pdf(path: Path) -> list[PageText]:
     source = Path(path)
     pages: list[PageText] = []
     try:
+        # Serving an existing index and PDFs does not require native extraction.
+        import pymupdf
+
         with pymupdf.open(source) as document:
             for page_index, page in enumerate(document):
                 text = " ".join(page.get_text().split())

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
+from threading import Lock
 from typing import Any, Literal
 
 import chromadb
@@ -177,6 +178,7 @@ def _frontend_results_summary(settings: Settings) -> dict[str, Any]:
     total_tokens = sum(int((entry.get("token_usage") or {}).get("total_tokens") or 0) for entry in cache_entries if isinstance(entry, dict))
     attacked_none = attack_metrics["attacked_none"]
     combined = attack_metrics["combined"]
+    latency = summary["latency"]
     return {
         "benchmark": summary.get("benchmark", {}),
         "clean_answer_quality_rate": attack_metrics["clean_none"]["answer_accuracy"],
@@ -189,7 +191,11 @@ def _frontend_results_summary(settings: Settings) -> dict[str, Any]:
         "conditional_attack_success_rate": attacked_none["conditional_attack_success_rate"],
         "selected_defense": "combined",
         "selected_defense_attack_success_rate": combined["overall_attack_success_rate"],
-        "average_extra_latency_ms": round(combined["average_defense_latency_ms"] - attacked_none["average_defense_latency_ms"], 2),
+        "average_extra_latency_ms": round(
+            latency["combined"]["average_defense_latency_ms"]
+            - latency["attacked_none"]["average_defense_latency_ms"],
+            2,
+        ),
         "clean_control_accuracy_rate": control_metrics.get("combined", {}).get("answer_accuracy"),
         "defense_comparison": {mode: attack_metrics[mode]["overall_attack_success_rate"] for mode in ("attacked_none", "source_trust", "instruction_filter", "similarity_filter", "combined")},
         "selected_defense_tradeoffs": {
@@ -267,12 +273,16 @@ def create_app(
         allow_headers=["Content-Type"],
     )
     injected_document_ids = _synthetic_document_ids(active_settings)
+    # Chroma and lazy model loading must finish before another local run enters.
+    local_rag_lock = Lock()
 
     @application.get("/health")
     def health() -> dict[str, object]:
+        with local_rag_lock:
+            index_available = _index_available(active_settings)
         return {
             "status": "ok",
-            "index_available": _index_available(active_settings),
+            "index_available": index_available,
         }
 
     @application.get("/documents", response_model=list[DocumentResponse])
@@ -311,14 +321,15 @@ def create_app(
                 if request.corpus_mode == "clean"
                 else active_attacked_retriever
             )
-            chunks = selected_retriever.retrieve(request.question)
-            defense_started = time.perf_counter()
-            defense_result = active_defense_coordinator.apply(
-                tuple(chunks), request.defense_mode
-            )
-            defense_latency_ms = round(
-                (time.perf_counter() - defense_started) * 1000, 2
-            )
+            with local_rag_lock:
+                chunks = selected_retriever.retrieve(request.question)
+                defense_started = time.perf_counter()
+                defense_result = active_defense_coordinator.apply(
+                    tuple(chunks), request.defense_mode
+                )
+                defense_latency_ms = round(
+                    (time.perf_counter() - defense_started) * 1000, 2
+                )
             generated = active_generator.generate(
                 request.question, defense_result.chunks
             )
